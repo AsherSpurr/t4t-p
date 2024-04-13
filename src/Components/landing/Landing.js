@@ -1,5 +1,5 @@
 import './Landing.css';
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo, useCallback } from 'react'
 import Search from '../search/Search'
 import Filter from '../filter/Filter'
 import Locations from '../locations/Locations'
@@ -10,11 +10,8 @@ const Landing = ({ updateLocs, locs }) => {
     //use updateLocs in Landing
     const [lat, setlat] = useState('')
     const [lon, setlon] = useState('')
-
-    useEffect(() => {
-        handleBRsByLoc(lat, lon)
-    }, [ lat, lon, updateLocs])
     
+    useEffect(() => {
     async function handleBRsByLoc(lat, lon) {
         try {
             const locations = await fetchBRsByLoc(lat, lon)
@@ -23,6 +20,8 @@ const Landing = ({ updateLocs, locs }) => {
             throw error
         }
     }
+        handleBRsByLoc(lat, lon)
+    }, [ lat, lon ])
 
     function setLatLonState(lat, lon) {
         setlat(lat)
