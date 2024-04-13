@@ -23,6 +23,7 @@ const Search = ({ setLatLonState}) => {
 
     return (
         <div className='Search_div_container'>
+            {/* <h2>Where do you want to 'go'?</h2> */}
             <form className='Search_form'>
                 <input className='Search_input' id='Search_lat_input' type='text' placeholder='Latitude'  name='lat' value={lat} onChange={(e) => setLat(e.target.value)}></input>
                 <input className='Search_input' id='Search_lon_input' type='text' placeholder='Longitude'  name='lon' value={lon} onChange={(e) => setLon(e.target.value)}></input>

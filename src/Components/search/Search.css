@@ -1,0 +1,24 @@
+.Search_div_container {
+    min-width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    border: 1px solid red;
+}
+.Search_form {
+    min-height: 100%;
+}
+
+.Search_input{
+    height: 95%;
+     width: 40%; /* will need to adjust when search button is icon */
+}
+
+.Search_button {
+    height: 50%;
+}
+
+.Search_button:hover {
+    cursor: pointer;
+}

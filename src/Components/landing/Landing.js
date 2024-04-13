@@ -32,9 +32,12 @@ const Landing = ({ updateLocs, locs }) => {
         <div className='Landing_wrapper'>
         {/* handle coordinates fetch in search
         use the return to fire the fetch in here to fetch bathrooms */}
-            <Search setLatLonState={setLatLonState}/>
-            <Filter />
-            <Locations locs={locs}/>
+            <div className='Landing_left_wrapper'>
+                <h2>Where do you want to 'go'?</h2>
+                <Search setLatLonState={setLatLonState}/>
+                <Filter />
+                <Locations locs={locs}/>
+            </div>
         </div>
     )
 }

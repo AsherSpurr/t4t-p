@@ -1,10 +1,18 @@
 import './Locations.css';
+import Card from '../card/Card'
 
 const Locations = ({ locs }) => {
+    const cards = locs.map((loc) => {
+        return (
+            <Card 
+                name={loc.name}          
+            />
+        )
+    })
     return (
-        <>
-        <h2>{locs.id}</h2>
-        </>
+        <div className='Locations_div_wrapper'>
+           {cards}
+        </div>
     )
 }
 
