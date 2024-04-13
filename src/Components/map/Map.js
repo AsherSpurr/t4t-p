@@ -1,9 +1,10 @@
 import './Map.css';
+import placeholder from '../images/placeholder2.svg'
 
 const Map = () => {
     return (
         <div className='Map_div_wrapper'>
-            <p>insert placeholder img</p>
+            <img className='Map_img' src={placeholder} alt=''></img>
         </div>
     )
 }

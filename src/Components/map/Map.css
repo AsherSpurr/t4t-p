@@ -1,4 +1,17 @@
 .Map_div_wrapper {
     border: 1px solid blue;
+    margin-top: 10px;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.Map_img {
+    margin-top: -4%;
+    /* border-radius: 30px; */
     height: 100%;
+    width: 95%;
+    /* padding-left: 5%;
+    padding-right: 5%; */
 }
