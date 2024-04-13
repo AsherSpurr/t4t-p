@@ -4,24 +4,11 @@ import About from '../about/About'
 import Landing from '../landing/Landing'
 import Error from '../error/Error'
 import LocDetails from '../locDetails/LocDetails'
-import { useEffect } from 'react';
-import { fetchBRsByLocNoParams } from '../../apiCalls';
+// import { useEffect } from 'react';
 
 
 function App() {
-  const lat = 39.753604
-  const lon = -104.428580
-  useEffect(() => {
-      fetch()
-    }, [])
-   async function fetch() {
-    try {
-      const tryFetch = await fetchBRsByLocNoParams(lat, lon)
-      console.log(tryFetch)
-    } catch(error) {
-      throw error
-    }
-   }
+
   return (
     <div className="App">
       <header>
