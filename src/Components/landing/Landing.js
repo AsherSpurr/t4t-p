@@ -1,5 +1,5 @@
 import './Landing.css';
-import { useState, useEffect, useMemo, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import Search from '../search/Search'
 import Filter from '../filter/Filter'
 import Locations from '../locations/Locations'
