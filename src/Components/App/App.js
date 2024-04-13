@@ -16,8 +16,8 @@ function App() {
   }
   return (
     <div className="App">
-      <header>
-        <nav>
+      <header className="App_header">
+        <nav className="App_nav">
           <h1>T4Tp</h1>
           <NavLink></NavLink>
         </nav>

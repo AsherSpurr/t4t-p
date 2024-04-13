@@ -1,6 +1,7 @@
 import './Card.css';
 
-const Card = () => {
+const Card = ({ locs }) => {
+
     return (
         <>
         </>
