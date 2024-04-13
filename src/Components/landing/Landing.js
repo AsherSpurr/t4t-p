@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Search from '../search/Search'
 import Filter from '../filter/Filter'
 import Locations from '../locations/Locations'
+import Map from '../map/Map'
 import { fetchBRsByLoc } from '../../apiCalls';
 
 const Landing = ({ updateLocs, locs }) => {
@@ -37,6 +38,9 @@ const Landing = ({ updateLocs, locs }) => {
                 <Search setLatLonState={setLatLonState}/>
                 <Filter />
                 <Locations locs={locs}/>
+            </div>
+            <div className='Landing_map_wrapper'>
+                <Map />
             </div>
         </div>
     )
