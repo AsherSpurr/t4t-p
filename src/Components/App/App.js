@@ -18,12 +18,12 @@ function App() {
         </nav>
       </header>
       <main className='main'>
-        {/* <Routes>
-          <Route to='/' element={<Landing />}/>
-          <Route to='/About' element={<About />}/>
-          <Route to='/*' element={<Error />}/>
-          <Route to='/:locationName' element={<LocDetails />}/>        
-        </Routes> */}
+        <Routes>
+          <Route path='/' element={<Landing />}/>
+          <Route path='/About' element={<About />}/>
+          <Route path='/*' element={<Error />}/>
+          <Route path='/:locationName' element={<LocDetails />}/>        
+        </Routes>
       </main>
     </div>
   );
