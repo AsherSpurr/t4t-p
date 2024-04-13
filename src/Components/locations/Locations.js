@@ -5,7 +5,10 @@ const Locations = ({ locs }) => {
     const cards = locs.map((loc) => {
         return (
             <Card 
-                name={loc.name}          
+                name={loc.name}   
+                uni={loc.unisex}
+                access={loc.accessible}
+                dist={loc.distance}       
             />
         )
     })
