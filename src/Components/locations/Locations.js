@@ -1,8 +1,9 @@
 import './Locations.css';
 
-const Locations = () => {
+const Locations = ({ locs }) => {
     return (
         <>
+        <h2>{locs.id}</h2>
         </>
     )
 }

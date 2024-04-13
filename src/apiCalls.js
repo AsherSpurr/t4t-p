@@ -2,7 +2,7 @@
 //Bennett
 // 39.753604
 //-104.428580
-const fetchBRsByLoc = async (lat, lon, ada, unisex) => {
+const fetchBRsByLoc = async (lat, lon) => {
     try {
         const response = await fetch(`https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=0&per_page=10&offset=0&lat=${lat}&lng=${lon}`)
         if(!response.ok) {

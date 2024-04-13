@@ -4,16 +4,18 @@ import About from '../about/About'
 import Landing from '../landing/Landing'
 import Error from '../error/Error'
 import LocDetails from '../locDetails/LocDetails'
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
 function App() {
   const [locs, setLocs] = useState([])
+
 
   function updateLocs(locs) {
     if(locs) {
       setLocs(locs)
     }
   }
+  console.log(locs)
   return (
     <div className="App">
       <header className="App_header">
