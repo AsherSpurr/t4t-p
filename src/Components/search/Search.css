@@ -4,18 +4,23 @@
     display: flex;
     flex-direction: column;
     /* align-items: center; */
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 .Search_form {
     min-height: 100%;
 }
 
 .Search_input{
+    border: none;
+    /* box-shadow: inset -6px -10px 10px -11px rgba(202, 202, 202, 0.31); */
+    border-radius: 10px;
+    background-color: #1b5fff0d;
     height: 95%;
-     width: 40%; /* will need to adjust when search button is icon */
+    width: 40%; /* will need to adjust when search button is icon */
 }
 
 .Search_button {
+    border: none;
     height: 50%;
 }
 
