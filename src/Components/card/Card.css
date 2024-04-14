@@ -9,9 +9,7 @@
 .Card_div_container {
     width: 95%;
     box-shadow: 1px 2px 5px rgba(202, 202, 202, 0.31);
-    /* padding: 10px; */
     height: 100%;
-    /* margin-bottom: 10px; */
     display: flex;
     flex-direction: row;
     border-radius: 10px;
