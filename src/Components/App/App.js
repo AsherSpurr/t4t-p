@@ -5,6 +5,7 @@ import Landing from '../landing/Landing'
 import Error from '../error/Error'
 import LocDetails from '../locDetails/LocDetails'
 import { useState, useCallback } from 'react';
+import distance from '../images/distance-blue.svg'
 
 function App() {
   const [locs, setLocs] = useState([])
@@ -20,8 +21,9 @@ function App() {
     <div className="App">
       <header className="App_header">
         <nav className="App_nav">
-          <h1>T4Tp</h1>
-          <NavLink></NavLink>
+          <img src={distance} alt=''></img>
+          <NavLink to='/' className='App_navlink_home'><h1>T4Tp</h1></NavLink>
+          <NavLink to='/About' className='App_navlink_about'>About</NavLink>
         </nav>
       </header>
       <main className='main'>

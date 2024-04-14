@@ -8,7 +8,9 @@
 }
 
 .Filter_button {
-    border: 1px solid black;
+    border: 1px solid rgba(171, 171, 171, 0.271);
+    background-color: white;
+    border-radius: 10px;
     margin-right: 10%;
 }
 

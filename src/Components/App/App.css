@@ -14,3 +14,14 @@
 .main {
   height: 100vh;
 }
+
+.App_nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.App_navlink_about, .App_navlink_home {
+  color: white;
+  text-decoration: none;
+}
