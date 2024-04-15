@@ -2,8 +2,8 @@
 //Bennett
 // 39.753604
 //-104.428580
-function fetchBRsByLoc (lat, lon) {
-    return fetch(`https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=0&per_page=10&offset=0&lat=${lat}&lng=${lon}`)
+function fetchBRsByLoc (lat, lon, ada, unisex) {
+    return fetch(`https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=0&per_page=10&offset=0&ada=${ada}&unisex=${unisex}&lat=${lat}&lng=${lon}`)
     .then(response => {
         if(!response.ok) {
             throw new Error('Whoops')
@@ -45,4 +45,4 @@ export { fetchBRsByLoc, fetchLatLon }
 // https://www.refugerestrooms.org/api/v1/restrooms/by_location?   page=0  &  per_page=10  &  offset=0  &  lat=39.753604  &  lng=-104.428580
 
 //By location with ADA and Unisex params
-// https://www.refugerestrooms.org/api/v1/restrooms/by_location?  page=0  &  per_page=10  &  offset=0  &  ada=true  &  unisex=true  &  lat=39.753604&lng=-104.428580
+// https://www.refugerestrooms.org/api/v1/restrooms/by_location?  page=0  &  per_page=10  &  offset=0  &ada=true&unisex=true  &  lat=39.753604&lng=-104.428580

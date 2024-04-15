@@ -9,12 +9,14 @@ import { fetchBRsByLoc } from '../../apiCalls';
 const Landing = ({ updateLocs, locs }) => {
     //Handle fetch of actual bathrooms here
     //use updateLocs in Landing
-    const [lat, setlat] = useState('')
-    const [lon, setlon] = useState('')
+    const [lat, setLat] = useState('')
+    const [lon, setLon] = useState('')
+    const [ada, setAda] = useState('')
+    const [unisex, setUnisex] = useState('')
     
     useEffect(() => {
-    const handleBRsByLoc = (lat, lon) => {
-        fetchBRsByLoc(lat, lon)
+    const handleBRsByLoc = (lat, lon, ada , unisex) => {
+        fetchBRsByLoc(lat, lon, ada, unisex)
         .then(data => {
             if(data) {
                 console.log(data)
@@ -22,12 +24,17 @@ const Landing = ({ updateLocs, locs }) => {
             }
         })
     }
-        handleBRsByLoc(lat, lon)
+        handleBRsByLoc(lat, lon, ada, unisex)
     }, [ lat, lon ])
 
     function setLatLonState(lat, lon) {
-        setlat(lat)
-        setlon(lon)
+        setLat(lat)
+        setLon(lon)
+    }
+
+    function setParamsState(ada, unisex) {
+        setAda(ada)
+        setUnisex(unisex)
     }
 
     return (
@@ -37,7 +44,7 @@ const Landing = ({ updateLocs, locs }) => {
             <div className='Landing_left_wrapper'>
                 <h2>Where do you want to 'go'?</h2>
                 <Search setLatLonState={setLatLonState}/>
-                <Filter />
+                <Filter setParamsState={setParamsState}/>
                 <Locations locs={locs}/>
             </div>
             <div className='Landing_map_wrapper'>
