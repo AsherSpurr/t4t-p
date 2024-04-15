@@ -26,6 +26,8 @@ const Landing = ({ updateLocs, locs }) => {
     // const unisexS = sessionStorage.getItem('unisexS')
     // const parsedUnisexS = JSON.parse(unisexS)
     // setUnisex(parsedUnisexS)
+    // console.log('unisex', unisex)
+    // console.log('ada', ada)
     const handleBRsByLoc = (lat, lon, ada , unisex) => {
         fetchBRsByLoc(lat, lon, ada, unisex)
         .then(data => {
@@ -44,18 +46,20 @@ const Landing = ({ updateLocs, locs }) => {
     }
 
     function setParamsState(ada, unisex) {
-        // setAda(ada)
-        // setUnisex(unisex)
-        sessionStorage.setItem('adaS', JSON.stringify(ada))
-        const adaS = sessionStorage.getItem('adaS')
-        const parsedAdaS = JSON.parse(adaS)
-        setAda(parsedAdaS)
+        setAda(ada)
+        setUnisex(unisex)
+        // console.log('unisex', unisex)
+        // console.log('ada', ada)
+        // sessionStorage.setItem('adaS', JSON.stringify(ada))
+        // const adaS = sessionStorage.getItem('adaS')
+        // const parsedAdaS = JSON.parse(adaS)
+        // setAda(parsedAdaS)
     
-        sessionStorage.setItem('unisexS', JSON.stringify(unisex))
-        const unisexS = sessionStorage.getItem('unisexS')
-        const parsedUnisexS = JSON.parse(unisexS)
-        console.log('parsed unisex', parsedUnisexS)
-        setUnisex(parsedUnisexS)
+        // sessionStorage.setItem('unisexS', JSON.stringify(unisex))
+        // const unisexS = sessionStorage.getItem('unisexS')
+        // const parsedUnisexS = JSON.parse(unisexS)
+        // console.log('parsed unisex', parsedUnisexS)
+        // setUnisex(parsedUnisexS)
     }
     console.log('unisex', unisex)
     console.log('ada', ada)

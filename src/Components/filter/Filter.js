@@ -13,16 +13,19 @@ const Filter = ({ setParamsState }) => {
         // console.log(e.id)
        switch (e.id) {
         case 'ada':
-            ada === '' ? setAda(true) : setAda('');
+            ada === true ? setAda('') : setAda(true);
             break;
         case 'unisex':
-            unisex === '' ? setUnisex(true) : setUnisex('');
+            unisex === true ? setUnisex('') : setUnisex(true);
             break;
             default:
                 //nothing
        }
     //    sessionStorage.setItem('adaS', JSON.stringify(ada))
     //    sessionStorage.setItem('unisexS', JSON.stringify(unisex))
+    // if(e.id === 'ada') {
+    //     setAda(true)
+    // }
        setParamsState(ada, unisex)
     }
     // console.log('unisex', unisex)
