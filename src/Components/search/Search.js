@@ -7,8 +7,6 @@ import { fetchLatLon } from '../../apiCalls';
 
 const Search = ({ setLatLonState}) => {
 
-    const [lat, setLat] = useState('')
-    const [lon, setLon] = useState('')
     const [num, setNum] = useState('')
     const [street, setStreet] = useState('')
     const [streetIdent, setStreetIdent] = useState('')
@@ -21,10 +19,8 @@ const Search = ({ setLatLonState}) => {
             fetchLatLon(num, street, streetIdent, town, state, key)
             .then(data => {
                 if(data) {
-                    console.log(data)
-                setLat(data.results[0].geometry.location.lat)
-                setLon(data.results[0].geometry.location.lng)
-                setLatLonState(lat, lon)
+                    // console.log(data)
+                setLatLonState(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng)
                 }
             })
         }

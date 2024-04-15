@@ -2,18 +2,29 @@
 //Bennett
 // 39.753604
 //-104.428580
-const fetchBRsByLoc = async (lat, lon) => {
-    try {
-        const response = await fetch(`https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=0&per_page=10&offset=0&lat=${lat}&lng=${lon}`)
+function fetchBRsByLoc (lat, lon) {
+    return fetch(`https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=0&per_page=10&offset=0&lat=${lat}&lng=${lon}`)
+    .then(response => {
         if(!response.ok) {
             throw new Error('Whoops')
-        }
-        return await response.json() 
-    } 
-    catch(error) {
+        }return response.json()
+    })
+    .catch(error => {
         throw error
-    }
+    })
 }
+// const fetchBRsByLoc = async (lat, lon) => {
+//     try {
+//         const response = await fetch(`https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=0&per_page=10&offset=0&lat=${lat}&lng=${lon}`)
+//         if(!response.ok) {
+//             throw new Error('Whoops')
+//         }
+//         return await response.json() 
+//     } 
+//     catch(error) {
+//         throw error
+//     }
+// }
 
 function fetchLatLon (num, street, streetIdent, town, state, key) {
         return fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${num}%20${street}%20${streetIdent}%20${town}%20${state}&key=${key}`)

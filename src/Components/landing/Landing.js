@@ -13,13 +13,14 @@ const Landing = ({ updateLocs, locs }) => {
     const [lon, setlon] = useState('')
     
     useEffect(() => {
-    async function handleBRsByLoc(lat, lon) {
-        try {
-            const locations = await fetchBRsByLoc(lat, lon)
-            updateLocs(locations)
-        } catch(error) {
-            throw error
-        }
+    const handleBRsByLoc = (lat, lon) => {
+        fetchBRsByLoc(lat, lon)
+        .then(data => {
+            if(data) {
+                console.log(data)
+                updateLocs(data)
+            }
+        })
     }
         handleBRsByLoc(lat, lon)
     }, [ lat, lon ])
