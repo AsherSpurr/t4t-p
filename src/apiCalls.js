@@ -15,18 +15,18 @@ const fetchBRsByLoc = async (lat, lon) => {
     }
 }
 
-const fetchLatLon = async (num, street, streetIdent, town, state, key) => {
-    try {
-        const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${num}%20${street}%20${streetIdent}%20${town}%20${state}&key=${key}`)
-        if(!response.ok) {
-            throw new Error('Uh oh')
-        }
-        return await response.json()
+function fetchLatLon (num, street, streetIdent, town, state, key) {
+        return fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${num}%20${street}%20${streetIdent}%20${town}%20${state}&key=${key}`)
+        .then(response => {
+            if(!response.ok) {
+                throw new Error('Uh oh')
+            }
+            return response.json()
+        })
+        .catch(error => {
+            throw error
+        })
     }
-    catch(error) {
-        throw error
-    }
-}
 
 export { fetchBRsByLoc, fetchLatLon }
 
