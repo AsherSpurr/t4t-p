@@ -16,7 +16,8 @@
     border-radius: 10px;
     background-color: #1b5fff0d;
     height: 95%;
-    width: 40%; /* will need to adjust when search button is icon */
+    /* width: 40%; will need to adjust when search button is icon */
+    width: 15%; /* After form change */
 }
 
 .Search_button {
