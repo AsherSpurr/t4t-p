@@ -19,7 +19,7 @@ const Search = ({ setLatLonState}) => {
             fetchLatLon(num, street, streetIdent, town, state, key)
             .then(data => {
                 if(data) {
-                    // console.log(data)
+                    console.log(data)
                 setLatLonState(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng)
                 }
             })
