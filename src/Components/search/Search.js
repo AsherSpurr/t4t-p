@@ -8,7 +8,11 @@ const Search = ({ setLatLonState}) => {
     //Use google api to fetch -> then set state based off that fetch
     const [lat, setLat] = useState('')
     const [lon, setLon] = useState('')
-    //Convert to integers
+    const [num, setnum] = useState('')
+    const [street, setstreet] = useState('')
+    const [streetIdent, setStreetIdent] = useState('')
+    const [town, setTown] = useState('')
+    const [state, setState] = useState('')
 
     console.log(typeof(lon))
 

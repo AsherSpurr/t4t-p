@@ -15,7 +15,20 @@ const fetchBRsByLoc = async (lat, lon) => {
     }
 }
 
-export { fetchBRsByLoc }
+const fetchLatLon = async (num, street, streetIdent, town, state, key) => {
+    try {
+        const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${num}%20${street}%20${streetIdent}%20${town}%20${state}&key=${key}`)
+        if(!response.ok) {
+            throw new Error('Uh oh')
+        }
+        return await response.json()
+    }
+    catch(error) {
+        throw error
+    }
+}
+
+export { fetchBRsByLoc, fetchLatLon }
 
 //Baseline by loication -> no params
 // https://www.refugerestrooms.org/api/v1/restrooms/by_location?   page=0  &  per_page=10  &  offset=0  &  lat=39.753604  &  lng=-104.428580
