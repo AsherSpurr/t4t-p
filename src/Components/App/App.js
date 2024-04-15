@@ -16,7 +16,7 @@ function App() {
       setLocs(locs)
     }
   }
-  console.log(locs)
+  // console.log(locs)
   return (
     <div className="App">
       <header className="App_header">

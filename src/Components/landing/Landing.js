@@ -15,17 +15,28 @@ const Landing = ({ updateLocs, locs }) => {
     const [unisex, setUnisex] = useState('')
     
     useEffect(() => {
+    // sessionStorage.clear()
+
+    // sessionStorage.setItem('adaS', JSON.stringify(ada))
+    // const adaS = sessionStorage.getItem('adaS')
+    // const parsedAdaS = JSON.parse(adaS)
+    // setAda(parsedAdaS)
+
+    // sessionStorage.setItem('unisexS', JSON.stringify(unisex))
+    // const unisexS = sessionStorage.getItem('unisexS')
+    // const parsedUnisexS = JSON.parse(unisexS)
+    // setUnisex(parsedUnisexS)
     const handleBRsByLoc = (lat, lon, ada , unisex) => {
         fetchBRsByLoc(lat, lon, ada, unisex)
         .then(data => {
             if(data) {
-                console.log(data)
+                // console.log(data)
                 updateLocs(data)
             }
         })
     }
         handleBRsByLoc(lat, lon, ada, unisex)
-    }, [ lat, lon ])
+    }, [ lat, lon, ada, unisex])
 
     function setLatLonState(lat, lon) {
         setLat(lat)
@@ -33,9 +44,21 @@ const Landing = ({ updateLocs, locs }) => {
     }
 
     function setParamsState(ada, unisex) {
-        setAda(ada)
-        setUnisex(unisex)
+        // setAda(ada)
+        // setUnisex(unisex)
+        sessionStorage.setItem('adaS', JSON.stringify(ada))
+        const adaS = sessionStorage.getItem('adaS')
+        const parsedAdaS = JSON.parse(adaS)
+        setAda(parsedAdaS)
+    
+        sessionStorage.setItem('unisexS', JSON.stringify(unisex))
+        const unisexS = sessionStorage.getItem('unisexS')
+        const parsedUnisexS = JSON.parse(unisexS)
+        console.log('parsed unisex', parsedUnisexS)
+        setUnisex(parsedUnisexS)
     }
+    console.log('unisex', unisex)
+    console.log('ada', ada)
 
     return (
         <div className='Landing_wrapper'>
