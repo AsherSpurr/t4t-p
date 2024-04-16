@@ -1,9 +1,9 @@
 import './Locations.css';
 import Card from '../card/Card'
 
-const Locations = ({ locs }) => {
+const Locations = ({ locs, filteredLocs }) => {
 
-    const cards = locs.map((loc) => {
+    const cards = filteredLocs.map((loc) => {
         return (
             <Card 
                 name={loc.name}   
