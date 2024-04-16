@@ -15,7 +15,7 @@ const Landing = ({ updateLocs, locs, filteredLocs }) => {
     const [searchParams, setSearchParams] = useSearchParams()
     
     useEffect(() => {
-
+//try using if statement to check if lat lon is falsy -> emtpy string is falsy
     const handleBRsByLoc = (lat, lon) => {
         fetchBRsByLoc(lat, lon)
         .then(data => {
