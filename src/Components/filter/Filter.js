@@ -17,11 +17,22 @@ const Filter = ({ updateLocs, locs }) => {
 
     function checkParams(value) {
         // console.log(value)
-       if(params.has('a', value)) {
-            params.delete('a', value)
-       } else if(params.has('b', value)){
+      if(params.has('b', value) ){
         params.delete('b', value)
-    } else {
+    } 
+    else if(params.has('b', 'accessible') && value === 'all'){
+       params.set('b', 'all')
+    } 
+    else if(params.has('b', 'unisex') && value === 'all') {
+        params.set('b', 'all')
+    } 
+    else if(params.has('b', 'all') && value === 'accessible') {
+        params.delete('b', 'all')
+    } 
+    else if(params.has('b', 'all') && value === 'unisex') {
+        params.delete('b', 'all')
+    } 
+    else {
         params.append('b', value)
     }
        window.history.replaceState(null, "idfk", params)

@@ -20,7 +20,7 @@ function App() {
     // console.log(location.search)
     // const query = searchParams.get('a')
       const query = location.search
-
+      console.log(query)
     if(query !== 'all' && query !== '') {
       const filteredLocs = locs.filter((loc) => {
         return loc[query] === true
