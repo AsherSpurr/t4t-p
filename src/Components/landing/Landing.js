@@ -5,7 +5,7 @@ import Filter from '../filter/Filter'
 import Locations from '../locations/Locations'
 import Map from '../map/Map'
 import { fetchBRsByLoc } from '../../apiCalls';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const Landing = ({ updateLocs, locs, filterLocs }) => {
     //Handle fetch of actual bathrooms here
@@ -13,6 +13,8 @@ const Landing = ({ updateLocs, locs, filterLocs }) => {
     const [lat, setLat] = useState('')
     const [lon, setLon] = useState('')
     const navigate = useNavigate()
+    const [searchParams, setSearchParams] = useSearchParams()
+    
     useEffect(() => {
 
     const handleBRsByLoc = (lat, lon) => {
@@ -21,6 +23,7 @@ const Landing = ({ updateLocs, locs, filterLocs }) => {
             if(data) {
                 // console.log(data)
                 updateLocs(data)
+                setSearchParams({'a': 'all'})
                 // navigate('?all', {replace: false})
             }
         })

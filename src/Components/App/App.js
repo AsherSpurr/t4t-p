@@ -4,15 +4,15 @@ import About from '../about/About'
 import Landing from '../landing/Landing'
 import Error from '../error/Error'
 import LocDetails from '../locDetails/LocDetails'
-import { useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import distance from '../images/distance-blue.svg'
-// import { useUrlFilter } from "react-filter-by-url";
+import { useLocation, useSearchParams } from "react-router-dom";
 
 function App() {
   const [locs, setLocs] = useState([])
   const [filterParam, setFilterParam] = useState([])
-  // const [filteredLocs, setFilteredLocs] = useState(locs)
-
+  const [filteredLocs, setFilteredLocs] = useState(locs)
+  const [searchParams] = useSearchParams()
 
   function updateLocs(locs) {
     //include URL + param as arguments
@@ -24,8 +24,13 @@ function App() {
     //etc
     if(locs) {
       setLocs(locs)
+      // setFilteredLocs(locs)
     }
   }
+
+  useEffect(() => {
+    console.log(searchParams.get('a'))
+  }, [])
 
   function filterLocs(param) {
     setFilterParam([...filterParam, param])
@@ -47,9 +52,9 @@ function App() {
       </header>
       <main className='main'>
         <Routes>
-          <Route path='/' element={<Landing updateLocs={updateLocs} locs={locs} filterLocs={filterLocs}/>}>
-            <Route path='/all?/accessible?/unisex?' element={<Landing updateLocs={updateLocs} locs={locs} filterLocs={filterLocs}/>}/> 
-           </Route>
+          <Route path='/' element={<Landing updateLocs={updateLocs} locs={locs} filterLocs={filterLocs}/>}/>
+            {/* <Route path='/all?/accessible?/unisex?' element={<Landing updateLocs={updateLocs} locs={locs} filterLocs={filterLocs}/>}/> 
+           </Route> */}
           <Route path='/About' element={<About />}/>
           <Route path='/*' element={<Error />}/>
           <Route path='/:locationName' element={<LocDetails />}/>        
