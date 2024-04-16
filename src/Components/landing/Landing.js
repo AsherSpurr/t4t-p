@@ -5,64 +5,38 @@ import Filter from '../filter/Filter'
 import Locations from '../locations/Locations'
 import Map from '../map/Map'
 import { fetchBRsByLoc } from '../../apiCalls';
+import { useNavigate } from 'react-router-dom';
 
-const Landing = ({ updateLocs, locs }) => {
+const Landing = ({ updateLocs, locs, filterLocs }) => {
     //Handle fetch of actual bathrooms here
     //use updateLocs in Landing
     const [lat, setLat] = useState('')
     const [lon, setLon] = useState('')
-    const [ada, setAda] = useState('')
-    const [unisex, setUnisex] = useState('')
-    
+    const navigate = useNavigate()
     useEffect(() => {
-    // sessionStorage.clear()
 
-    // sessionStorage.setItem('adaS', JSON.stringify(ada))
-    // const adaS = sessionStorage.getItem('adaS')
-    // const parsedAdaS = JSON.parse(adaS)
-    // setAda(parsedAdaS)
-
-    // sessionStorage.setItem('unisexS', JSON.stringify(unisex))
-    // const unisexS = sessionStorage.getItem('unisexS')
-    // const parsedUnisexS = JSON.parse(unisexS)
-    // setUnisex(parsedUnisexS)
-    // console.log('unisex', unisex)
-    // console.log('ada', ada)
-    const handleBRsByLoc = (lat, lon, ada , unisex) => {
-        fetchBRsByLoc(lat, lon, ada, unisex)
+    const handleBRsByLoc = (lat, lon) => {
+        fetchBRsByLoc(lat, lon)
         .then(data => {
             if(data) {
                 // console.log(data)
                 updateLocs(data)
+                // navigate('?all', {replace: false})
             }
         })
     }
-        handleBRsByLoc(lat, lon, ada, unisex)
-    }, [ lat, lon, ada, unisex])
+        handleBRsByLoc(lat, lon)
+    }, [ lat, lon])
 
     function setLatLonState(lat, lon) {
         setLat(lat)
         setLon(lon)
     }
 
-    function setParamsState(ada, unisex) {
-        setAda(ada)
-        setUnisex(unisex)
-        // console.log('unisex', unisex)
-        // console.log('ada', ada)
-        // sessionStorage.setItem('adaS', JSON.stringify(ada))
-        // const adaS = sessionStorage.getItem('adaS')
-        // const parsedAdaS = JSON.parse(adaS)
-        // setAda(parsedAdaS)
-    
-        // sessionStorage.setItem('unisexS', JSON.stringify(unisex))
-        // const unisexS = sessionStorage.getItem('unisexS')
-        // const parsedUnisexS = JSON.parse(unisexS)
-        // console.log('parsed unisex', parsedUnisexS)
-        // setUnisex(parsedUnisexS)
-    }
-    console.log('unisex', unisex)
-    console.log('ada', ada)
+    // function setParamsState(ada, unisex) {
+    //     setAda(ada)
+    //     setUnisex(unisex)
+    // }
 
     return (
         <div className='Landing_wrapper'>
@@ -71,7 +45,7 @@ const Landing = ({ updateLocs, locs }) => {
             <div className='Landing_left_wrapper'>
                 <h2>Where do you want to 'go'?</h2>
                 <Search setLatLonState={setLatLonState}/>
-                <Filter setParamsState={setParamsState}/>
+                <Filter updateLocs={updateLocs} filterLocs={filterLocs}/>
                 <Locations locs={locs}/>
             </div>
             <div className='Landing_map_wrapper'>
@@ -80,5 +54,15 @@ const Landing = ({ updateLocs, locs }) => {
         </div>
     )
 }
+
+// sessionStorage.setItem('adaS', JSON.stringify(ada))
+// const adaS = sessionStorage.getItem('adaS')
+// const parsedAdaS = JSON.parse(adaS)
+// setAda(parsedAdaS)
+
+// sessionStorage.setItem('unisexS', JSON.stringify(unisex))
+// const unisexS = sessionStorage.getItem('unisexS')
+// const parsedUnisexS = JSON.parse(unisexS)
+// setUnisex(parsedUnisexS)
 
 export default Landing

@@ -6,17 +6,36 @@ import Error from '../error/Error'
 import LocDetails from '../locDetails/LocDetails'
 import { useState, useCallback } from 'react';
 import distance from '../images/distance-blue.svg'
+// import { useUrlFilter } from "react-filter-by-url";
 
 function App() {
   const [locs, setLocs] = useState([])
+  const [filterParam, setFilterParam] = useState([])
+  // const [filteredLocs, setFilteredLocs] = useState(locs)
 
 
   function updateLocs(locs) {
+    //include URL + param as arguments
+    //will need to use useLocation to get URL in other files
+    //if url includes param
+    //filter locs based off that param
+    //params = all -> don't filter and return all
+    //params = unisex -> filter for unisex return that
+    //etc
     if(locs) {
       setLocs(locs)
     }
   }
-  // console.log(locs)
+
+  function filterLocs(param) {
+    setFilterParam([...filterParam, param])
+    const filteredLocs = locs.filter((loc) => {
+      return loc[param] === true
+    })
+    console.log(filteredLocs)
+    setLocs(filteredLocs)
+  }
+
   return (
     <div className="App">
       <header className="App_header">
@@ -28,7 +47,9 @@ function App() {
       </header>
       <main className='main'>
         <Routes>
-          <Route path='/' element={<Landing updateLocs={updateLocs} locs={locs}/>}/>
+          <Route path='/' element={<Landing updateLocs={updateLocs} locs={locs} filterLocs={filterLocs}/>}>
+            <Route path='/all?/accessible?/unisex?' element={<Landing updateLocs={updateLocs} locs={locs} filterLocs={filterLocs}/>}/> 
+           </Route>
           <Route path='/About' element={<About />}/>
           <Route path='/*' element={<Error />}/>
           <Route path='/:locationName' element={<LocDetails />}/>        

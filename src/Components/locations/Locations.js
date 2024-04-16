@@ -8,7 +8,8 @@ const Locations = ({ locs }) => {
                 name={loc.name}   
                 uni={loc.unisex}
                 access={loc.accessible}
-                dist={loc.distance}       
+                dist={loc.distance}  
+                key={loc.id}     
             />
         )
     })
