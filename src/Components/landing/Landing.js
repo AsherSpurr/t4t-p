@@ -12,7 +12,7 @@ const Landing = ({ updateLocs, locs, filteredLocs }) => {
     //use updateLocs in Landing
     const [lat, setLat] = useState('')
     const [lon, setLon] = useState('')
-    const [searchParams, setSearchParams] = useSearchParams()
+    // const [searchParams, setSearchParams] = useSearchParams()
     
     useEffect(() => {
 //try using if statement to check if lat lon is falsy -> emtpy string is falsy
@@ -21,7 +21,7 @@ const Landing = ({ updateLocs, locs, filteredLocs }) => {
         .then(data => {
             if(data) {
                 updateLocs(data)
-                setSearchParams({'a': 'all'})
+                // setSearchParams({'a': 'all'})
             }
         })
     }
