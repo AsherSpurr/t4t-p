@@ -12,25 +12,39 @@ function App() {
   const [locs, setLocs] = useState([])
   const [filteredLocs, setFilteredLocs] = useState(locs)
   const [searchParams] = useSearchParams()
-  const location = useLocation()
+  // const location = useLocation()
   // const query = location.search
-  console.log(location.search)
+  // let params = new URLSearchParams(window.location.search);
+
+  // console.log('loc', location.pathname)
+  // let query = params.getAll("b");
+  
+  // let params = new URL(document.location.toString()).searchParams;
+  // let query = params.getAll("b");
+ 
+
+  const queryString = window.location.search;
+  console.log('window', queryString)
+
+  const urlParams = new URLSearchParams(queryString)
+
+  const query = urlParams.getAll('3Fb')
+   console.log('query', query)
 
   function updateLocs(locs) {
     // console.log(location.search)
     // const query = searchParams.get('a')
-      const query = location.search
-      console.log(query)
-    if(query !== 'all' && query !== '') {
-      const filteredLocs = locs.filter((loc) => {
-        return loc[query] === true
-      })
-      console.log(filteredLocs)
-      setFilteredLocs(filteredLocs)
-    } else {
+      // const query = location.search
+    // if(query !== 'all' && query !== '') {
+    //   const filteredLocs = locs.filter((loc) => {
+    //     return loc[query] === true
+    //   })
+    //   console.log(filteredLocs)
+    //   setFilteredLocs(filteredLocs)
+    // } else {
       setFilteredLocs(locs)
       setLocs(locs)
-    }
+    // }
   }
 
   return (
