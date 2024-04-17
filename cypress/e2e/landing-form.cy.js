@@ -4,6 +4,7 @@ describe('landing page form', () => {
  //Delete this empty fetch after fixing known issue
     cy.intercept('GET', 'https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=0&per_page=30&offset=0&lat=&lng=', {
     statusCode: 200,
+    body: []
     }).as('getEmptyBathrooms')
     cy.intercept('GET', 'https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=0&per_page=30&offset=0&lat=39.6702347&lng=-104.4714657', {
       statusCode: 200,
