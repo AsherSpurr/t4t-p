@@ -8,21 +8,44 @@
 }
 .Search_form {
     min-height: 100%;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .Search_input{
     border: none;
     /* box-shadow: inset -6px -10px 10px -11px rgba(202, 202, 202, 0.31); */
-    border-radius: 10px;
+    /* border-radius: 10px 20px 40px; */
     background-color: #1b5fff0d;
     height: 95%;
     /* width: 40%; will need to adjust when search button is icon */
-    width: 15%; /* After form change */
+    width: 40%; /* After form change */
+    text-indent: 4%;
+    padding: 0;
 }
+
+#Input_one {
+    border-radius: 10px 0px 0px 10px;
+}
+
+/* #Input_three {
+    border-radius: 0px 10px 10px 0px;
+} */
 
 .Search_button {
     border: none;
-    height: 50%;
+    background-color: transparent;
+    padding: 0;
+    height: 98%;
+    width: auto;
+}
+
+.Search_icon {
+    height: 100%;
+    width: auto;
+    border-radius: 0px 10px 10px 0px;
 }
 
 .Search_button:hover {

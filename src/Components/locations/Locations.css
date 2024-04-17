@@ -1,5 +1,5 @@
 .Locations_div_wrapper {
     min-width: 100%;
-    height: fit-content;
-    /* border: 3px solid rgb(204, 204, 0); */
+    height: 65vh;
+    overflow: scroll;
 }
