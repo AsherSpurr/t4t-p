@@ -7,7 +7,7 @@ import Map from "../map/Map";
 import { fetchBRsByLoc } from "../../apiCalls";
 import LoadingContext from "../../LoadingContext";
 
-const Landing = ({ updateLocs, locs, filteredLocs, activeFilters }) => {
+const Landing = ({ updateLocs, locs, filteredLocs, activeFilters, updateFilters }) => {
   //Handle fetch of actual bathrooms here
   //use updateLocs in Landing
   const [lat, setLat] = useState("");
@@ -41,7 +41,7 @@ const Landing = ({ updateLocs, locs, filteredLocs, activeFilters }) => {
         <div className="Landing_left_wrapper">
           <h2 className="Landing_h2">Where do you want to 'go'?</h2>
           <Search setLatLonState={setLatLonState} />
-          <Filter updateLocs={updateLocs} locs={locs} />
+          <Filter updateLocs={updateLocs} locs={locs} updateFilters={updateFilters} />
           <Locations filteredLocs={filteredLocs} isLoading={isLoading} />
         </div>
         <div className="Landing_map_wrapper">

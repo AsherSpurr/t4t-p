@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import LoadingContext from '../../LoadingContext';
 
 const Locations = ({ filteredLocs, isLoading }) => {
+    
     const value = useContext(LoadingContext)
     const cards = filteredLocs.map((loc) => {
         return (

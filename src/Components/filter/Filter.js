@@ -1,64 +1,29 @@
 import './Filter.css';
-import { formatSearchParams } from '../../utils/utils';
-import { useEffect, useState } from 'react';
-import { useSearchParams, useLocation } from 'react-router-dom';
+import { useState } from 'react';
 
-const Filter = ({ updateLocs, locs }) => {
+const Filter = ({ updateLocs, locs, updateFilters }) => {
     const [activeFilters, setActiveFilters] = useState([])
+    const [accessible, setAccessible]
 
-    // let url = new URL('https://localhost:3000/?')
-    // let params = new URLSearchParams(url.search)
-
-    // function checkParams(e, value) {
-    //     e.preventDefault()
-    // if(params.has('b', value) ){
-    //     params.delete('b', value)
-    // } 
-    // else if(params.has('b', 'accessible') && value === 'all'){
-    //    params.set('b', 'all')
-    // } 
-    // else if(params.has('b', 'unisex') && value === 'all') {
-    //     params.set('b', 'all')
-    // } 
-    // else if(params.has('b', 'all') && value === 'accessible') {
-    //     params.delete('b', 'all')
-    // } 
-    // else if(params.has('b', 'all') && value === 'unisex') {
-    //     params.delete('b', 'all')
-    // } 
-    // else {
-    //     params.append('b', value)
-    // }
-    //    window.history.replaceState(value, "", params)
-    // //    const paramsS = window.location.href
-    // //       updateLocs(locs, paramsS)
-
-    //    console.log('windowLoc', window.location.href)
-    //    //    console.log(window.location.href = params)
-     
-    // }
-
-    // const handleLocUpdate = () => {
-    //     updateLocs(locs)
-    // }
 
     const handleChange = (e) => {
-        const filterId = e.id
-        if(e.checked) {
+        const filterId = e.target.id
+        console.log('filter is checked', e.target.checked)
+        if(e.target.checked) {
             setActiveFilters([...activeFilters, filterId])
         } else {
             let filtered = activeFilters.filter((filter) => filter !== filterId)
             setActiveFilters(filtered)
         }
-       updateLocs(locs, activeFilters)
+       updateFilters(activeFilters)
     }
-    console.log('active filters', activeFilters)
+    console.log('Filter active filters', activeFilters)
 
     return (
-        <form className='Filter_div_wrapper' onChange={(e) => handleChange(e.target)}>
+        <form className='Filter_div_wrapper' onChange={(e) => handleChange(e)}>
             {/* <div> */}
                 <input type='checkbox' className='Filter_input' id='accessible'/>
-                <label for='accessible'>Accessible</label>
+                <label for='accessible'>accessible</label>
             {/* </div>
             <div> */}
                 <input type='checkbox' className='Filter_input' id='unisex'/>
