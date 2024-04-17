@@ -12,6 +12,7 @@ import { useSearchParams, useLocation, useParams } from "react-router-dom";
 function App() {
   const [locs, setLocs] = useState([])
   const [filteredLocs, setFilteredLocs] = useState([])
+  const [activeFilters, setActiveFilters] = useState([])
   // const [paramsS, setParamsS] = useState([])
   // const locName = useParams().locationName;
   // console.log(locName) //console.logging nothing
@@ -33,26 +34,36 @@ function App() {
   // - useLocation (does nothing)
   // -useSearchParams (also dooes nothing)
 
-    function updateLocs(locs, paramsS = []) {
-      console.log('App params', paramsS)
-      console.log('App Locs', locs)
+    function updateLocs(locs, filters) {
+      setActiveFilters(filters)
+      // console.log('App params', paramsS)
+      // console.log('App Locs', filteredLocs)
+      const filtered = locs.filter((loc) => {
+        return loc.unisex === true
+      })
+      console.log('map test', filtered)
+      console.log('filter includes', filters.includes('unisex'))
  
-      if(paramsS.includes('unisex') && paramsS.includes('accessible')) {
-        const twoParamLocs = locs.filter((loc) => {
-          return loc.unisex === true && loc.accessible === true
+      if(filters.includes('unisex') && filters.includes('accessible')) {
+        const filteredOne = locs.filter((loc) => {
+          return loc.unisex === true
         })
-        setFilteredLocs(twoParamLocs)
-      } else if(paramsS.includes('unisex')) {
+        const filteredTwo = locs.filter((loc) => {
+          return loc.accessible === true
+        })
+        const concatArray = filteredOne.concat(filteredTwo)
+        setFilteredLocs(concatArray)
+      } else if(filters.includes('unisex')) {
           const unisexLocs = locs.filter((loc) => {
             return loc.unisex === true
           })
           setFilteredLocs(unisexLocs)
-      } else if(paramsS.includes('accessible')) {
+      } else if(filters.includes('accessible')) {
           const accessibleLocs = locs.filter((loc) => {
             return loc.accessible === true
           })
           setFilteredLocs(accessibleLocs)
-      } else if(paramsS.includes('all')) {
+      } else if(filters.includes('all')) {
           setFilteredLocs(locs)
       } else {
           setFilteredLocs(locs)
@@ -75,7 +86,7 @@ function App() {
       </header>
       <main className='main'>
         <Routes>
-          <Route path='/' element={<Landing updateLocs={updateLocs} locs={locs} filteredLocs={filteredLocs}/>}/>
+          <Route path='/' element={<Landing updateLocs={updateLocs} locs={locs} filteredLocs={filteredLocs} activeFilters={activeFilters}/>}/>
           <Route path='/About' element={<About />}/>
           <Route path='/*' element={<Error />}/>
           <Route path='/:locationName' element={<LocDetails filteredLocs={filteredLocs}/>}/>        

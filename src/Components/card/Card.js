@@ -11,7 +11,7 @@ import LoadingContext from '../../LoadingContext';
 
 const Card = ({ name, uni, access, dist, street, city, state, upvote, downvote, directions, comment, updatedAt }) => {
 
-    const distRounded = roundNum(dist)
+    // const distRounded = roundNum(dist)
     const locName = useParams().locationName;
     const value = useContext(LoadingContext)
     const navigate = useNavigate()
@@ -37,7 +37,7 @@ const Card = ({ name, uni, access, dist, street, city, state, upvote, downvote, 
                     <div className={locName === name ? 'LocDetails_icons_container' : 'Card_icons_container'}>
                         <div className={locName === name ? 'LocDetails_distance_container' : 'Card_distance_container'}>
                             <img src={distance} alt='' height='20px' width='20px'></img>
-                            <p className={locName === name ? 'LocDetails_p' : 'Card_p'}>{distRounded}m</p>
+                            <p className={locName === name ? 'LocDetails_p' : 'Card_p'}>{dist}m</p>
                         </div>
                         <div className={locName === name ? 'LocDetails_params_icon_container' : 'Card_params_icon_container'}>
                             {uni ? <img id={locName === name ? 'LocDetails_icon_unisex' : 'Card_icon_unisex'} src={truesvg} alt='' height='20px' width='20px'></img> : <img id='Card_icon_unisex' src={falsesvg} alt='' height='20px' width='20px'></img>}
