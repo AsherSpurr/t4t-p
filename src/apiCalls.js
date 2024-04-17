@@ -14,8 +14,8 @@ function fetchBRsByLoc (lat, lon) {
     })
 }
 
-function fetchLatLon (num, street, streetIdent, town, state, key) {
-        return fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${num}%20${street}%20${streetIdent}%20${town}%20${state}&key=${key}`)
+function fetchLatLon ( street, town, state, key) {
+        return fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${street}%20${town}%20${state}&key=${key}`)
         .then(response => {
             if(!response.ok) {
                 throw new Error('Uh oh')

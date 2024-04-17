@@ -55,9 +55,13 @@ function App() {
     <div className="App">
       <header className="App_header">
         <nav className="App_nav">
-          <img src={distance} alt=''></img>
-          <NavLink to='/' className='App_navlink_home'><h1>T4Tp</h1></NavLink>
-          <NavLink to='/About' className='App_navlink_about'>About</NavLink>
+          <div className='App_nav_container'>
+            <img className='App_logo'src={distance} alt='' height='25px' width='auto'></img>
+            <NavLink to='/' className='App_navlink_home'><h1>T4Tp</h1></NavLink>
+          </div>
+          <div className='App_about_container'>
+            <NavLink to='/About' className='App_navlink_about'>About</NavLink>
+          </div>
         </nav>
       </header>
       <main className='main'>
