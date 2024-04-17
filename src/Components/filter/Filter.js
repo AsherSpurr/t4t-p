@@ -8,8 +8,8 @@ const Filter = ({ updateLocs, locs }) => {
     let url = new URL('https://localhost:3000/?')
     let params = new URLSearchParams(url.search)
 
-    function checkParams(value) {
-
+    function checkParams(e, value) {
+        e.preventDefault()
     if(params.has('b', value) ){
         params.delete('b', value)
     } 
@@ -29,12 +29,12 @@ const Filter = ({ updateLocs, locs }) => {
         params.append('b', value)
     }
        window.history.replaceState(value, "", params)
-    //    handleLocUpdate()
-    const paramsS = formatSearchParams(window.location.href)
-       updateLocs(locs, paramsS)
+    //    const paramsS = window.location.href
+    //       updateLocs(locs, paramsS)
+
+       console.log('windowLoc', window.location.href)
        //    console.log(window.location.href = params)
      
-//    console.log('windowLoc', window.location.href)
     }
 
     // const handleLocUpdate = () => {
@@ -42,11 +42,12 @@ const Filter = ({ updateLocs, locs }) => {
     // }
     return (
         <div className='Filter_div_wrapper'>
-            <button type='button' className='Filter_button' id='accessible' onClick={(e) => checkParams(e.target.id)}>Accessible</button>
-            <button type='button' className='Filter_button' id='unisex' onClick={(e) => checkParams(e.target.id)}>Unisex</button>
-            <button type='button' className='Filter_button' id='all' onClick={(e) => checkParams(e.target.id)}>All</button>
+            <button type='button' className='Filter_button' id='accessible' onClick={(e) => checkParams(e, e.target.id)}>Accessible</button>
+            <button type='button' className='Filter_button' id='unisex' onClick={(e) => checkParams(e, e.target.id)}>Unisex</button>
+            <button type='button' className='Filter_button' id='all' onClick={(e) => checkParams(e, e.target.id)}>All</button>
         </div>
     )
+    //Accessability note/ maybe hot fix? -> buttons should be wrapped in form -> buttonType = checkbox
 }
 
 export default Filter

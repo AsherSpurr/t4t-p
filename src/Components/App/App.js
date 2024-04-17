@@ -7,7 +7,7 @@ import LocDetails from '../locDetails/LocDetails'
 import { useEffect, useState } from 'react';
 import distance from '../images/distance-blue.svg'
 import { useSearchParams, useLocation, useParams } from "react-router-dom";
-import { formatSearchParams } from '../../utils/utils';
+// import { formatSearchParams } from '../../utils/utils';
 
 function App() {
   const [locs, setLocs] = useState([])
@@ -15,14 +15,12 @@ function App() {
   // const [paramsS, setParamsS] = useState([])
   // const locName = useParams().locationName;
   // console.log(locName) //console.logging nothing
-  // useEffect(() => {
 
-  //   const queryParamsS = formatSearchParamsS(window.location.href)
-  //   setParamsS(queryParamsS)
-  //   console.log(queryParamsS)
-  //   // updateLocs(locs)
+  useEffect(() => {
+    const paramsS = window.location.href
+    updateLocs(locs, paramsS)
     
-  //   }, [filteredLocs])
+    }, [window.location.href])
     
     
   // const paramsS = formatSearchParams(window.location.href)
@@ -34,10 +32,11 @@ function App() {
   // - passing params as an optional parameter and including it in Filters call 
   // - useLocation (does nothing)
   // -useSearchParams (also dooes nothing)
-  
+
     function updateLocs(locs, paramsS = []) {
-      // setParamsS(queryParamsS)
-    // console.log(ParamsS.includes('unisex'))
+      console.log('App params', paramsS)
+      console.log('App Locs', locs)
+ 
       if(paramsS.includes('unisex') && paramsS.includes('accessible')) {
         const twoParamLocs = locs.filter((loc) => {
           return loc.unisex === true && loc.accessible === true
