@@ -55,3 +55,9 @@
     margin-top: 5px;
     font-size: 1em;
 }
+
+.loading {
+    background-color: rgba(168, 168, 168, 0.088);
+    width: 90%;
+    border-radius: 15px;
+}

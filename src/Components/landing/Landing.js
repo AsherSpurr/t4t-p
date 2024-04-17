@@ -6,13 +6,14 @@ import Locations from '../locations/Locations'
 import Map from '../map/Map'
 import { fetchBRsByLoc } from '../../apiCalls';
 import { useSearchParams } from 'react-router-dom';
+import LoadingContext from '../../LoadingContext';
 
 const Landing = ({ updateLocs, locs, filteredLocs }) => {
     //Handle fetch of actual bathrooms here
     //use updateLocs in Landing
     const [lat, setLat] = useState('')
     const [lon, setLon] = useState('')
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState('loading')
     // const [searchParams, setSearchParams] = useSearchParams()
     
     useEffect(() => {
@@ -21,6 +22,7 @@ const Landing = ({ updateLocs, locs, filteredLocs }) => {
         fetchBRsByLoc(lat, lon)
         .then(data => {
             if(data) {
+                setIsLoading('')
                 updateLocs(data)
                 // setSearchParams({'a': 'all'})
             }
@@ -35,6 +37,7 @@ const Landing = ({ updateLocs, locs, filteredLocs }) => {
     }
 
     return (
+        <LoadingContext.Provider value={isLoading}>
         <div className='Landing_wrapper'>
         {/* handle coordinates fetch in search
         use the return to fire the fetch in here to fetch bathrooms */}
@@ -42,12 +45,13 @@ const Landing = ({ updateLocs, locs, filteredLocs }) => {
                 <h2 className='Landing_h2'>Where do you want to 'go'?</h2>
                 <Search setLatLonState={setLatLonState}/>
                 <Filter updateLocs={updateLocs} locs={locs}/>
-                <Locations filteredLocs={filteredLocs}/>
+                <Locations filteredLocs={filteredLocs} isLoading={isLoading}/>
             </div>
             <div className='Landing_map_wrapper'>
                 <Map />
             </div>
         </div>
+        </LoadingContext.Provider>
     )
 }
 
