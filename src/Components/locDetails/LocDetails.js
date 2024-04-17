@@ -1,7 +1,7 @@
 import "./LocDetails.css";
 import Card from "../card/Card";
 import Map from "../map/Map";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const LocDetails = ({ filteredLocs }) => {
   const locName = useParams().locationName;
@@ -10,10 +10,10 @@ const LocDetails = ({ filteredLocs }) => {
   });
 
   return (
-    <div className="Landing_wrapper">
-      <div className="Landing_left_wrapper">
+    <div className="LocDetails_wrapper">
+      <div className="LocDetails_left_wrapper">
         <h2>{loc.name}</h2>
-        <div className="Locations_div_wrapper">
+        <div className="LocDetails_div_wrapper">
           <Card
             name={loc.name}
             uni={loc.unisex}
@@ -22,6 +22,7 @@ const LocDetails = ({ filteredLocs }) => {
             key={loc.id}
           />
         </div>
+        <Link to='/'>Go Back</Link>
       </div>
       <div className="Landing_map_wrapper">
         <Map />

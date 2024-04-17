@@ -1,0 +1,61 @@
+.LocDetails_left_wrapper {
+    max-width: 45%;
+    padding-left: 5%;
+    height: 100vh;
+}
+
+.LocDetails_div_wrapper {
+    min-width: 100%;
+    height: fit-content;
+}
+
+.LocDetails_div_wrapper {
+    width: 100%;
+    height: 15vh;
+    /* height: 5%; */
+    /* border: 1px solid green; */
+    margin-bottom: 20px;
+}
+
+.LocDetails_div_container {
+    width: 95%;
+    box-shadow: 1px 2px 5px rgba(202, 202, 202, 0.31);
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+}
+
+.LocDetails_img_container {
+    /* position: fixed; */
+    /* height: 100%; */
+    width: 25%;
+    background-color: rgba(168, 168, 168, 0.396);
+    border-radius: 8px;
+}
+
+.LocDetails_contents_container {
+    padding: 5px;
+}
+
+.LocDetails_icons_container, .LocDetails_distance_container, .LocDetails_params_icon_container {
+    display: flex;
+    flex-direction: row;
+}
+
+.LocDetails_params_icon_container,
+#LocDetails_icon_unisex,
+#LocDetails_icon_accessible {
+    margin-right: 5px;
+}
+
+.LocDetails_p {
+    font-size: smaller;
+    margin: 0;
+    margin-right: 20px;
+}
+
+.LocDetails_h3 {
+    margin-top: 5px;
+    font-size: 1em;
+}
