@@ -3,18 +3,19 @@ import truesvg from '../images/true.svg'
 import falsesvg from '../images/false.svg'
 import distance from '../images/distance-blue.svg'
 import { roundNum } from '../../utils/utils';
-import { NavLink, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 // import LocDetails from '../locDetails/LocDetails';
 
 const Card = ({ name, uni, access, dist, street, city, state, upvote, downvote, directions, comment, updatedAt }) => {
 
     const distRounded = roundNum(dist)
     const locName = useParams().locationName;
+    const navigate = useNavigate()
 
     return (
             <div className={locName === name ? 'LocDetails_div_wrapper' : 'Card_div_wrapper'}>
-            <NavLink to={`/${name}`} >
-            <div className={locName === name ? 'LocDetails_div_container' : 'Card_div_container'}>
+            {/* <button > */}
+            <div className={locName === name ? 'LocDetails_div_container' : 'Card_div_container'} onClick={() => navigate(`/${name}`)}>
                 <div className={locName === name ? 'LocDetails_img_container' : 'Card_img_container'}>
                     <span className={locName === name ? 'LocDetails_img_placeholder' : 'Card_img_placeholder'}></span>
                 </div>
@@ -48,7 +49,7 @@ const Card = ({ name, uni, access, dist, street, city, state, upvote, downvote, 
                     }
                 </div>
             </div>
-            </NavLink>
+            {/* </button> */}
         </div>
     )
 }
