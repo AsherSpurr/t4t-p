@@ -1,5 +1,5 @@
 import './Map.css';
-import placeholder from '../images/placeholder2.svg'
+import placeholder from '../images/placeholder-gray2.svg'
 
 const Map = () => {
     return (
