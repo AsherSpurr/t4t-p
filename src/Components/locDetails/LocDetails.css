@@ -20,32 +20,40 @@
 .LocDetails_div_container {
     width: 95%;
     box-shadow: 1px 2px 5px rgba(202, 202, 202, 0.31);
-    height: 100vh;
+    height: 100vh; /*Changed*/
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     border-radius: 10px;
+    /* position: relative; */
 }
 
 .LocDetails_img_container {
     /* position: fixed; */
     /* height: 100%; */
-    width: 25%;
+    height: 40vh;
+    width: 100%;
     background-color: rgba(168, 168, 168, 0.396);
     border-radius: 8px;
+    /* position: absolute; */
 }
 
 .LocDetails_contents_container {
     padding: 5px;
+    width: 100%;
 }
 
-.LocDetails_icons_container, .LocDetails_distance_container, .LocDetails_params_icon_container {
+/*Changed*/
+.LocDetails_icons_container, .LocDetails_distance_container, .LocDetails_params_icon_container, .LocDetails_heading_container {
     display: flex;
     flex-direction: row;
 }
 
+/*Changed added LocDetails_icon_upvote + downvote*/
 .LocDetails_params_icon_container,
 #LocDetails_icon_unisex,
-#LocDetails_icon_accessible {
+#LocDetails_icon_accessible,
+#LocDetails_icon_upvote,
+#LocDetails_icon_downvote {
     margin-right: 5px;
 }
 
@@ -59,3 +67,4 @@
     margin-top: 5px;
     font-size: 1em;
 }
+

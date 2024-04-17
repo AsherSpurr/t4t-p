@@ -10,6 +10,14 @@ const Locations = ({ locs, filteredLocs }) => {
                 uni={loc.unisex}
                 access={loc.accessible}
                 dist={loc.distance}  
+                street={loc.street}
+                city={loc.city}
+                state={loc.state}
+                upvote={loc.upvote}
+                downvote={loc.downvote}
+                directions={loc.directions}
+                comment={loc.comment}
+                updatedAt={loc.updated_at}
                 key={loc.id}     
             />
         )

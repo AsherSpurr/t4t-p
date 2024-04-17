@@ -6,7 +6,7 @@ import { roundNum } from '../../utils/utils';
 import { NavLink, useParams } from 'react-router-dom';
 // import LocDetails from '../locDetails/LocDetails';
 
-const Card = ({ name, uni, access, dist }) => {
+const Card = ({ name, uni, access, dist, street, city, state, upvote, downvote, directions, comment, updatedAt }) => {
 
     const distRounded = roundNum(dist)
     const locName = useParams().locationName;
@@ -19,7 +19,15 @@ const Card = ({ name, uni, access, dist }) => {
                     <span className={locName === name ? 'LocDetails_img_placeholder' : 'Card_img_placeholder'}></span>
                 </div>
                 <div className={locName === name ? 'LocDetails_contents_container' : 'Card_contents_container'}>
-                    <h3 className={locName === name ? 'LocDetails_h3' : 'Card_h3'}>{name}</h3>
+                    {locName === name ? 
+                    <><div className='LocDetails_heading_container'>
+                        <h3 className='LocDetails_h3'>{city} | {state}</h3> 
+                        <img id='LocDetails_icon_upvote' src={truesvg} alt='' height='20px' width='20px'></img>
+                        <p className='LocDetails_p'>{upvote}</p>
+                        <img id='LocDetails_icon_downvote' src={falsesvg} alt='' height='20px' width='20px'></img>
+                        <p className='LocDetails_p'>{downvote}</p>
+                        </div></>
+                    : <h3 className='Card_h3'>{name}</h3>}
                     <div className={locName === name ? 'LocDetails_icons_container' : 'Card_icons_container'}>
                         <div className={locName === name ? 'LocDetails_distance_container' : 'Card_distance_container'}>
                             <img src={distance} alt='' height='20px' width='20px'></img>
@@ -32,6 +40,12 @@ const Card = ({ name, uni, access, dist }) => {
                             <p className={locName === name ? 'LocDetails_p' : 'Card_p'}>Accessible</p>
                         </div>
                     </div>
+                    {locName === name &&
+                        <div className='LocDetails_moreInfo_wrapper'>
+                            <p>Directions: {directions}</p>
+                            <p>Comment: {comment}</p>
+                        </div>
+                    }
                 </div>
             </div>
             </NavLink>
