@@ -30,7 +30,8 @@ const Filter = ({ updateLocs, locs }) => {
     }
        window.history.replaceState(value, "", params)
     //    handleLocUpdate()
-       updateLocs(locs)
+    const paramsS = formatSearchParams(window.location.href)
+       updateLocs(locs, paramsS)
        //    console.log(window.location.href = params)
      
 //    console.log('windowLoc', window.location.href)
