@@ -11,7 +11,9 @@ function App() {
   const [locs, setLocs] = useState([]);
   const [filteredLocs, setFilteredLocs] = useState([]);
   const [activeFilters, setActiveFilters] = useState([]);
-
+  const [unisexLocs, setUnisexLocs] = useState([])
+  const [accessibleLocs, setAccessibleLocs] = useState([])
+  const [adaAndUnisexLocs, setAdaAndUnisexLocs] = useState([])
   function updateFilters(filters) {
     // const includesAll = (arr, values) => values.every(v => arr.includes(v))
     // filters.forEach((filter) => {
@@ -27,47 +29,30 @@ function App() {
   }
 
   function updateLocs(locs) {
-    // setActiveFilters(filters);
 
-    // <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-    const filtered = locs.filter((loc) => {
-      return loc.unisex === true;
-    });
-    console.log("filter test", filtered);
-    console.log("App filters", activeFilters);
-    console.log("filter includes unisex", activeFilters.includes("unisex"));
-    console.log("filter includes accessible", activeFilters.includes("accessible"));
-    // <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+    setLocs(locs);
+      setFilteredLocs(locs);
 
-    // if (
-    //   includesAll(activeFilters, ['unisex', 'accessible'])
-    // ) {
-    //   console.log('Includes both = true')
-      // const filteredOne = locs.filter((loc) => {
-      //   return loc.unisex === true;
-      // });
-      // const filteredTwo = locs.filter((loc) => {
-      //   return loc.accessible === true;
-      // });
-      // const concatArray = filteredOne.concat(filteredTwo);
-      // setFilteredLocs(concatArray);
-     if (activeFilters.includes("unisex")) {
-      const unisexLocs = locs.filter((loc) => {
-        return loc.unisex === true;
-      });
-      setFilteredLocs(unisexLocs);
-    } else if (activeFilters.includes("accessible")) {
-      const accessibleLocs = locs.filter((loc) => {
-        return loc.accessible === true;
-      });
-      setFilteredLocs(accessibleLocs);
-    } else if (activeFilters.includes("all")) {
-      setFilteredLocs(locs);
-    } else {
-      setFilteredLocs(locs);
-      setLocs(locs);
+      const adaFiltered = locs.filter((loc) => {
+        return loc.accessible
+      })
+      setAccessibleLocs(adaFiltered)
+
+      const unisexFiltered = locs.filter((loc) => {
+        return loc.unisex
+      })
+      setUnisexLocs(unisexFiltered)
+
+      const adaAndUnisexFiltered = locs.filter((loc) => {
+        return loc.unisex && loc.accessible
+      })
+      setAdaAndUnisexLocs(adaAndUnisexFiltered)
     }
-  }
+    // console.log('ada', accessibleLocs)
+    // console.log('unisex', unisexLocs)
+    // console.log('both', adaAndUnisexLocs)
+    console.log('locs', locs)
+  // }
 
   return (
     <div className="App">
@@ -98,7 +83,11 @@ function App() {
             path="/"
             element={
               <Landing
-              updateFilters={updateFilters}
+                adaAndUnisexLocs={adaAndUnisexLocs}
+                accessibleLocs={accessibleLocs}
+                setFilteredLocs={setFilteredLocs}
+                unisexLocs={unisexLocs}
+                updateFilters={updateFilters}
                 updateLocs={updateLocs}
                 locs={locs}
                 filteredLocs={filteredLocs}

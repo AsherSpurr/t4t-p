@@ -1,39 +1,22 @@
 import './Filter.css';
 import { useState } from 'react';
+import { filters } from '../../utils/utils';
 
-const Filter = ({ updateLocs, locs, updateFilters }) => {
-    const [activeFilters, setActiveFilters] = useState([])
-    const [accessible, setAccessible]
+const Filter = ({ name, id, index, locs, setFilteredLocs, accessibleLocs, unisexLocs, adaAndUnisexLocs }) => {
+    // const [activeFilters, setActiveFilters] = useState([])
+
+    const [isChecked, setIsChecked] = useState({'accessible': false, 'unisex': false, 'all': false})
+    // console.log(isChecked.accessible)
 
 
-    const handleChange = (e) => {
-        const filterId = e.target.id
-        console.log('filter is checked', e.target.checked)
-        if(e.target.checked) {
-            setActiveFilters([...activeFilters, filterId])
-        } else {
-            let filtered = activeFilters.filter((filter) => filter !== filterId)
-            setActiveFilters(filtered)
-        }
-       updateFilters(activeFilters)
-    }
-    console.log('Filter active filters', activeFilters)
 
     return (
-        <form className='Filter_div_wrapper' onChange={(e) => handleChange(e)}>
-            {/* <div> */}
-                <input type='checkbox' className='Filter_input' id='accessible'/>
-                <label for='accessible'>accessible</label>
-            {/* </div>
-            <div> */}
-                <input type='checkbox' className='Filter_input' id='unisex'/>
-                <label for='unisex'>Unisex</label>
-            {/* </div>
-            <div> */}
-                <input type='checkbox' className='Filter_input' id='all'/>
-                <label for='all'>All</label>
-            {/* </div>        */}
-        </form>
+      
+                <>
+                    <input type='checkbox' className='Filter_input' name={name} id={id} value={id} checked={isChecked[index]}  onChange={(e) => handleChange(e)}/>
+                    <label for={id}>{id}</label>
+                </>
+     
     )
     //Accessability note/ maybe hot fix? -> buttons should be wrapped in form -> buttonType = checkbox
 }
