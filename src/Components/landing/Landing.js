@@ -12,6 +12,7 @@ const Landing = ({ updateLocs, locs, filteredLocs }) => {
     //use updateLocs in Landing
     const [lat, setLat] = useState('')
     const [lon, setLon] = useState('')
+    const [isLoading, setIsLoading] = useState(true)
     // const [searchParams, setSearchParams] = useSearchParams()
     
     useEffect(() => {
