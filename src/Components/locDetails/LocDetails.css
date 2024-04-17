@@ -48,6 +48,11 @@
     flex-direction: row;
 }
 
+.LocDetails_heading_container {
+    display: flex;
+    justify-content: space-between;
+}
+
 /*Changed added LocDetails_icon_upvote + downvote*/
 .LocDetails_params_icon_container,
 #LocDetails_icon_unisex,

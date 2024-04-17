@@ -2,6 +2,8 @@ import './Card.css';
 import truesvg from '../images/true.svg'
 import falsesvg from '../images/false.svg'
 import distance from '../images/distance-blue.svg'
+import downvotesvg from '../images/thumbs-down.svg'
+import upvotesvg from '../images/thumbs-up.svg'
 import { roundNum } from '../../utils/utils';
 import { useNavigate, useParams } from 'react-router-dom';
 // import LocDetails from '../locDetails/LocDetails';
@@ -23,10 +25,12 @@ const Card = ({ name, uni, access, dist, street, city, state, upvote, downvote, 
                     {locName === name ? 
                     <><div className='LocDetails_heading_container'>
                         <h3 className='LocDetails_h3'>{city} | {state}</h3> 
-                        <img id='LocDetails_icon_upvote' src={truesvg} alt='' height='20px' width='20px'></img>
-                        <p className='LocDetails_p'>{upvote}</p>
-                        <img id='LocDetails_icon_downvote' src={falsesvg} alt='' height='20px' width='20px'></img>
-                        <p className='LocDetails_p'>{downvote}</p>
+                        <div className='LocDetails_icons_container'>
+                            <img id='LocDetails_icon_upvote' src={upvotesvg} alt='' height='20px' width='20px'></img>
+                            <p className='LocDetails_p'>{upvote}</p>
+                            <img id='LocDetails_icon_downvote' src={downvotesvg} alt='' height='20px' width='20px'></img>
+                            <p className='LocDetails_p'>{downvote}</p>
+                        </div>
                         </div></>
                     : <h3 className='Card_h3'>{name}</h3>}
                     <div className={locName === name ? 'LocDetails_icons_container' : 'Card_icons_container'}>
