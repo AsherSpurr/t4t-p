@@ -65,7 +65,7 @@ function App() {
           <Route path='/' element={<Landing updateLocs={updateLocs} locs={locs} filteredLocs={filteredLocs}/>}/>
           <Route path='/About' element={<About />}/>
           <Route path='/*' element={<Error />}/>
-          <Route path='/:locationName' element={<LocDetails />}/>        
+          <Route path='/:locationName' element={<LocDetails filteredLocs={filteredLocs}/>}/>        
         </Routes>
       </main>
     </div>

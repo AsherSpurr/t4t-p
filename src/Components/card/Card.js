@@ -3,6 +3,8 @@ import truesvg from '../images/true.svg'
 import falsesvg from '../images/false.svg'
 import distance from '../images/distance-blue.svg'
 import { roundNum } from '../../utils/utils';
+import { NavLink } from 'react-router-dom';
+import LocDetails from '../locDetails/LocDetails';
 
 const Card = ({ name, uni, access, dist }) => {
 
@@ -10,6 +12,7 @@ const Card = ({ name, uni, access, dist }) => {
 
     return (
         <div className='Card_div_wrapper'>
+            <NavLink to={`/${name}`} >
             <div className='Card_div_container'>
                 <div className='Card_img_container'>
                     <span className='Card_img_placeholder'></span>
@@ -30,6 +33,7 @@ const Card = ({ name, uni, access, dist }) => {
                     </div>
                 </div>
             </div>
+            </NavLink>
         </div>
     )
 }
