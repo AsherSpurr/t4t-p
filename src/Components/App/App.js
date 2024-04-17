@@ -7,44 +7,48 @@ import LocDetails from '../locDetails/LocDetails'
 import { useEffect, useState } from 'react';
 import distance from '../images/distance-blue.svg'
 import { useSearchParams, useLocation } from "react-router-dom";
+import { formatSearchParams } from '../../utils/utils';
 
 function App() {
   const [locs, setLocs] = useState([])
-  const [filteredLocs, setFilteredLocs] = useState(locs)
-  const [searchParams] = useSearchParams()
-  // const location = useLocation()
-  // const query = location.search
-  // let params = new URLSearchParams(window.location.search);
-
-  // console.log('loc', location.pathname)
-  // let query = params.getAll("b");
-  
-  // let params = new URL(document.location.toString()).searchParams;
-  // let query = params.getAll("b");
+  const [filteredLocs, setFilteredLocs] = useState([])
+  const [params, setParams] = useState([])
  
+  // useEffect(() => {
 
-  const queryString = window.location.search;
-  console.log('window', queryString)
-
-  const urlParams = new URLSearchParams(queryString)
-
-  const query = urlParams.getAll('3Fb')
-   console.log('query', query)
-
-  function updateLocs(locs) {
-    // console.log(location.search)
-    // const query = searchParams.get('a')
-      // const query = location.search
-    // if(query !== 'all' && query !== '') {
-    //   const filteredLocs = locs.filter((loc) => {
-    //     return loc[query] === true
-    //   })
-    //   console.log(filteredLocs)
-    //   setFilteredLocs(filteredLocs)
-    // } else {
-      setFilteredLocs(locs)
-      setLocs(locs)
-    // }
+  //   const queryParams = formatSearchParams(window.location.href)
+  //   setParams(queryParams)
+  //   console.log(queryParams)
+  //   // updateLocs(locs)
+    
+  //   }, [filteredLocs])
+    
+    
+    function updateLocs(locs) {
+      const queryParams = formatSearchParams(window.location.href)
+      setParams(queryParams)
+    // console.log(params.includes('unisex'))
+      if(params.includes('unisex') && params.includes('accessible')) {
+        const twoParamLocs = locs.filter((loc) => {
+          return loc.unisex === true && loc.accessible === true
+        })
+        setFilteredLocs(twoParamLocs)
+      } else if(params.includes('unisex')) {
+          const unisexLocs = locs.filter((loc) => {
+            return loc.unisex === true
+          })
+          setFilteredLocs(unisexLocs)
+      } else if(params.includes('accessible')) {
+          const accessibleLocs = locs.filter((loc) => {
+            return loc.accessible === true
+          })
+          setFilteredLocs(accessibleLocs)
+      } else if(params.includes('all')) {
+          setFilteredLocs(locs)
+      } else {
+          setFilteredLocs(locs)
+          setLocs(locs)
+      }
   }
 
   return (

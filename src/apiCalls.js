@@ -13,18 +13,6 @@ function fetchBRsByLoc (lat, lon) {
         throw error
     })
 }
-// const fetchBRsByLoc = async (lat, lon) => {
-//     try {
-//         const response = await fetch(`https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=0&per_page=10&offset=0&lat=${lat}&lng=${lon}`)
-//         if(!response.ok) {
-//             throw new Error('Whoops')
-//         }
-//         return await response.json() 
-//     } 
-//     catch(error) {
-//         throw error
-//     }
-// }
 
 function fetchLatLon (num, street, streetIdent, town, state, key) {
         return fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${num}%20${street}%20${streetIdent}%20${town}%20${state}&key=${key}`)
