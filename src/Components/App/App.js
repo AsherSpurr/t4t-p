@@ -15,7 +15,7 @@ function App() {
   const [adaAndUnisexLocs, setAdaAndUnisexLocs] = useState([]);
 
   const location = useLocation().pathname
-  console.log(location)
+  console.log(filteredLocs)
 
   const updateFilters = (filters) => {
     if (filters.accessible && filters.unisex) {

@@ -1,10 +1,10 @@
 import './Locations.css';
 import Card from '../card/Card'
-import { useContext } from 'react';
-import LoadingContext from '../../LoadingContext';
+// import { useContext } from 'react';
+// import LoadingContext from '../../LoadingContext';
 
 const Locations = ({ filteredLocs }) => {
-    const value = useContext(LoadingContext)
+    // const value = useContext(LoadingContext)
     const cards = filteredLocs.map((loc) => {
         return (
             <Card 
@@ -25,7 +25,7 @@ const Locations = ({ filteredLocs }) => {
         )
     })
     return (
-        <div className={`Locations_div_wrapper ${value}`}>
+        <div className={`Locations_div_wrapper`}>
            {cards}
         </div>
     )
