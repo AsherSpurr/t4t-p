@@ -1,37 +1,96 @@
-import { Routes, Route, NavLink } from 'react-router-dom'
-import './App.css';
-import About from '../about/About'
-import Landing from '../landing/Landing'
-import Error from '../error/Error'
-import LocDetails from '../locDetails/LocDetails'
-import { useState, useCallback } from 'react';
-import distance from '../images/distance-blue.svg'
+import { Routes, Route, NavLink } from "react-router-dom";
+import "./App.css";
+import About from "../about/About";
+import Landing from "../landing/Landing";
+import Error from "../error/Error";
+import LocDetails from "../locDetails/LocDetails";
+import { useState } from "react";
+import distance from "../images/distance-blue.svg";
 
 function App() {
-  const [locs, setLocs] = useState([])
+  const [locs, setLocs] = useState([]);
+  const [filteredLocs, setFilteredLocs] = useState([]);
+  // const [filters, setFilters] = useState([]);
+  const [unisexLocs, setUnisexLocs] = useState([]);
+  const [accessibleLocs, setAccessibleLocs] = useState([]);
+  const [adaAndUnisexLocs, setAdaAndUnisexLocs] = useState([]);
 
-
-  function updateLocs(locs) {
-    if(locs) {
-      setLocs(locs)
+  const updateFilters = (filters) => {
+    if (filters.accessible && filters.unisex) {
+      setFilteredLocs(adaAndUnisexLocs);
     }
-  }
-  console.log(locs)
+    if (filters.accessible) {
+      setFilteredLocs(accessibleLocs);
+    }
+    if (filters.unisex) {
+      setFilteredLocs(unisexLocs);
+    }
+    if (filters.all) {
+      setFilteredLocs(locs);
+    }
+  };
+
+  const updateLocs = (locs) => {
+    setLocs(locs);
+    setFilteredLocs(locs);
+
+    const adaFiltered = locs.filter((loc) => {
+      return loc.accessible;
+    });
+    setAccessibleLocs(adaFiltered);
+
+    const unisexFiltered = locs.filter((loc) => {
+      return loc.unisex;
+    });
+    setUnisexLocs(unisexFiltered);
+
+    const adaAndUnisexFiltered = locs.filter((loc) => {
+      return loc.unisex && loc.accessible;
+    });
+    setAdaAndUnisexLocs(adaAndUnisexFiltered);
+  };
+
   return (
     <div className="App">
       <header className="App_header">
         <nav className="App_nav">
-          <img src={distance} alt=''></img>
-          <NavLink to='/' className='App_navlink_home'><h1>T4Tp</h1></NavLink>
-          <NavLink to='/About' className='App_navlink_about'>About</NavLink>
+          <div className="App_nav_container">
+            <img
+              className="App_logo"
+              src={distance}
+              alt=""
+              height="25px"
+              width="auto"
+            ></img>
+            <NavLink to="/" className="App_navlink_home">
+              <h1>T4Tp</h1>
+            </NavLink>
+          </div>
+          <div className="App_about_container">
+            <NavLink to="/About" className="App_navlink_about">
+              About
+            </NavLink>
+          </div>
         </nav>
       </header>
-      <main className='main'>
+      <main className="main">
         <Routes>
-          <Route path='/' element={<Landing updateLocs={updateLocs} locs={locs}/>}/>
-          <Route path='/About' element={<About />}/>
-          <Route path='/*' element={<Error />}/>
-          <Route path='/:locationName' element={<LocDetails />}/>        
+          <Route
+            path="/"
+            element={
+              <Landing
+                updateFilters={updateFilters}
+                updateLocs={updateLocs}
+                filteredLocs={filteredLocs}
+              />
+            }
+          />
+          <Route path="/About" element={<About />} />
+          <Route path="/*" element={<Error />} />
+          <Route
+            path="/:locationName"
+            element={<LocDetails filteredLocs={filteredLocs} />}
+          />
         </Routes>
       </main>
     </div>

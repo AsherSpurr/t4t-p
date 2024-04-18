@@ -5,15 +5,16 @@
     /* justify-content: space-evenly; */
     /* align-items: left; */
     padding: 10px 0px 20px;
+    position: relative; /* After form change */
 }
 
-.Filter_button {
+.Filter_input {
     border: 1px solid rgba(171, 171, 171, 0.271);
     background-color: white;
     border-radius: 10px;
     margin-right: 10%;
 }
 
-.Filter_button:hover {
+.Filter_input:hover {
     cursor: pointer;
 }

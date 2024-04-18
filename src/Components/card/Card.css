@@ -15,7 +15,9 @@
     border-radius: 10px;
 }
 
-.Card_contents_container {
+.Card_div_container:hover {
+    cursor: pointer;
+    width: 98%;
     padding: 5px;
 }
 
@@ -26,6 +28,11 @@
     background-color: rgba(168, 168, 168, 0.396);
     border-radius: 8px;
 }
+
+.Card_contents_container {
+    padding: 5px;
+}
+
 
 .Card_icons_container, .Card_distance_container, .Card_params_icon_container {
     display: flex;
@@ -47,4 +54,10 @@
 .Card_h3 {
     margin-top: 5px;
     font-size: 1em;
+}
+
+.loading {
+    background-color: rgba(168, 168, 168, 0.088);
+    width: 90%;
+    border-radius: 15px;
 }
