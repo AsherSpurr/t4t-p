@@ -1,7 +1,8 @@
 import "./LocDetails.css";
+import { useParams, Link } from "react-router-dom";
+import PropTypes from 'prop-types'
 import Card from "../card/Card";
 import Map from "../map/Map";
-import { useParams, Link } from "react-router-dom";
 
 const LocDetails = ({ filteredLocs }) => {
   const locName = useParams().locationName;
@@ -19,15 +20,13 @@ const LocDetails = ({ filteredLocs }) => {
            name={loc.name}   
            uni={loc.unisex}
            access={loc.accessible}
-           dist={loc.distance}  
-           street={loc.street}
+           dist={loc.distance} 
            city={loc.city}
            state={loc.state}
            upvote={loc.upvote}
            downvote={loc.downvote}
            directions={loc.directions}
            comment={loc.comment}
-           updatedAt={loc.updated_at}
            key={loc.id} 
           />
         </div>
@@ -39,5 +38,12 @@ const LocDetails = ({ filteredLocs }) => {
     </div>
   );
 };
+
+LocDetails.propTypes = {
+    loc: PropTypes.arrayOf(PropTypes.shape({
+      street: PropTypes.string.isRequired,
+      updated_at: PropTypes.string.isRequired,
+    }))
+}
 
 export default LocDetails;

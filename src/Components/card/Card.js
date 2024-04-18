@@ -1,15 +1,16 @@
 import './Card.css';
+import PropTypes from 'prop-types'
 import { useContext } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { roundNum } from '../../utils/utils';
+import LoadingContext from '../../LoadingContext';
 import truesvg from '../images/true.svg'
 import falsesvg from '../images/false.svg'
 import distance from '../images/distance-blue.svg'
 import downvotesvg from '../images/thumbs-down.svg'
 import upvotesvg from '../images/thumbs-up.svg'
-import { roundNum } from '../../utils/utils';
-import { useNavigate, useParams } from 'react-router-dom';
-import LoadingContext from '../../LoadingContext';
 
-const Card = ({ name, uni, access, dist, street, city, state, upvote, downvote, directions, comment, updatedAt }) => {
+const Card = ({ name, uni, access, dist, city, state, upvote, downvote, directions, comment }) => {
 
     const distRounded = roundNum(dist)
     const locName = useParams().locationName;
@@ -56,6 +57,19 @@ const Card = ({ name, uni, access, dist, street, city, state, upvote, downvote, 
             </div>
         </div>
     )
+}
+
+Card.propTypes = {
+        name: PropTypes.string.isRequired,
+        uni: PropTypes.bool.isRequired,
+        access: PropTypes.bool.isRequired,
+        dist: PropTypes.number.isRequired,
+        city: PropTypes.string.isRequired,
+        state: PropTypes.string.isRequired,
+        upvote: PropTypes.number.isRequired,
+        downvote: PropTypes.number.isRequired,
+        directions: PropTypes.string,
+        comment: PropTypes.string,
 }
 
 export default Card

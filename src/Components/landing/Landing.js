@@ -1,11 +1,12 @@
 import "./Landing.css";
+import PropTypes from 'prop-types'
 import { useState, useEffect } from "react";
+import { fetchBRsByLoc } from "../../apiCalls";
+import LoadingContext from "../../LoadingContext";
 import Search from "../search/Search";
 import Filter from "../filter/Filter";
 import Locations from "../locations/Locations";
 import Map from "../map/Map";
-import { fetchBRsByLoc } from "../../apiCalls";
-import LoadingContext from "../../LoadingContext";
 
 const Landing = ({ updateLocs, filteredLocs, updateFilters,}) => {
   const [lat, setLat] = useState("");
@@ -49,5 +50,11 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters,}) => {
     </LoadingContext.Provider>
   );
 };
+
+Landing.propTypes = {
+  filteredLocs: PropTypes.arrayOf(PropTypes.object),
+  updateLocs: PropTypes.func.isRequired,
+  updateFilters: PropTypes.func.isRequired
+}
 
 export default Landing;

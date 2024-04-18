@@ -1,4 +1,5 @@
 import './Search.css';
+import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { fetchLatLon } from '../../apiCalls';
 import searchsvg from '../images/search.svg'
@@ -38,5 +39,8 @@ const Search = ({ setLatLonState }) => {
     )
 }
 
+Search.propTypes = {
+    setLatLonState: PropTypes.func.isRequired
+  }
 
 export default Search
