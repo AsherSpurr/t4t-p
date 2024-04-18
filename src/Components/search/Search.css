@@ -24,15 +24,12 @@
     width: 40%; /* After form change */
     text-indent: 4%;
     padding: 0;
+    overflow: scroll;
 }
 
 #Input_one {
     border-radius: 10px 0px 0px 10px;
 }
-
-/* #Input_three {
-    border-radius: 0px 10px 10px 0px;
-} */
 
 .Search_button {
     border: none;
@@ -51,3 +48,35 @@
 .Search_button:hover {
     cursor: pointer;
 }
+
+/* Tablet */
+@media screen and (max-width: 760px) {
+/* Input three size not changing */
+    #Input_three {
+      width: 20px; 
+    }
+
+    .Filter_label {
+        font-size: 13px;
+    }
+
+    .Search_input {
+        overflow: scroll;
+    }
+}
+
+/* Large phone */
+@media screen and (max-width: 760px) {
+    /* Input three size not changing */
+        #Input_three {
+          width: 20px; 
+        }
+    
+        .Filter_label {
+            font-size: 13px;
+        }
+    
+        .Search_input {
+            overflow: scroll;
+        }
+    }
