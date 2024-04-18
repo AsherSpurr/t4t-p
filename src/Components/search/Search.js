@@ -1,22 +1,26 @@
 import './Search.css';
 import { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 import { fetchLatLon } from '../../apiCalls';
 import searchsvg from '../images/search.svg'
 
-const Search = ({ setLatLonState }) => {
+const Search = ({ setLatLonState, handleBRsByLoc }) => {
 
     const [street, setStreet] = useState('')
     const [town, setTown] = useState('')
     const [state, setState] = useState('')
-
+    const navigate = useNavigate()
     const key = process.env.REACT_APP_GOOGLE
 
         const fetchLatLonSearch = (e, street, town, state, key) => {
             e.preventDefault()
             fetchLatLon(street, town, state, key)
             .then(data => {
-                if(data) {
+                if(data.status) {
+                handleBRsByLoc(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng);
                 setLatLonState(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng)
+                } else {
+                    navigate('*',{state: {status: '4xx', statusText: 'Not Found'}})
                 }
             })
         }

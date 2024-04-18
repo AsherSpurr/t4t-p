@@ -1,4 +1,4 @@
-import { Routes, Route, NavLink } from "react-router-dom";
+import { Routes, Route, NavLink, useLocation } from "react-router-dom";
 import "./App.css";
 import About from "../about/About";
 import Landing from "../landing/Landing";
@@ -14,6 +14,9 @@ function App() {
   const [unisexLocs, setUnisexLocs] = useState([]);
   const [accessibleLocs, setAccessibleLocs] = useState([]);
   const [adaAndUnisexLocs, setAdaAndUnisexLocs] = useState([]);
+
+  const location = useLocation().pathname
+  console.log(location)
 
   const updateFilters = (filters) => {
     if (filters.accessible && filters.unisex) {
@@ -72,7 +75,7 @@ function App() {
             </NavLink>
           </div>
         </nav>
-      </header>
+      </header> 
       <main className="main">
         <Routes>
           <Route
@@ -86,9 +89,9 @@ function App() {
             }
           />
           <Route path="/About" element={<About />} />
-          <Route path="/*" element={<Error />} />
+          <Route path="*" element={<Error />} />
           <Route
-            path="/:locationName"
+            path="/locations/:locationName"
             element={<LocDetails filteredLocs={filteredLocs} />}
           />
         </Routes>
