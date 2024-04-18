@@ -1,7 +1,4 @@
 
-//Bennett
-// 39.753604
-//-104.428580
 function fetchBRsByLoc (lat, lon) {
     return fetch(`https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=0&per_page=30&offset=0&lat=${lat}&lng=${lon}`)
     .then(response => {
@@ -12,22 +9,23 @@ function fetchBRsByLoc (lat, lon) {
             return response.json()
 
     })
-    .catch(({name, message}) => {
-        console.log(name)
-        console.log(message)
+    .catch(error => {
+       console.log(error)
+       return error
     })
 }
 
 function fetchLatLon ( street, town, state, key) {
-        return fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${street}%20${town}%20${state}&key=${key}`)
+        return fetch(`https://maps.googleapis.com/maps/api/gecode/json?address=${street}%20${town}%20${state}&key=${key}`)
         .then(response => {
             if(!response.ok) {
-                throw new Error('Uh oh')
+                return response
             }
             return response.json()
         })
         .catch(error => {
-            throw error
+            console.log(error)
+            return error
         })
     }
 

@@ -12,10 +12,7 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters,}) => {
   const [lat, setLat] = useState("");
   const [lon, setLon] = useState("");
   const [isLoading, setIsLoading] = useState("loading");
-  const [brError, setBrError] = useState({
-    status: '',
-    statusText: '',
-  })
+
   const navigate = useNavigate()
 
   //Note on useEffect -> can also hand control over fetch to Search and remove useEffect.
