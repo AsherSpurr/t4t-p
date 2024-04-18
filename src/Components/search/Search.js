@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { fetchLatLon } from '../../apiCalls';
 import searchsvg from '../images/search.svg'
 
-const Search = ({ setLatLonState }) => {
+const Search = ({ setLatLonState, handleBRsByLoc }) => {
 
     const [street, setStreet] = useState('')
     const [town, setTown] = useState('')
@@ -16,6 +16,7 @@ const Search = ({ setLatLonState }) => {
             fetchLatLon(street, town, state, key)
             .then(data => {
                 if(data) {
+                handleBRsByLoc(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng);
                 setLatLonState(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng)
                 }
             })

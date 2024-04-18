@@ -86,9 +86,9 @@ function App() {
             }
           />
           <Route path="/About" element={<About />} />
-          <Route path="/*" element={<Error />} />
+          <Route path="*" element={<Error />} />
           <Route
-            path="/:locationName"
+            path="/locations/:locationName"
             element={<LocDetails filteredLocs={filteredLocs} />}
           />
         </Routes>

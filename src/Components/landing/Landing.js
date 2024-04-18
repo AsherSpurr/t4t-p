@@ -1,5 +1,6 @@
 import "./Landing.css";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Search from "../search/Search";
 import Filter from "../filter/Filter";
 import Locations from "../locations/Locations";
@@ -11,22 +12,31 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters,}) => {
   const [lat, setLat] = useState("");
   const [lon, setLon] = useState("");
   const [isLoading, setIsLoading] = useState("loading");
+  const [brError, setBrError] = useState('')
+  const navigate = useNavigate()
 
   //Note on useEffect -> can also hand control over fetch to Search and remove useEffect.
   //This works just as well, it just depends on which makes more sense
-  useEffect(() => {
-    if (lat && lon) {
+  // useEffect(() => {
+  //   if (lat && !brError) {
       const handleBRsByLoc = (lat, lon) => {
         fetchBRsByLoc(lat, lon).then((data) => {
-          if (data) {
+          if (data.ok) {
             setIsLoading("");
             updateLocs(data);
+            console.log('shit')
+          } else {
+            setBrError('There seems to be an issue fetching')
+            navigate('*', {replace: false}, {state: {error: brError}})
           }
-        });
+        })
+        .catch(error => {
+          setBrError(error.message)
+        })
       };
-      handleBRsByLoc(lat, lon);
-    }
-  }, [lat, lon]);
+      // handleBRsByLoc(lat, lon);
+  //   }
+  // }, [lat, lon, brError]);
 
   const setLatLonState = (lat, lon) => {
     setLat(lat);
@@ -38,7 +48,7 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters,}) => {
       <div className="Landing_wrapper">
         <div className="Landing_left_wrapper">
           <h2 className="Landing_h2">Where do you want to 'go'?</h2>
-          <Search setLatLonState={setLatLonState} />
+          <Search setLatLonState={setLatLonState} handleBRsByLoc={handleBRsByLoc} />
           <Filter updateFilters={updateFilters}/>
           <Locations filteredLocs={filteredLocs} isLoading={isLoading} />
         </div>

@@ -18,7 +18,7 @@ const Card = ({ name, uni, access, dist, street, city, state, upvote, downvote, 
 
     return (
             <div className={locName === name ? 'LocDetails_div_wrapper' : 'Card_div_wrapper'}>
-            <div className={locName === name ? 'LocDetails_div_container' : `Card_div_container ${value}`} onClick={() => navigate(`/${name}`)}>
+            <div className={locName === name ? 'LocDetails_div_container' : `Card_div_container ${value}`} onClick={() => navigate(`/home/${name}`)}>
                 <div className={locName === name ? 'LocDetails_img_container' : 'Card_img_container'}>
                     <span className={locName === name ? 'LocDetails_img_placeholder' : 'Card_img_placeholder'}></span>
                 </div>
