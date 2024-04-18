@@ -7,18 +7,18 @@ import downvotesvg from '../images/thumbs-down.svg'
 import upvotesvg from '../images/thumbs-up.svg'
 import { roundNum } from '../../utils/utils';
 import { useNavigate, useParams } from 'react-router-dom';
-import LoadingContext from '../../LoadingContext';
+// import LoadingContext from '../../LoadingContext';
 
 const Card = ({ name, uni, access, dist, street, city, state, upvote, downvote, directions, comment, updatedAt }) => {
 
     const distRounded = roundNum(dist)
     const locName = useParams().locationName;
-    const value = useContext(LoadingContext)
+    // const value = useContext(LoadingContext)
     const navigate = useNavigate()
 
     return (
             <div className={locName === name ? 'LocDetails_div_wrapper' : 'Card_div_wrapper'}>
-            <div className={locName === name ? 'LocDetails_div_container' : `Card_div_container ${value}`} onClick={() => navigate(`/locations/${name}`)}>
+            <div className={locName === name ? 'LocDetails_div_container' : `Card_div_container`} onClick={() => navigate(`/locations/${name}`)}>
                 <div className={locName === name ? 'LocDetails_img_container' : 'Card_img_container'}>
                     <span className={locName === name ? 'LocDetails_img_placeholder' : 'Card_img_placeholder'}></span>
                 </div>
