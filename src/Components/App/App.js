@@ -19,13 +19,13 @@ function App() {
     if (filters.accessible && filters.unisex) {
       setFilteredLocs(adaAndUnisexLocs);
     }
-    if (filters.accessible) {
+     else if (filters.accessible) {
       setFilteredLocs(accessibleLocs);
     }
-    if (filters.unisex) {
+    else if (filters.unisex) {
       setFilteredLocs(unisexLocs);
     }
-    if (filters.all) {
+    else {
       setFilteredLocs(locs);
     }
   };
