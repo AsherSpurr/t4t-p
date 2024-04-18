@@ -1,17 +1,14 @@
 import './Search.css';
 import { useState } from 'react'
-import { useEffect } from 'react';
 import { fetchLatLon } from '../../apiCalls';
 import searchsvg from '../images/search.svg'
 
+const Search = ({ setLatLonState }) => {
 
-const Search = ({ setLatLonState}) => {
-
-    // const [num, setNum] = useState('')
     const [street, setStreet] = useState('')
-    // const [streetIdent, setStreetIdent] = useState('')
     const [town, setTown] = useState('')
     const [state, setState] = useState('')
+
     const key = process.env.REACT_APP_GOOGLE
 
         const fetchLatLonSearch = (e, street, town, state, key) => {
@@ -19,7 +16,6 @@ const Search = ({ setLatLonState}) => {
             fetchLatLon(street, town, state, key)
             .then(data => {
                 if(data) {
-                    // console.log(data)
                 setLatLonState(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng)
                 }
             })
