@@ -28,7 +28,7 @@ const Filter = ({ updateFilters }) => {
         value={activeFilters.accessible}
         onChange={handleForm}
       />
-      <label for="accessible">Accessible</label>
+      <label className='Filter_label' for="accessible">Accessible</label>
       {/* </div>
             <div> */}
       <input
@@ -39,7 +39,7 @@ const Filter = ({ updateFilters }) => {
         value={activeFilters.unisex}
         onChange={handleForm}
       />
-      <label for="unisex">Unisex</label>
+      <label className='Filter_label' for="unisex">Unisex</label>
       {/* </div>
             <div> */}
       <input
@@ -50,12 +50,11 @@ const Filter = ({ updateFilters }) => {
         value={activeFilters.all}
         onChange={handleForm}
       />
-      <label for="all">All</label>
+      <label className='Filter_label' for="all">All</label>
       {/* </div>        */}
-      <button onClick={(e) => handleSubmit(e, activeFilters)}></button>
+      <button className='Filter_button' onClick={(e) => handleSubmit(e, activeFilters)}>Filter</button>
     </form>
   );
-  //Accessability note/ maybe hot fix? -> buttons should be wrapped in form -> buttonType = checkbox
 };
 
 export default Filter;

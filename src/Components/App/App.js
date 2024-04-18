@@ -10,7 +10,6 @@ import distance from "../images/distance-blue.svg";
 function App() {
   const [locs, setLocs] = useState([]);
   const [filteredLocs, setFilteredLocs] = useState([]);
-  // const [filters, setFilters] = useState([]);
   const [unisexLocs, setUnisexLocs] = useState([]);
   const [accessibleLocs, setAccessibleLocs] = useState([]);
   const [adaAndUnisexLocs, setAdaAndUnisexLocs] = useState([]);
