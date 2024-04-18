@@ -16,7 +16,7 @@ function fetchBRsByLoc (lat, lon) {
 }
 
 function fetchLatLon ( street, town, state, key) {
-        return fetch(`https://maps.googleapis.com/maps/api/gecode/json?address=${street}%20${town}%20${state}&key=${key}`)
+        return fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${street}%20${town}%20${state}&key=${key}`)
         .then(response => {
             if(!response.ok) {
                 return response
