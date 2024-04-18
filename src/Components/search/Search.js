@@ -2,7 +2,8 @@ import './Search.css';
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { fetchLatLon } from '../../apiCalls';
-import searchsvg from '../images/search.svg'
+import searchsvg from '../images/search-dark-purple.svg'
+// import searchsvg from '../images/search-light-purple (1).svg'
 
 const Search = ({ setLatLonState }) => {
 

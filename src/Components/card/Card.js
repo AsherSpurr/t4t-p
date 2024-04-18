@@ -1,8 +1,8 @@
 import './Card.css';
-// import { useContext } from 'react';
-import truesvg from '../images/true.svg'
-import falsesvg from '../images/false.svg'
-import distance from '../images/distance-blue.svg'
+import { useContext } from 'react';
+import truesvg from '../images/true-muted2.svg'
+import falsesvg from '../images/false-dark-coral.svg'
+import distance from '../images/distance-dark-purple.svg'
 import downvotesvg from '../images/thumbs-down.svg'
 import upvotesvg from '../images/thumbs-up.svg'
 import { roundNum } from '../../utils/utils';
