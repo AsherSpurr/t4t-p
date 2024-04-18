@@ -12,7 +12,10 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters,}) => {
   const [lat, setLat] = useState("");
   const [lon, setLon] = useState("");
   const [isLoading, setIsLoading] = useState("loading");
-  const [brError, setBrError] = useState('')
+  const [brError, setBrError] = useState({
+    status: '',
+    statusText: '',
+  })
   const navigate = useNavigate()
 
   //Note on useEffect -> can also hand control over fetch to Search and remove useEffect.
@@ -21,22 +24,26 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters,}) => {
   //   if (lat && !brError) {
       const handleBRsByLoc = (lat, lon) => {
         fetchBRsByLoc(lat, lon).then((data) => {
-          if (data.ok) {
+          if (data.length) {
             setIsLoading("");
             updateLocs(data);
-            console.log('shit')
           } else {
-            setBrError('There seems to be an issue fetching')
-            navigate('*', {replace: false}, {state: {error: brError}})
+            console.log(data)
+            const {status, statusText} = data
+            navigate('*',{state: {status: status, statusText: statusText}})
           }
         })
-        .catch(error => {
-          setBrError(error.message)
-        })
+        // .catch(error => {
+        //   const {message, status} = error
+        //   navigate('*',{state: {status: status, message: message}})
+        // })
       };
+      // console.log(brError)
       // handleBRsByLoc(lat, lon);
   //   }
   // }, [lat, lon, brError]);
+
+// console.log(lat, lon)
 
   const setLatLonState = (lat, lon) => {
     setLat(lat);

@@ -16,6 +16,7 @@ const Search = ({ setLatLonState, handleBRsByLoc }) => {
             fetchLatLon(street, town, state, key)
             .then(data => {
                 if(data) {
+                    // console.log(data)
                 handleBRsByLoc(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng);
                 setLatLonState(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng)
                 }
