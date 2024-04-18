@@ -15,32 +15,31 @@ describe('landing page form', () => {
       fixture: 'bennett'
     }).as('getBennett')
     cy.visit('http://localhost:3000/')
-    // cy.wait('@getBennett')
-    // cy.wait('@getBathrooms')
   })
 
   it('should type into the form and show list of locations', () => {
-    //Test type into form
+    //Test type into form and form submit
     cy.get('form')
     .get(`input[name='street']`).type('44301EIlifftrail').should('have.value', '44301EIlifftrail')
     .get(`input[name='town']`).type('Bennett').should('have.value', 'Bennett')
     .get(`input[name='state']`).type('CO').should('have.value', 'CO')
     .get('.Search_button').click()
 
-    //Test that locations display after click
-    cy.wait('@getBathrooms')
-    .get('.Locations_div_wrapper').children().should('have.length', '30')
-    .get('.Card_div_container').first().contains('Subway')
-    .get('.Card_div_container').last().contains('insert name of location')
-  })
-  //Move into own describe block
-  it('should navigate to the location details page and show contents when card is clicked', () => {
-    //Test click from landing page
-    //Test URL
-    //Test contents
-    //Test any interactive elements
-    //Test click back to home
-    //Confirm home URL
+    //Test that list of locations display after click
+    cy.wait('@getBathrooms') //Bathroom API takes a while to load
+    .get('.Locations_div_wrapper').children().should('have.length', '10')
+    .get('.Card_div_container').first().contains('h3', 'Subway')
+    .get('.Card_contents_container').first().within(() => {
+      cy.get('img').first().should('have.attr', 'src').should('include','/static/media/distance-blue')
+      .get('#Card_icon_unisex').should('have.attr', 'src').should('include','/static/media/false')
+      // .get('#card_icon_accessible').last().should('have.attr', 'src').should('include','/static/media/true')
+    })
+    .get('.Card_div_container').last().contains('h3','Denver International Airport')
+    .get('.Card_div_container').last().within(() => {
+      cy.get('img').first().should('have.attr', 'src').should('include','/static/media/distance-blue')
+      .get('#Card_icon_unisex').should('have.attr', 'src').should('include','/static/media/true')
+     // .get('#card_icon_accessible').last().should('have.attr', 'src').should('include','/static/media/true')
+    })
   })
 
 })

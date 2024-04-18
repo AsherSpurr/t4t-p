@@ -42,7 +42,7 @@ const Card = ({ name, uni, access, dist, street, city, state, upvote, downvote, 
                         <div className={locName === name ? 'LocDetails_params_icon_container' : 'Card_params_icon_container'}>
                             {uni ? <img id={locName === name ? 'LocDetails_icon_unisex' : 'Card_icon_unisex'} src={truesvg} alt='' height='20px' width='20px'></img> : <img id='Card_icon_unisex' src={falsesvg} alt='' height='20px' width='20px'></img>}
                             <p className={locName === name ? 'LocDetails_p' : 'Card_p'}>Unisex</p>
-                            {access ? <img id={locName === name ? 'LocDetails_icon_accessible' : 'Card_icon_unisex'} src={truesvg} alt='' height='20px' width='20px'></img> : <img id='Card_icon_unisex' src={falsesvg} alt='' height='20px' width='20px'></img>}
+                            {access ? <img id={locName === name ? 'LocDetails_icon_accessible' : 'Card_accessible_unisex'} src={truesvg} alt='' height='20px' width='20px'></img> : <img id='Card_icon_unisex' src={falsesvg} alt='' height='20px' width='20px'></img>}
                             <p className={locName === name ? 'LocDetails_p' : 'Card_p'}>Accessible</p>
                         </div>
                     </div>
