@@ -6,23 +6,8 @@ import Locations from "../locations/Locations";
 import Map from "../map/Map";
 import { fetchBRsByLoc } from "../../apiCalls";
 import LoadingContext from "../../LoadingContext";
-import { filters } from "../../utils/utils";
 
-const Landing = ({
-  updateLocs,
-  locs,
-  filteredLocs,
-  activeFilters,
-  updateFilters,
-  filter,
-  setFilteredLocs,
-  accessibleLocs,
-  unisexLocs,
-  adaAndUnisexLocs,
-  setFilters
-}) => {
-  //Handle fetch of actual bathrooms here
-  //use updateLocs in Landing
+const Landing = ({ updateLocs, filteredLocs, updateFilters,}) => {
   const [lat, setLat] = useState("");
   const [lon, setLon] = useState("");
   const [isLoading, setIsLoading] = useState("loading");
@@ -30,7 +15,7 @@ const Landing = ({
   //Note on useEffect -> can also hand control over fetch to Search and remove useEffect.
   //This works just as well, it just depends on which makes more sense
   useEffect(() => {
-    if (lat) {
+    if (lat && lon) {
       const handleBRsByLoc = (lat, lon) => {
         fetchBRsByLoc(lat, lon).then((data) => {
           if (data) {
@@ -43,11 +28,10 @@ const Landing = ({
     }
   }, [lat, lon]);
 
-  function setLatLonState(lat, lon) {
+  const setLatLonState = (lat, lon) => {
     setLat(lat);
     setLon(lon);
   }
-
 
   return (
     <LoadingContext.Provider value={isLoading}>
@@ -55,14 +39,7 @@ const Landing = ({
         <div className="Landing_left_wrapper">
           <h2 className="Landing_h2">Where do you want to 'go'?</h2>
           <Search setLatLonState={setLatLonState} />
-          <Filter updateLocs={updateLocs} setFilters={setFilters}
-    locs={locs}
-    updateFilters={updateFilters}
-    filter={filter}
-    adaAndUnisexLocs={adaAndUnisexLocs}
-    accessibleLocs={accessibleLocs}
-    setFilteredLocs={setFilteredLocs}
-    unisexLocs={unisexLocs} />
+          <Filter updateFilters={updateFilters}/>
           <Locations filteredLocs={filteredLocs} isLoading={isLoading} />
         </div>
         <div className="Landing_map_wrapper">

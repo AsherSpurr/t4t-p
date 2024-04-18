@@ -1,11 +1,9 @@
 import './Search.css';
 import { useState } from 'react'
-import { useEffect } from 'react';
 import { fetchLatLon } from '../../apiCalls';
 import searchsvg from '../images/search.svg'
 
-
-const Search = ({setLatLonState }) => {
+const Search = ({ setLatLonState }) => {
 
     const [street, setStreet] = useState('')
     const [town, setTown] = useState('')

@@ -3,7 +3,7 @@ import Card from '../card/Card'
 import { useContext } from 'react';
 import LoadingContext from '../../LoadingContext';
 
-const Locations = ({ filteredLocs, isLoading }) => {
+const Locations = ({ filteredLocs }) => {
     const value = useContext(LoadingContext)
     const cards = filteredLocs.map((loc) => {
         return (
