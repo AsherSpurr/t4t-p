@@ -19,6 +19,7 @@ const Landing = ({
   accessibleLocs,
   unisexLocs,
   adaAndUnisexLocs,
+  setFilters
 }) => {
   //Handle fetch of actual bathrooms here
   //use updateLocs in Landing
@@ -34,7 +35,7 @@ const Landing = ({
         fetchBRsByLoc(lat, lon).then((data) => {
           if (data) {
             setIsLoading("");
-            updateLocs(data, activeFilters);
+            updateLocs(data);
           }
         });
       };
@@ -47,25 +48,6 @@ const Landing = ({
     setLon(lon);
   }
 
-  const inputs = filters.map((filter) => {
-    console.log(filter)
-    return (
-      <Filter
-      index={filters.indexOf(filter)}
-        name={filter.name}
-        id={filter.id}
-        key={filter.id}
-        updateLocs={updateLocs}
-        locs={locs}
-        updateFilters={updateFilters}
-        filter={filter}
-        adaAndUnisexLocs={adaAndUnisexLocs}
-        accessibleLocs={accessibleLocs}
-        setFilteredLocs={setFilteredLocs}
-        unisexLocs={unisexLocs}
-      />
-    );
-  });
 
   return (
     <LoadingContext.Provider value={isLoading}>
@@ -73,9 +55,14 @@ const Landing = ({
         <div className="Landing_left_wrapper">
           <h2 className="Landing_h2">Where do you want to 'go'?</h2>
           <Search setLatLonState={setLatLonState} />
-          <form className='Filter_div_wrapper'>
-            {inputs}
-            </form>
+          <Filter updateLocs={updateLocs} setFilters={setFilters}
+    locs={locs}
+    updateFilters={updateFilters}
+    filter={filter}
+    adaAndUnisexLocs={adaAndUnisexLocs}
+    accessibleLocs={accessibleLocs}
+    setFilteredLocs={setFilteredLocs}
+    unisexLocs={unisexLocs} />
           <Locations filteredLocs={filteredLocs} isLoading={isLoading} />
         </div>
         <div className="Landing_map_wrapper">
