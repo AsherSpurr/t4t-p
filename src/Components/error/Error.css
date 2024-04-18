@@ -1,0 +1,20 @@
+.Error_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(61, 61, 78, 0.181);
+    height: 90vh;
+}
+
+.Error_h2 {
+    font-size: 200px;
+    color: rgba(61, 61, 78, 0.408);
+    margin: 0px;
+}
+
+.square {
+    height: 600px;
+    width: 600px;
+    background-color: black;
+    position: relative;
+}

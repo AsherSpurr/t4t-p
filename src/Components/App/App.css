@@ -1,3 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
 .App {
   min-height: 100vh;
   min-width: 100vw;
@@ -15,7 +23,7 @@
 }
 
 .main {
-  height: 100vh;
+  height: 100%;
 }
 
 .App_nav {
