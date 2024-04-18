@@ -5,7 +5,7 @@ import Landing from "../landing/Landing";
 import Error from "../error/Error";
 import LocDetails from "../locDetails/LocDetails";
 import { useState } from "react";
-import distance from "../images/distance-blue.svg";
+import distance from "../images/distance-dark-coral.svg";
 
 function App() {
   const [locs, setLocs] = useState([]);

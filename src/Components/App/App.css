@@ -35,13 +35,13 @@ html, body {
 }
 
  .App_navlink_home {
-  color: rgb(21,125,255);
+  color: #F46D57;
   text-decoration: none;
   font-size: smaller;
 }
 
 .App_navlink_home:hover {
-  color: rgb(14, 74, 147);
+  color: #F89A83;
 }
 
 .App_navlink_about {
@@ -51,7 +51,7 @@ html, body {
 }
 
 .App_navlink_about:hover {
-  color: rgb(21,125,255);
+  color: #F46D57;
   font-weight: 600;
 }
 
