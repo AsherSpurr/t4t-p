@@ -35,7 +35,7 @@ console.log(loc)
       </div>
         <Link to='/'>Go Back</Link>
       <div className="Landing_map_wrapper">
-        <GoogleMap singlePosition={position}/>
+        <GoogleMap singlePosition={position} singleZoom={16}/>
       </div>
     </div>
   );

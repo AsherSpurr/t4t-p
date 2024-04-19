@@ -50,7 +50,10 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters }) => {
   // const { isLoaded } = useLoadScript({
   //   googleMapsApiKey: process.env.REACT_APP_GOOGLE,
   // });
-const position = {lat: 61.2176, lng: -149.8997}
+  const numLat = Number(latS)
+  const numLon = Number(lonS)
+  // const defaultPosition = {lat: 0, lon: 0}
+  const position = {lat: numLat, lng: numLon}
 
   return (
     <LoadingContext.Provider value={isLoading}>
