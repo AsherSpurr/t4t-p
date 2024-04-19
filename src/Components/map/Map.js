@@ -1,9 +1,10 @@
 import './Map.css';
 import placeholder from '../images/placeholder-gray2.svg'
 import { Loader } from "@googlemaps/js-api-loader"
+import {APIProvider, Map, Marker} from '@vis.gl/react-google-maps';
 
 
-const Map = ({ mapContainerClassName, center, zoom} ) => {
+const GoogleMap = ({ position} ) => {
     
 // const initMaps = (locations) => {
 //     const loader = new Loader({
@@ -21,10 +22,12 @@ const Map = ({ mapContainerClassName, center, zoom} ) => {
 //       });
 // } 
     return (
-        <div className={mapContainerClassName} center={center} zoom={zoom}>
-            <img className='Map_img' src={placeholder} alt=''></img>
-        </div>
+        <APIProvider apiKey={process.env.REACT_APP_GOOGLE}>
+        <Map center={position} zoom={10} className='Map_div_wrapper'>
+          <Marker position={position} />
+        </Map>
+      </APIProvider>
     )
 }
 
-export default Map
+export default GoogleMap

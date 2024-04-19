@@ -4,14 +4,15 @@
     height: 80%;
     display: flex;
     justify-content: center;
+    border-radius: 15px;
     /* align-items: center; */
 }
 
-.Map_img {
+/* .Map_img {
     position: absolute;
     height: auto;
     width: 85%;
-}
+} */
 
 /* Large Phone */
 @media screen and (max-width: 618px) {
