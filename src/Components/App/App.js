@@ -4,8 +4,9 @@ import About from "../about/About";
 import Landing from "../landing/Landing";
 import Error from "../error/Error";
 import LocDetails from "../locDetails/LocDetails";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import distance from "../images/distance-dark-coral.svg";
+
 
 function App() {
   const [locs, setLocs] = useState([]);
@@ -14,7 +15,7 @@ function App() {
   const [accessibleLocs, setAccessibleLocs] = useState([]);
   const [adaAndUnisexLocs, setAdaAndUnisexLocs] = useState([]);
 
-  const location = useLocation().pathname
+  // const location = useLocation().pathname
   console.log(filteredLocs)
 
   const updateFilters = (filters) => {

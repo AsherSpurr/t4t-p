@@ -1,14 +1,16 @@
 import "./Landing.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import Search from "../search/Search";
 import Filter from "../filter/Filter";
 import Locations from "../locations/Locations";
-import Map from "../map/Map";
+// import Map from "../map/Map";
 import { fetchBRsByLoc } from "../../apiCalls";
 import LoadingContext from "../../LoadingContext";
+// import { useLoadScript, GoogleMap, GoogleMapsMarkerClusterer, Marker } from '@react-google-maps/api';
+import {APIProvider, Map, Marker} from '@vis.gl/react-google-maps';
 
-const Landing = ({ updateLocs, filteredLocs, updateFilters,}) => {
+const Landing = ({ updateLocs, filteredLocs, updateFilters, mapContainerClassName, center, zoom}) => {
   const [lat, setLat] = useState("");
   const [lon, setLon] = useState("");
   const [isLoading, setIsLoading] = useState("loading");
@@ -43,6 +45,12 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters,}) => {
     setLat(latS);
     setLon(lonS);
   }
+// console.log(latS)
+  // const { isLoaded } = useLoadScript({
+  //   googleMapsApiKey: process.env.REACT_APP_GOOGLE,
+  // });
+  // const position = useMemo(() => ({ lat: latS, lng: lonS}), []);
+const position = {lat: 61.2176, lng: -149.8997}
 
   return (
     <LoadingContext.Provider value={isLoading}>
@@ -54,7 +62,15 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters,}) => {
           <Locations filteredLocs={filteredLocs} isLoading={isLoading} />
         </div>
         <div className="Landing_map_wrapper">
-          <Map />
+        {/* {!isLoaded ? (
+        <h1>Loading...</h1>
+        ) : ( */}
+          <APIProvider apiKey={process.env.REACT_APP_GOOGLE}>
+          <Map center={position} zoom={10}>
+            <Marker position={position} />
+          </Map>
+        </APIProvider>
+        {/* )} */}
         </div>
       </div>
     </LoadingContext.Provider>
