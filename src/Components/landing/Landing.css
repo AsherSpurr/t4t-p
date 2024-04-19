@@ -5,12 +5,12 @@
 }
 
 .Landing_map_wrapper {
-    width: 45%;
+    width: 50%;
     padding-right: 5%;
     height: 100%;
     position: absolute;
     left: 50%;
-    top: 15%; /*Need to adjust nav/header/h2 to percent so we can match that in container -> minimize window on x-axis to see what I mean*/
+    top: 15%; 
     bottom: 0px;
 }
 

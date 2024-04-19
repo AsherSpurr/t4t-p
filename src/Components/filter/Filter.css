@@ -1,18 +1,13 @@
 .Filter_div_wrapper {
-    /* border: 1px solid orange; */
     min-width: 100%;
     display: flex;
-    /* justify-content: space-evenly; */
     align-items: center;
     padding: 10px 0px 20px;
 }
 
 .Filter_input {
-    /* border: 1px solid rgba(171, 171, 171, 0.073); */
     background-color: white;
     border-radius: 10px;
-    /* font-size: 50px; */
-    /* margin-right: 5px; */
 }
 
 .Filter_input:hover {

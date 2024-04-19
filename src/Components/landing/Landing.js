@@ -1,20 +1,23 @@
 import "./Landing.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import Search from "../search/Search";
 import Filter from "../filter/Filter";
 import Locations from "../locations/Locations";
-import Map from "../map/Map";
+import GoogleMap from "../map/Map";
 import { fetchBRsByLoc } from "../../apiCalls";
 import LoadingContext from "../../LoadingContext";
 
-const Landing = ({ updateLocs, filteredLocs, updateFilters,}) => {
+const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates }) => {
   const [lat, setLat] = useState("");
   const [lon, setLon] = useState("");
   const [isLoading, setIsLoading] = useState("loading");
-
+  
   const latS = JSON.parse(sessionStorage.getItem('lat'))
   const lonS = JSON.parse(sessionStorage.getItem('lon'))
+  const numLat = Number(latS)
+  const numLon = Number(lonS)
+  const position = {lat: numLat, lng: numLon}
 
   const navigate = useNavigate()
 
@@ -44,6 +47,7 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters,}) => {
     setLon(lonS);
   }
 
+
   return (
     <LoadingContext.Provider value={isLoading}>
       <div className="Landing_wrapper">
@@ -54,7 +58,7 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters,}) => {
           <Locations filteredLocs={filteredLocs} isLoading={isLoading} />
         </div>
         <div className="Landing_map_wrapper">
-          <Map />
+        <GoogleMap position={position} allLocsCoordinates={allLocsCoordinates}/>
         </div>
       </div>
     </LoadingContext.Provider>

@@ -1,4 +1,4 @@
-import { Routes, Route, NavLink, useLocation } from "react-router-dom";
+import { Routes, Route, NavLink } from "react-router-dom";
 import "./App.css";
 import About from "../about/About";
 import Landing from "../landing/Landing";
@@ -14,20 +14,14 @@ function App() {
   const [accessibleLocs, setAccessibleLocs] = useState([]);
   const [adaAndUnisexLocs, setAdaAndUnisexLocs] = useState([]);
 
-  const location = useLocation().pathname
-  console.log(filteredLocs)
-
   const updateFilters = (filters) => {
     if (filters.accessible && filters.unisex) {
       setFilteredLocs(adaAndUnisexLocs);
-    }
-     else if (filters.accessible) {
+    } else if (filters.accessible) {
       setFilteredLocs(accessibleLocs);
-    }
-    else if (filters.unisex) {
+    } else if (filters.unisex) {
       setFilteredLocs(unisexLocs);
-    }
-    else {
+    } else {
       setFilteredLocs(locs);
     }
   };
@@ -52,6 +46,14 @@ function App() {
     setAdaAndUnisexLocs(adaAndUnisexFiltered);
   };
 
+  const allLocsCoordinates = locs.reduce((acc, loc) => {
+    acc.push({
+      lat: loc.latitude,
+      lng: loc.longitude,
+    });
+    return acc;
+  }, []);
+
   return (
     <div className="App">
       <header className="App_header">
@@ -74,7 +76,7 @@ function App() {
             </NavLink>
           </div>
         </nav>
-      </header> 
+      </header>
       <main className="main">
         <Routes>
           <Route
@@ -84,6 +86,7 @@ function App() {
                 updateFilters={updateFilters}
                 updateLocs={updateLocs}
                 filteredLocs={filteredLocs}
+                allLocsCoordinates={allLocsCoordinates}
               />
             }
           />
