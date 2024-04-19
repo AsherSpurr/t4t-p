@@ -11,7 +11,7 @@ import LoadingContext from "../../LoadingContext";
 // import {APIProvider, Map, Marker} from '@vis.gl/react-google-maps';
 // import { GoogleMap } from "@react-google-maps/api";
 
-const Landing = ({ updateLocs, filteredLocs, updateFilters }) => {
+const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates }) => {
   const [lat, setLat] = useState("");
   const [lon, setLon] = useState("");
   const [isLoading, setIsLoading] = useState("loading");
@@ -50,6 +50,7 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters }) => {
   // const { isLoaded } = useLoadScript({
   //   googleMapsApiKey: process.env.REACT_APP_GOOGLE,
   // });
+
   const numLat = Number(latS)
   const numLon = Number(lonS)
   // const defaultPosition = {lat: 0, lon: 0}
@@ -68,7 +69,7 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters }) => {
         {/* {!isLoaded ? (
         <h1>Loading...</h1>
         ) : ( )}*/}
-        <GoogleMap position={position}/>
+        <GoogleMap position={position} allLocsCoordinates={allLocsCoordinates}/>
         </div>
       </div>
     </LoadingContext.Provider>

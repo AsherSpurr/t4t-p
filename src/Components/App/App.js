@@ -15,9 +15,6 @@ function App() {
   const [accessibleLocs, setAccessibleLocs] = useState([]);
   const [adaAndUnisexLocs, setAdaAndUnisexLocs] = useState([]);
 
-  // const location = useLocation().pathname
-  console.log(filteredLocs)
-
   const updateFilters = (filters) => {
     if (filters.accessible && filters.unisex) {
       setFilteredLocs(adaAndUnisexLocs);
@@ -53,6 +50,14 @@ function App() {
     setAdaAndUnisexLocs(adaAndUnisexFiltered);
   };
 
+  const allLocsCoordinates = locs.reduce((acc, loc) => {
+    acc.push({
+      lat: loc.latitude,
+      lng: loc.longitude
+    })
+    return acc
+  }, [])
+
   return (
     <div className="App">
       <header className="App_header">
@@ -85,6 +90,7 @@ function App() {
                 updateFilters={updateFilters}
                 updateLocs={updateLocs}
                 filteredLocs={filteredLocs}
+                allLocsCoordinates={allLocsCoordinates}
               />
             }
           />
