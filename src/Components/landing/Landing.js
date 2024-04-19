@@ -51,15 +51,15 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates }
   return (
     <LoadingContext.Provider value={isLoading}>
       <div className="Landing_wrapper">
-        <div className="Landing_left_wrapper">
+        <section className="Landing_left_wrapper">
           <h2 className="Landing_h2">Where do you want to 'go'?</h2>
           <Search setLatLonState={setLatLonState}/>
           <Filter updateFilters={updateFilters}/>
           <Locations filteredLocs={filteredLocs} isLoading={isLoading} />
-        </div>
-        <div className="Landing_map_wrapper">
+        </section>
+        <section className="Landing_map_wrapper">
         <GoogleMap position={position} allLocsCoordinates={allLocsCoordinates}/>
-        </div>
+        </section>
       </div>
     </LoadingContext.Provider>
   );

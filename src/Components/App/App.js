@@ -62,7 +62,7 @@ function App() {
             <img
               className="App_logo"
               src={distance}
-              alt=""
+              alt="Blue location pin"
               height="25px"
               width="auto"
             ></img>

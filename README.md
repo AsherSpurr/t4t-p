@@ -18,6 +18,7 @@
 </div>
 <p align="center">Technologies Used</p>
 <div align="center">
+  <img src="https://img.shields.io/badge/JavaScript-EAD54C?logo=javascript&logoColor=white"&style=flat-square" />
   <img src="https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=000&style=for-the-badge" alt="react badge">
   <img src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=fff&style=for-the-badge" alt="html badge">
   <img src="https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=fff&style=for-the-badge" alt="css badge">
@@ -51,7 +52,10 @@
 - Run the following on the command line to open Cypress: `npm run cypress` or `npx cypress open`
 - Click `E2E Testing`, then `Start E2E Testing` in the desired browser
 - Select `dashboard_spec` to run all tests
-
+## Future Features/Improvements
+  1. Refactor media queries to include view options, toggling from list and map view.
+  2. Incorporate Google's Places API to provide further service and convenience for users
+  3. Re-try using query parameters to filter in real time. This was almost achieved but in the interest of time for submission had to pivot away.
 ## Context:
 <!-- wins, challenges, time spent, goals, approaches etc -->
 - Goals
@@ -66,13 +70,6 @@
   ```
 
   ```
-<!--
-- Future Features
-  ```
-  1. Incorporate Google's Maps SDK (gray boxes are filler in anticipation of this addition)
-  2. Incorporate Google's Places API to provide further service and convenience for users
-  3. Refactor media queries to include view options, toggling from list and map view.
-  4. Re-try using query parameters to filter in real-time. This was almost achieved but in the interest of time for submission had to pivot away.
-  ```
--->
+
+
 
