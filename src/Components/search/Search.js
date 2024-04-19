@@ -82,3 +82,4 @@ const Search = ({ setLatLonState }) => {
 };
 
 export default Search;
+
