@@ -49,34 +49,44 @@
     cursor: pointer;
 }
 
-/* Tablet */
-@media screen and (max-width: 760px) {
-/* Input three size not changing */
-    #Input_three {
-      width: 20px; 
+@media screen and (max-width: 899px){
+       #Input_three {
+      width: 20%; 
     }
 
+    #Input_two {
+        width: 25%;
+    }
+}
+
+/* Tablet */
+@media screen and (max-width: 760px) {
     .Filter_label {
         font-size: 13px;
     }
+}
 
-    .Search_input {
-        overflow: scroll;
+@media screen and (max-width: 620px){
+    #Input_one {
+        width: 60%;
     }
 }
 
 /* Large phone */
-@media screen and (max-width: 760px) {
-    /* Input three size not changing */
-        #Input_three {
-          width: 20px; 
+@media screen and (max-width: 430px) {
+        .Search_input {
+          width: 40%; 
         }
     
         .Filter_label {
             font-size: 13px;
         }
     
-        .Search_input {
+        .Search_form {
             overflow: scroll;
+        }
+
+        .Search_div_container {
+            position: sticky;
         }
     }

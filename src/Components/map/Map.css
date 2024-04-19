@@ -12,3 +12,12 @@
     height: auto;
     width: 85%;
 }
+
+/* Large Phone */
+@media screen and (max-width: 618px) {
+    .Map_img {
+        display: none;
+    }
+    
+
+}
