@@ -4,7 +4,7 @@ import { Loader } from "@googlemaps/js-api-loader"
 import {APIProvider, Map, Marker} from '@vis.gl/react-google-maps';
 
 
-const GoogleMap = ({ position} ) => {
+const GoogleMap = ({ position, singlePosition } ) => {
     
 // const initMaps = (locations) => {
 //     const loader = new Loader({
@@ -23,7 +23,7 @@ const GoogleMap = ({ position} ) => {
 // } 
     return (
         <APIProvider apiKey={process.env.REACT_APP_GOOGLE}>
-        <Map center={position} zoom={10} className='Map_div_wrapper'>
+        <Map defaultCenter={position} center={singlePosition} zoom={10} className='Map_div_wrapper'>
           <Marker position={position} />
         </Map>
       </APIProvider>

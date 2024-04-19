@@ -1,6 +1,6 @@
 import "./LocDetails.css";
 import Card from "../card/Card";
-import Map from "../map/Map";
+import GoogleMap from "../map/Map";
 import { useParams, Link } from "react-router-dom";
 
 const LocDetails = ({ filteredLocs }) => {
@@ -8,7 +8,8 @@ const LocDetails = ({ filteredLocs }) => {
   const loc = filteredLocs.find((loc) => {
     return loc.name === locName;
   });
-
+  const position = {lat: loc.latitude, lng: loc.longitude}
+console.log(loc)
   return (
     <div className="LocDetails_wrapper">
       <div className="LocDetails_left_wrapper">
@@ -34,7 +35,7 @@ const LocDetails = ({ filteredLocs }) => {
       </div>
         <Link to='/'>Go Back</Link>
       <div className="Landing_map_wrapper">
-        <Map />
+        <GoogleMap singlePosition={position}/>
       </div>
     </div>
   );
