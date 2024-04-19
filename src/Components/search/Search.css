@@ -22,7 +22,7 @@
     overflow: scroll;
 }
 
-#Input_one {
+#Input_street {
     border-radius: 10px 0px 0px 10px;
 }
 
@@ -45,11 +45,11 @@
 }
 
 @media screen and (max-width: 899px){
-       #Input_three {
+    #Input_state {
       width: 20%; 
     }
 
-    #Input_two {
+    #Input_town {
         width: 25%;
     }
 }

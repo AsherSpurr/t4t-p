@@ -33,8 +33,8 @@ const LocDetails = ({ filteredLocs }) => {
            key={loc.id} 
           />
         </div>
+        <Link className='LocDetails_home_button' to='/'>Go Back</Link>
       </div>
-        <Link to='/'>Go Back</Link>
       <div className="Landing_map_wrapper">
         <GoogleMap singlePosition={position} singleZoom={16}/>
       </div>
