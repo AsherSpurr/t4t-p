@@ -36,7 +36,7 @@ const Search = ({ setLatLonState }) => {
   return (
     <div className="Search_div_container">
       <form className="Search_form"  onSubmit={(e) => fetchLatLonSearch(e, street, town, state, key)}>
-        <label for="street" class="visuallyhidden"></label>
+        <label for="street" class="hidden">Street address:
         <input
           className="Search_input"
           id="Input_one"
@@ -47,7 +47,8 @@ const Search = ({ setLatLonState }) => {
           required
           onChange={(e) => setStreet(e.target.value)}
         ></input>
-        <label for="town" class="visuallyhidden"></label>
+        </label>
+        <label for="town" class="hidden">Town:
         <input
           className="Search_input"
           id="Input_two"
@@ -58,7 +59,8 @@ const Search = ({ setLatLonState }) => {
           required
           onChange={(e) => setTown(e.target.value)}
         ></input>
-        <label for="state" class="visuallyhidden"></label>
+        </label>
+        <label for="state" class="hidden">State:
         <input
           className="Search_input"
           id="Input_three"
@@ -69,6 +71,7 @@ const Search = ({ setLatLonState }) => {
           required
           onChange={(e) => setState(e.target.value)}
         ></input>
+        </label>
         <button
           className="Search_button"
           type="submit"
