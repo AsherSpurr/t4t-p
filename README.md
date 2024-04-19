@@ -1,5 +1,5 @@
 
-# <p align="center">[🍵T4Tp🫖](https://spilled-cmsy1ss06-corys-projects-8e9f64e4.vercel.app/)</p>
+# <p align="center">[T4Tp](https://t4tp.vercel.app/)</p>
 <p align='center' >👆<b>Click the heading to visit the deploy link</b>👆</p>
 
 <p align="center">A single-user application aimed at providing compatible and safe(er) local bathrooms to transgender individuals.</p>
@@ -27,7 +27,7 @@
 </div>
 
 ## Installation Instructions:
-- Visit the deployed [link](https://spilled-cmsy1ss06-corys-projects-8e9f64e4.vercel.app/)
+- Visit the deployed [link](https://t4tp.vercel.app/)
 - OR run the following on the command line to clone the repo and run the app locally:
     ```
     git clone git@github.com:corysanders3/spilled.git
