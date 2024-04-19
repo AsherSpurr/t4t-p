@@ -46,7 +46,7 @@ const Filter = ({ updateFilters }) => {
         onChange={handleForm}
       />
       <label className='Filter_label' for="all">All</label>
-      <button className='Filter_button' onClick={(e) => handleSubmit(e, activeFilters)}>Filter</button>
+      <button className='Filter_button' type='button' aria-labelledby='filterbutton' onClick={(e) => handleSubmit(e, activeFilters)}>Filter</button>
     </form>
   );
 };
