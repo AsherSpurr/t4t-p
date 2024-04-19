@@ -17,3 +17,16 @@
 .Landing_h2 {
     margin-bottom: 30px;
 }
+
+/* Large Phone */
+@media screen and (max-width: 618px) {
+    .Landing_left_wrapper {
+        min-width: 100%;
+        padding-right: 5%;
+    }
+    .Landing_map_wrapper {
+        width: 0%;
+        padding: 0;
+    }
+
+}

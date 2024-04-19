@@ -7,13 +7,6 @@
 .LocDetails_div_wrapper {
     min-width: 100%;
     height: fit-content;
-}
-
-.LocDetails_div_wrapper {
-    width: 100%;
-    height: 15vh;
-    /* height: 5%; */
-    /* border: 1px solid green; */
     margin-bottom: 20px;
 }
 
@@ -73,3 +66,16 @@
     font-size: 1em;
 }
 
+@media screen and (max-width: 719px){
+    .LocDetails_p {
+        /* text-wrap: wrap; */
+        word-wrap: break-word;
+        word-break:break-all ;
+    }
+}
+
+@media screen and (max-width: 610px){
+    .LocDetails_left_wrapper {
+        min-width: 100%;
+    }
+}
