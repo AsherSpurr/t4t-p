@@ -8,8 +8,9 @@ const LocDetails = ({ filteredLocs }) => {
   const loc = filteredLocs.find((loc) => {
     return loc.name === locName;
   });
+
   const position = {lat: loc.latitude, lng: loc.longitude}
-console.log(loc)
+
   return (
     <div className="LocDetails_wrapper">
       <div className="LocDetails_left_wrapper">

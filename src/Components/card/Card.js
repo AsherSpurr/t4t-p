@@ -9,7 +9,7 @@ import { roundNum } from '../../utils/utils';
 import { useNavigate, useParams } from 'react-router-dom';
 // import LoadingContext from '../../LoadingContext';
 
-const Card = ({ name, uni, access, dist, street, city, state, upvote, downvote, directions, comment, updatedAt }) => {
+const Card = ({ name, uni, access, dist, city, state, upvote, downvote, directions, comment }) => {
 
     const distRounded = roundNum(dist)
     const locName = useParams().locationName;

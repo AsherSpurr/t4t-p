@@ -3,8 +3,6 @@
     height: 50px;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    /* border: 1px solid red; */
 }
 .Search_form {
     min-height: 100%;
@@ -16,11 +14,8 @@
 
 .Search_input{
     border: none;
-    /* box-shadow: inset -6px -10px 10px -11px rgba(202, 202, 202, 0.31); */
-    /* border-radius: 10px 20px 40px; */
     background-color: #cbbfea1d;
     height: 95%;
-    /* width: 40%; will need to adjust when search button is icon */
     width: 40%; /* After form change */
     text-indent: 4%;
     padding: 0;
