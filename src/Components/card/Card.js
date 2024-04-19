@@ -18,7 +18,7 @@ const Card = ({ name, uni, access, dist, city, state, upvote, downvote, directio
 
     return (
             <div className={locName === name ? 'LocDetails_div_wrapper' : 'Card_div_wrapper'}>
-            <section className={locName === name ? 'LocDetails_div_container' : `Card_div_container`} onClick={() => navigate(`/locations/${name}`)}>
+            <section className={locName === name ? 'LocDetails_div_container' : `Card_div_container`} tabIndex='0' onClick={() => navigate(`/locations/${name}`)} onKeyDown={(e) => e.key === 'Enter' || e.key === ' ' ? navigate(`/locations/${name}`): console.log(e.key)}>
                 <div className={locName === name ? 'LocDetails_img_container' : 'Card_img_container'}>
                     <span className={locName === name ? 'LocDetails_img_placeholder' : 'Card_img_placeholder'}></span>
                 </div>
