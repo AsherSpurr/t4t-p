@@ -1,5 +1,5 @@
 import './Card.css';
-import { useContext } from 'react';
+// import { useContext } from 'react';
 import truesvg from '../images/true-muted2.svg'
 import falsesvg from '../images/false-dark-coral.svg'
 import distance from '../images/distance-dark-purple.svg'
