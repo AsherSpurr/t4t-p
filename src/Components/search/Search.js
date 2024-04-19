@@ -35,7 +35,7 @@ const Search = ({ setLatLonState }) => {
 
   return (
     <div className="Search_div_container">
-      <form className="Search_form">
+      <form className="Search_form"  onSubmit={(e) => fetchLatLonSearch(e, street, town, state, key)}>
         <label for="street" class="visuallyhidden"></label>
         <input
           className="Search_input"
@@ -44,6 +44,7 @@ const Search = ({ setLatLonState }) => {
           placeholder="Street address"
           name="street"
           value={street}
+          required
           onChange={(e) => setStreet(e.target.value)}
         ></input>
         <label for="town" class="visuallyhidden"></label>
@@ -54,6 +55,7 @@ const Search = ({ setLatLonState }) => {
           placeholder="Town"
           name="town"
           value={town}
+          required
           onChange={(e) => setTown(e.target.value)}
         ></input>
         <label for="state" class="visuallyhidden"></label>
@@ -64,15 +66,15 @@ const Search = ({ setLatLonState }) => {
           placeholder="State"
           name="state"
           value={state}
+          required
           onChange={(e) => setState(e.target.value)}
         ></input>
         <button
           className="Search_button"
           type="submit"
-          aria-labelledby="searchbutton"
-          onClick={(e) => fetchLatLonSearch(e, street, town, state, key)}
+          name="searchbutton"
         >
-          <img className="Search_icon" src={searchsvg} alt=""></img>
+          <img className="Search_icon" src={searchsvg} alt="search button"></img>
         </button>
       </form>
     </div>
