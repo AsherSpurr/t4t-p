@@ -15,9 +15,7 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates }
   
   const latS = JSON.parse(sessionStorage.getItem('lat'))
   const lonS = JSON.parse(sessionStorage.getItem('lon'))
-  const numLat = Number(latS)
-  const numLon = Number(lonS)
-  const position = {lat: numLat, lng: numLon}
+
 
   const navigate = useNavigate()
 
@@ -46,7 +44,9 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates }
     setLat(latS);
     setLon(lonS);
   }
-
+  const numLat = Number(latS)
+  const numLon = Number(lonS)
+  const position = {lat: numLat, lng: numLon}
 
   return (
     <LoadingContext.Provider value={isLoading}>

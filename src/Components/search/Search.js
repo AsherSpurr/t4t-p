@@ -32,11 +32,11 @@ const Search = ({ setLatLonState }) => {
 
     return (
         <div className='Search_div_container'>
-            <form className='Search_form'>
+            <form className='Search_form' onSubmit={(e) => fetchLatLonSearch(e, street, town, state, key)}>
                 <input className='Search_input' id='Input_one' type='text' placeholder='Street address' name='street' value={street} onChange={(e) => setStreet(e.target.value)}></input>
                 <input className='Search_input' id='Input_two' type='text' placeholder='Town' name='town' value={town} onChange={(e) => setTown(e.target.value)}></input>
                 <input className='Search_input' id='Input_three' type='text' placeholder='State' name='state' value={state} onChange={(e) => setState(e.target.value)}></input>
-                <button className='Search_button' type='submit' onClick={(e) => fetchLatLonSearch(e, street, town, state, key)}><img className='Search_icon' src={searchsvg} alt=''></img></button>
+                <button className='Search_button' type='submit' ><img className='Search_icon' src={searchsvg} alt=''></img></button>
             </form>
         </div>
     )

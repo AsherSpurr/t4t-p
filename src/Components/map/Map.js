@@ -8,21 +8,25 @@ const GoogleMap = ({ position, singlePosition, singleZoom, allLocsCoordinates, }
 
   return (
     <APIProvider apiKey={process.env.REACT_APP_GOOGLE}>
+      {path.includes("locations") ? (
       <Map
-        defaultCenter={position}
         center={singlePosition}
-        defaultZoom={10}
         zoom={singleZoom}
         className="Map_div_wrapper"
       >
-      {!path.includes("locations") ? (
-        allLocsCoordinates.map((loc) => {
+        <Marker defaultPosition={position} position={singlePosition} />   </Map>
+      ) : (
+        <Map
+        center={position}
+        defaultZoom={10}
+        className="Map_div_wrapper"
+      >
+       { allLocsCoordinates.map((loc) => {
             return <Marker position={loc} />;
         })
-      ) : (
-          <Marker defaultPosition={position} position={singlePosition} />
-        )}
-      </Map>
+          }
+          </Map> )}
+   
     </APIProvider>
   );
 };
