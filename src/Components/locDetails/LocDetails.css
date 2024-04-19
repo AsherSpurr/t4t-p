@@ -13,7 +13,7 @@
 .LocDetails_div_container {
     width: 95%;
     box-shadow: 1px 2px 5px rgba(202, 202, 202, 0.31);
-    height: 100vh; /*Changed*/
+    height: 70vh; /*Changed*/
     display: flex;
     flex-direction: column;
     border-radius: 10px;
@@ -60,6 +60,17 @@
 .LocDetails_h3 {
     margin-top: 5px;
     font-size: 1em;
+}
+
+.LocDetails_home_button {
+    text-decoration: none;
+    color: rgb(61, 61, 78);
+    font-weight: 500;
+}
+
+.LocDetails_home_button:hover {
+    color: #F46D57;
+    font-weight: 600;
 }
 
 @media screen and (max-width: 719px){
