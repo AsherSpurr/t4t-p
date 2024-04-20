@@ -1,7 +1,8 @@
 import './Locations.css';
 import Card from '../card/Card'
+import Filter from "../filter/Filter";
 
-const Locations = ({ filteredLocs }) => {
+const Locations = ({ filteredLocs, updateFilters }) => {
 
     const cards = filteredLocs.map((loc) => {
         return (
@@ -23,9 +24,12 @@ const Locations = ({ filteredLocs }) => {
         )
     })
     return (
+        <>
+        {filteredLocs.length && <Filter updateFilters={updateFilters}/>}
         <div className={`Locations_div_wrapper`}>
            {cards}
         </div>
+        </>
     )
 }
 
