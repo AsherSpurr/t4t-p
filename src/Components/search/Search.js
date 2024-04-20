@@ -46,7 +46,7 @@ const Search = ({ setLatLonState }) => {
           required
           onChange={(e) => setStreet(e.target.value)}
         ></input> 
-        <label for="Input_street" class="hidden">Street address:</label>
+        <label for="Input_street" className="hidden">Street address:</label>
         <input
           className="Search_input"
           id="Input_town"
@@ -57,7 +57,7 @@ const Search = ({ setLatLonState }) => {
           required
           onChange={(e) => setTown(e.target.value)}
         ></input>  
-        <label for="Input_town" class="hidden">Town:</label>
+        <label for="Input_town" className="hidden">Town:</label>
         <input
           className="Search_input"
           id="Input_state"

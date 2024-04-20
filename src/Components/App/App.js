@@ -15,14 +15,16 @@ function App() {
   const [adaAndUnisexLocs, setAdaAndUnisexLocs] = useState([]);
 
   const updateFilters = (filters) => {
-    if (filters.accessible && filters.unisex) {
+    if (filters.all){
+      setFilteredLocs(locs);
+    } else if (filters.accessible && filters.unisex) {
       setFilteredLocs(adaAndUnisexLocs);
     } else if (filters.accessible) {
       setFilteredLocs(accessibleLocs);
     } else if (filters.unisex) {
       setFilteredLocs(unisexLocs);
     } else {
-      setFilteredLocs(locs);
+      setFilteredLocs(locs)
     }
   };
 

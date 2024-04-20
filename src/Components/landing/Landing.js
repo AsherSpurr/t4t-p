@@ -2,7 +2,7 @@ import "./Landing.css";
 import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import Search from "../search/Search";
-import Filter from "../filter/Filter";
+// import Filter from "../filter/Filter";
 import Locations from "../locations/Locations";
 import GoogleMap from "../map/Map";
 import { fetchBRsByLoc } from "../../apiCalls";
@@ -26,11 +26,9 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates }
           if (data.length) {
             sessionStorage.setItem('locations', JSON.stringify(data))
             const locs = JSON.parse(sessionStorage.getItem('locations'))
-            console.log(locs)
             setIsLoading("");
             updateLocs(locs);
           } else {
-            console.log(data)
             const {status, statusText} = data
             navigate('*',{state: {status: status, statusText: statusText}})
           }
@@ -54,8 +52,8 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates }
         <section className="Landing_left_wrapper">
           <h2 className="Landing_h2">Where do you want to 'go'?</h2>
           <Search setLatLonState={setLatLonState}/>
-          <Filter updateFilters={updateFilters}/>
-          <Locations filteredLocs={filteredLocs} isLoading={isLoading} />
+          {/* <Filter updateFilters={updateFilters}/> */}
+          <Locations filteredLocs={filteredLocs} isLoading={isLoading} updateFilters={updateFilters}/>
         </section>
         <section className="Landing_map_wrapper">
         <GoogleMap position={position} allLocsCoordinates={allLocsCoordinates}/>
