@@ -26,7 +26,7 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates }
           if (data.length) {
             sessionStorage.setItem('locations', JSON.stringify(data))
             const locs = JSON.parse(sessionStorage.getItem('locations'))
-            // setIsLoading("");
+            console.log(data)
             updateLocs(locs);
           } else {
             const {status, statusText} = data
