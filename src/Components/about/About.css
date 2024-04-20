@@ -2,5 +2,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 100px;
+    padding: 10% 50% 20% 10%;
+    height: 100vh;
+    background-image: url('../images/T4Tp-About3.svg');
+    background-size: cover;
+    text-align: center;
+}
+
+@media screen and (max-width: 610px){
+    .About_container {
+        padding: 10px;
+    }
 }
