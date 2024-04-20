@@ -1,11 +1,10 @@
 .Locations_div_wrapper {
-    min-width: 100%;
+    max-width: 96%;
     height: 65vh;
     overflow: scroll;
 }
 
 .loading {
     background-color: rgba(168, 168, 168, 0.183);
-    width: 90%;
     border-radius: 15px;
 }
