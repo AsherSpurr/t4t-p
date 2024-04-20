@@ -33,4 +33,15 @@ describe('landing page', () => {
     .get('.Map_div_wrapper')
   })
 
+  it('should navigate to about page', () => {
+    cy.get('nav').get('a').contains('About').click()
+    .url().should('include', '/About')
+    .get('h2').contains('What does T4Tp do?')
+    .get('p').should('have.length', '2')
+  })
+
+  it('should navigate home from About page', () => {
+    cy.get('nav').get('a').contains('T4Tp').click()
+    .url().should('not.include', '/About')
+  })
 })
