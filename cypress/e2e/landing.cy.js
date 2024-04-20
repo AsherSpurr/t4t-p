@@ -26,8 +26,8 @@ describe('landing page', () => {
     .get('.Search_input').should('have.length', '3')
     .get('.Search_icon').should('have.attr', 'src').should('include', '/static/media/search')
 
-    //Test Button more thuroughly after adding specs
-    .get('button')
+    //Test that filter form does not populate yet
+    .get('.Filter_div_wrapper').should('not.exist')
 
     //Map placeholder
     .get('.Map_div_wrapper')

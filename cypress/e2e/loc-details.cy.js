@@ -29,6 +29,7 @@ describe('location details page', () => {
     .get(`input[name='town']`).type('Bennett').should('have.value', 'Bennett')
     .get(`input[name='state']`).type('CO').should('have.value', 'CO')
     .get('.Search_button').click()
+    .url().should('include', 'locations/')
 
     //Test first card
     .get('.Card_div_container').first().click()
