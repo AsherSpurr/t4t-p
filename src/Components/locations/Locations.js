@@ -1,10 +1,16 @@
 import './Locations.css';
 import Card from '../card/Card'
-import { useContext } from 'react';
-import LoadingContext from '../../LoadingContext';
+import Filter from "../filter/Filter";
+import LoadingContext from "../../LoadingContext";
+import { useEffect, useState } from 'react';
 
-const Locations = ({ filteredLocs }) => {
-    const value = useContext(LoadingContext)
+const Locations = ({ filteredLocs, updateFilters }) => {
+    const [isLoading, setIsLoading] = useState("loading");
+
+    useEffect(() => {
+        filteredLocs.length ? setIsLoading('') : setIsLoading('loading')
+    }, [filteredLocs])
+
     const cards = filteredLocs.map((loc) => {
         return (
             <Card 
@@ -25,9 +31,14 @@ const Locations = ({ filteredLocs }) => {
         )
     })
     return (
-        <div className={`Locations_div_wrapper ${value}`}>
-           {cards}
-        </div>
+        <>
+        {filteredLocs.length > 0 && <Filter updateFilters={updateFilters}/>}
+        <LoadingContext.Provider value={isLoading}>
+            <div className={`Locations_div_wrapper ${isLoading}`}>
+                {cards}
+            </div>
+        </LoadingContext.Provider>
+        </>
     )
 }
 

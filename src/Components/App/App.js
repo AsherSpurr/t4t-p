@@ -5,28 +5,26 @@ import Landing from "../landing/Landing";
 import Error from "../error/Error";
 import LocDetails from "../locDetails/LocDetails";
 import { useState } from "react";
-import distance from "../images/distance-blue.svg";
+import distance from "../images/distance-dark-coral.svg";
 
 function App() {
   const [locs, setLocs] = useState([]);
   const [filteredLocs, setFilteredLocs] = useState([]);
-  // const [filters, setFilters] = useState([]);
   const [unisexLocs, setUnisexLocs] = useState([]);
   const [accessibleLocs, setAccessibleLocs] = useState([]);
   const [adaAndUnisexLocs, setAdaAndUnisexLocs] = useState([]);
 
   const updateFilters = (filters) => {
-    if (filters.accessible && filters.unisex) {
-      setFilteredLocs(adaAndUnisexLocs);
-    }
-    if (filters.accessible) {
-      setFilteredLocs(accessibleLocs);
-    }
-    if (filters.unisex) {
-      setFilteredLocs(unisexLocs);
-    }
-    if (filters.all) {
+    if (filters.all){
       setFilteredLocs(locs);
+    } else if (filters.accessible && filters.unisex) {
+      setFilteredLocs(adaAndUnisexLocs);
+    } else if (filters.accessible) {
+      setFilteredLocs(accessibleLocs);
+    } else if (filters.unisex) {
+      setFilteredLocs(unisexLocs);
+    } else {
+      setFilteredLocs(locs)
     }
   };
 
@@ -50,6 +48,14 @@ function App() {
     setAdaAndUnisexLocs(adaAndUnisexFiltered);
   };
 
+  const allLocsCoordinates = locs.reduce((acc, loc) => {
+    acc.push({
+      lat: loc.latitude,
+      lng: loc.longitude,
+    });
+    return acc;
+  }, []);
+
   return (
     <div className="App">
       <header className="App_header">
@@ -58,7 +64,7 @@ function App() {
             <img
               className="App_logo"
               src={distance}
-              alt=""
+              alt="Blue location pin"
               height="25px"
               width="auto"
             ></img>
@@ -82,13 +88,14 @@ function App() {
                 updateFilters={updateFilters}
                 updateLocs={updateLocs}
                 filteredLocs={filteredLocs}
+                allLocsCoordinates={allLocsCoordinates}
               />
             }
           />
           <Route path="/About" element={<About />} />
-          <Route path="/*" element={<Error />} />
+          <Route path="*" element={<Error />} />
           <Route
-            path="/:locationName"
+            path="/locations/:locationName"
             element={<LocDetails filteredLocs={filteredLocs} />}
           />
         </Routes>

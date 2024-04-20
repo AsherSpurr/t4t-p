@@ -1,42 +1,84 @@
-import './Search.css';
-import { useState } from 'react'
-import { fetchLatLon } from '../../apiCalls';
-import searchsvg from '../images/search.svg'
+import "./Search.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { fetchLatLon } from "../../apiCalls";
+import searchsvg from "../images/search-dark-purple.svg";
 
 const Search = ({ setLatLonState }) => {
+  const [street, setStreet] = useState("");
+  const [town, setTown] = useState("");
+  const [state, setState] = useState("");
 
-    const [street, setStreet] = useState('')
-    const [town, setTown] = useState('')
-    const [state, setState] = useState('')
+  const navigate = useNavigate();
+  const key = process.env.REACT_APP_GOOGLE;
 
-    const key = process.env.REACT_APP_GOOGLE
+  const fetchLatLonSearch = (e, street, town, state, key) => {
+    e.preventDefault();
+    fetchLatLon(street, town, state, key).then((data) => {
+      if (data.status) {
+        sessionStorage.clear();
+        sessionStorage.setItem(
+          "lat",
+          JSON.stringify(data.results[0].geometry.location.lat)
+        );
+        sessionStorage.setItem(
+          "lon",
+          JSON.stringify(data.results[0].geometry.location.lng)
+        );
+      } else {
+        navigate("*", { state: { status: "4xx", statusText: "Not Found" } });
+      }
+      setLatLonState();
+    });
+  };
 
-        const fetchLatLonSearch = (e, street, town, state, key) => {
-            e.preventDefault()
-            fetchLatLon(street, town, state, key)
-            .then(data => {
-                if(data) {
-                setLatLonState(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng)
-                }
-            })
-        }
+  return (
+    <div className="Search_div_container">
+      <form className="Search_form"  onSubmit={(e) => fetchLatLonSearch(e, street, town, state, key)}>
+        <input
+          className="Search_input"
+          id="Input_street"
+          type="text"
+          placeholder="Street address"
+          name="Input_street"
+          value={street}
+          required
+          onChange={(e) => setStreet(e.target.value)}
+        ></input> 
+        <label for="Input_street" className="hidden">Street address:</label>
+        <input
+          className="Search_input"
+          id="Input_town"
+          type="text"
+          placeholder="Town"
+          name="Input_town"
+          value={town}
+          required
+          onChange={(e) => setTown(e.target.value)}
+        ></input>  
+        <label for="Input_town" className="hidden">Town:</label>
+        <input
+          className="Search_input"
+          id="Input_state"
+          type="text"
+          placeholder="State"
+          name="Input_state"
+          value={state}
+          required
+          onChange={(e) => setState(e.target.value)}
+        ></input>
+        <label for="Input_state" class="hidden">State:</label>
+        <button
+          className="Search_button"
+          type="submit"
+          name="searchbutton"
+        >
+          <img className="Search_icon" src={searchsvg} alt="search button"></img>
+        </button>
+      </form>
+    </div>
+  );
+};
 
-    return (
-        <div className='Search_div_container'>
-            {/* <h2>Where do you want to 'go'?</h2> */}
-            <form className='Search_form'>
-                {/* <input className='Search_input' id='Search_lat_input' type='text' placeholder='Latitude'  name='lat' value={lat} onChange={(e) => setLat(e.target.value)}></input>
-                <input className='Search_input' id='Search_lon_input' type='text' placeholder='Longitude'  name='lon' value={lon} onChange={(e) => setLon(e.target.value)}></input> */}
-                <input className='Search_input' id='Input_one' type='text' placeholder='Street address' name='street' value={street} onChange={(e) => setStreet(e.target.value)}></input>
-                {/* <input className='Search_input' type='text' placeholder='Street' name='street' value={street} onChange={(e) => setStreet(e.target.value)}></input>
-                <input className='Search_input' type='text' placeholder='Street identifier' name='streetIdent' value={streetIdent} onChange={(e) => setStreetIdent(e.target.value)}></input> */}
-                <input className='Search_input' id='Input_two' type='text' placeholder='Town' name='town' value={town} onChange={(e) => setTown(e.target.value)}></input>
-                <input className='Search_input' id='Input_three' type='text' placeholder='State' name='state' value={state} onChange={(e) => setState(e.target.value)}></input>
-                <button className='Search_button' type='submit' onClick={(e) => fetchLatLonSearch(e, street, town, state, key)}><img className='Search_icon' src={searchsvg} alt=''></img></button>
-            </form>
-        </div>
-    )
-}
+export default Search;
 
-
-export default Search

@@ -3,8 +3,6 @@
     height: 50px;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    /* border: 1px solid red; */
 }
 .Search_form {
     min-height: 100%;
@@ -16,23 +14,17 @@
 
 .Search_input{
     border: none;
-    /* box-shadow: inset -6px -10px 10px -11px rgba(202, 202, 202, 0.31); */
-    /* border-radius: 10px 20px 40px; */
-    background-color: #1b5fff0d;
+    background-color: #cbbfea1d;
     height: 95%;
-    /* width: 40%; will need to adjust when search button is icon */
     width: 40%; /* After form change */
     text-indent: 4%;
     padding: 0;
+    overflow: scroll;
 }
 
-#Input_one {
+#Input_street {
     border-radius: 10px 0px 0px 10px;
 }
-
-/* #Input_three {
-    border-radius: 0px 10px 10px 0px;
-} */
 
 .Search_button {
     border: none;
@@ -51,3 +43,45 @@
 .Search_button:hover {
     cursor: pointer;
 }
+
+@media screen and (max-width: 899px){
+    #Input_state {
+      width: 20%; 
+    }
+
+    #Input_town {
+        width: 25%;
+    }
+}
+
+/* Tablet */
+@media screen and (max-width: 760px) {
+    .Filter_label {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 620px){
+    #Input_one {
+        width: 60%;
+    }
+}
+
+/* Large phone */
+@media screen and (max-width: 430px) {
+        .Search_input {
+          width: 40%; 
+        }
+    
+        .Filter_label {
+            font-size: 13px;
+        }
+    
+        .Search_form {
+            overflow: scroll;
+        }
+
+        .Search_div_container {
+            position: sticky;
+        }
+    }

@@ -1,14 +1,16 @@
 .Map_div_wrapper {
-    /* border: 1px solid blue; */
     margin-top: 20px;
     height: 80%;
     display: flex;
     justify-content: center;
-    /* align-items: center; */
+    border-radius: 15px;
 }
 
-.Map_img {
-    position: absolute;
-    height: auto;
-    width: 85%;
+/* Large Phone */
+@media screen and (max-width: 618px) {
+    .Map_img {
+        display: none;
+    }
+    
+
 }

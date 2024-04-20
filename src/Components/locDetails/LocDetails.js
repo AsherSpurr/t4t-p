@@ -1,6 +1,6 @@
 import "./LocDetails.css";
 import Card from "../card/Card";
-import Map from "../map/Map";
+import GoogleMap from "../map/Map";
 import { useParams, Link } from "react-router-dom";
 
 const LocDetails = ({ filteredLocs }) => {
@@ -8,6 +8,8 @@ const LocDetails = ({ filteredLocs }) => {
   const loc = filteredLocs.find((loc) => {
     return loc.name === locName;
   });
+
+  const position = {lat: loc.latitude, lng: loc.longitude}
 
   return (
     <div className="LocDetails_wrapper">
@@ -31,10 +33,10 @@ const LocDetails = ({ filteredLocs }) => {
            key={loc.id} 
           />
         </div>
+        <Link className='LocDetails_home_button' to='/'>Go Back</Link>
       </div>
-        <Link to='/'>Go Back</Link>
       <div className="Landing_map_wrapper">
-        <Map />
+        <GoogleMap singlePosition={position} singleZoom={16}/>
       </div>
     </div>
   );

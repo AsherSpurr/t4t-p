@@ -1,3 +1,4 @@
+
 import "./Filter.css";
 import { useState } from "react";
 
@@ -18,8 +19,7 @@ const Filter = ({ updateFilters }) => {
   };
 
   return (
-    <form className="Filter_div_wrapper">
-      {/* <div> */}
+    <form className="Filter_div_wrapper" onSubmit={(e) => handleSubmit(e, activeFilters)}>
       <input
         type="checkbox"
         className="Filter_input"
@@ -28,9 +28,7 @@ const Filter = ({ updateFilters }) => {
         value={activeFilters.accessible}
         onChange={handleForm}
       />
-      <label for="accessible">Accessible</label>
-      {/* </div>
-            <div> */}
+      <label className='Filter_label' for="accessible">Accessible</label>
       <input
         type="checkbox"
         className="Filter_input"
@@ -39,9 +37,7 @@ const Filter = ({ updateFilters }) => {
         value={activeFilters.unisex}
         onChange={handleForm}
       />
-      <label for="unisex">Unisex</label>
-      {/* </div>
-            <div> */}
+      <label className='Filter_label' for="unisex">Unisex</label>
       <input
         type="checkbox"
         className="Filter_input"
@@ -50,12 +46,10 @@ const Filter = ({ updateFilters }) => {
         value={activeFilters.all}
         onChange={handleForm}
       />
-      <label for="all">All</label>
-      {/* </div>        */}
-      <button onClick={(e) => handleSubmit(e, activeFilters)}></button>
+      <label className='Filter_label' for="all">All</label>
+      <button className='Filter_button' type='submit' >Filter</button>
     </form>
   );
-  //Accessability note/ maybe hot fix? -> buttons should be wrapped in form -> buttonType = checkbox
 };
 
 export default Filter;

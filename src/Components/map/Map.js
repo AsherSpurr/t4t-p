@@ -1,12 +1,34 @@
-import './Map.css';
-import placeholder from '../images/placeholder-gray2.svg'
+import "./Map.css";
+import { useLocation } from "react-router-dom";
+import { APIProvider, Map, Marker } from "@vis.gl/react-google-maps";
 
-const Map = () => {
-    return (
-        <div className='Map_div_wrapper'>
-            <img className='Map_img' src={placeholder} alt=''></img>
-        </div>
-    )
-}
+const GoogleMap = ({ position, singlePosition, singleZoom, allLocsCoordinates, }) => {
 
-export default Map
+  const path = useLocation().pathname;
+
+  return (
+    <APIProvider apiKey={process.env.REACT_APP_GOOGLE}>
+      {path.includes("locations") ? (
+      <Map
+        center={singlePosition}
+        zoom={singleZoom}
+        className="Map_div_wrapper"
+      >
+        <Marker defaultPosition={position} position={singlePosition} />   </Map>
+      ) : (
+        <Map
+        center={position}
+        defaultZoom={10}
+        className="Map_div_wrapper"
+      >
+       { allLocsCoordinates.map((loc) => {
+            return <Marker position={loc} />;
+        })
+          }
+          </Map> )}
+   
+    </APIProvider>
+  );
+};
+
+export default GoogleMap;
