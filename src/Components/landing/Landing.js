@@ -26,12 +26,9 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates }
           if (data.length) {
             sessionStorage.setItem('locations', JSON.stringify(data))
             const locs = JSON.parse(sessionStorage.getItem('locations'))
-            console.log(locs)
             setIsLoading("");
             updateLocs(locs);
-            console.log(locs)
           } else {
-            console.log(data)
             const {status, statusText} = data
             navigate('*',{state: {status: status, statusText: statusText}})
           }

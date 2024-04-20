@@ -25,7 +25,7 @@ const Locations = ({ filteredLocs, updateFilters }) => {
     })
     return (
         <>
-        {filteredLocs.length && <Filter updateFilters={updateFilters}/>}
+        {filteredLocs.length > 0 && <Filter updateFilters={updateFilters}/>}
         <div className={`Locations_div_wrapper`}>
            {cards}
         </div>
