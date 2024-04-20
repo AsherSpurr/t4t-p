@@ -29,20 +29,20 @@ describe('landing page form', () => {
     cy.wait(3000)
     .get('.Search_icon').click()
 
-    //Test that list of locations display after click
-    cy.wait(10000) //Bathroom API takes a while to load
+    //Test that list of locations display after click(s)
+    cy.wait(6000) //Bathroom API takes a while to load
     .get('.Locations_div_wrapper').children().should('have.length', '10')
     .get('.Card_div_container').first().contains('h3', 'Subway')
     .get('.Card_contents_container').first().within(() => {
       cy.get('img').first().should('have.attr', 'src').should('include','/static/media/distance-dark-purple')
       .get('#Card_icon_unisex').should('have.attr', 'src').should('include','/static/media/false')
-      .get('#card_icon_accessible').last().should('have.attr', 'src').should('include','/static/media/true')
+      .get('#Card_icon_accessible').should('have.attr', 'src').should('include','/static/media/true')
     })
     .get('.Card_div_container').last().contains('h3','Denver International Airport')
     .get('.Card_div_container').last().within(() => {
       cy.get('img').first().should('have.attr', 'src').should('include','/static/media/distance-dark-purple')
       .get('#Card_icon_unisex').should('have.attr', 'src').should('include','/static/media/true')
-     .get('#card_icon_accessible').last().should('have.attr', 'src').should('include','/static/media/true')
+     .get('#Card_icon_accessible').should('have.attr', 'src').should('include','/static/media/true')
     })
   })
 
