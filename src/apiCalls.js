@@ -7,7 +7,6 @@ function fetchBRsByLoc (lat, lon) {
             return response
         } 
             return response.json()
-
     })
     .catch(error => {
        console.log(error)

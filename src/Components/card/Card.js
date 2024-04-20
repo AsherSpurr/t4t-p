@@ -46,7 +46,7 @@ const Card = ({ name, uni, access, dist, city, state, upvote, downvote, directio
                             Unisex
                         </p>
                         <p className={locName === name ? 'LocDetails_p' : 'Card_p'}>
-                            {access ? <img id={locName === name ? 'LocDetails_icon_accessible' : 'Card_icon_unisex'} src={truesvg} alt='Status of true' height='20px' width='20px'/> : <img id='Card_icon_unisex' src={falsesvg} alt='Status of false' height='20px' width='20px'/>}
+                            {access ? <img id={locName === name ? 'LocDetails_icon_accessible' : 'Card_icon_accessible'} src={truesvg} alt='Status of true' height='20px' width='20px'/> : <img id='Card_icon_unisex' src={falsesvg} alt='Status of false' height='20px' width='20px'/>}
                             Accessible
                         </p>
                         </div>
