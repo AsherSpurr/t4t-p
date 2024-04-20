@@ -1,4 +1,4 @@
-import { act } from "@testing-library/react";
+
 import "./Filter.css";
 import { useState } from "react";
 
@@ -17,7 +17,7 @@ const Filter = ({ updateFilters }) => {
     e.preventDefault();
     updateFilters(activeFilters);
   };
-console.log(activeFilters)
+
   return (
     <form className="Filter_div_wrapper" onSubmit={(e) => handleSubmit(e, activeFilters)}>
       <input
