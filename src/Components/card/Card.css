@@ -45,6 +45,7 @@
     font-size: smaller;
     margin: 0;
     margin-right: 20px;
+    display: flex;
 }
 
 .Card_h3 {
