@@ -6,12 +6,12 @@ import Search from "../search/Search";
 import Locations from "../locations/Locations";
 import GoogleMap from "../map/Map";
 import { fetchBRsByLoc } from "../../apiCalls";
-import LoadingContext from "../../LoadingContext";
+// import LoadingContext from "../../LoadingContext";
 
 const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates }) => {
   const [lat, setLat] = useState("");
   const [lon, setLon] = useState("");
-  const [isLoading, setIsLoading] = useState("loading");
+  // const [isLoading, setIsLoading] = useState("loading");
   
   const latS = JSON.parse(sessionStorage.getItem('lat'))
   const lonS = JSON.parse(sessionStorage.getItem('lon'))
@@ -26,7 +26,7 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates }
           if (data.length) {
             sessionStorage.setItem('locations', JSON.stringify(data))
             const locs = JSON.parse(sessionStorage.getItem('locations'))
-            setIsLoading("");
+            // setIsLoading("");
             updateLocs(locs);
           } else {
             const {status, statusText} = data
@@ -46,20 +46,20 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates }
   const numLon = Number(lonS)
   const position = {lat: numLat, lng: numLon}
 
+
   return (
-    <LoadingContext.Provider value={isLoading}>
+    // <LoadingContext.Provider value={isLoading}>
       <div className="Landing_wrapper">
         <section className="Landing_left_wrapper">
           <h2 className="Landing_h2">Where do you want to 'go'?</h2>
           <Search setLatLonState={setLatLonState}/>
-          {/* <Filter updateFilters={updateFilters}/> */}
-          <Locations filteredLocs={filteredLocs} isLoading={isLoading} updateFilters={updateFilters}/>
+          <Locations filteredLocs={filteredLocs} updateFilters={updateFilters}/>
         </section>
         <section className="Landing_map_wrapper">
         <GoogleMap position={position} allLocsCoordinates={allLocsCoordinates}/>
         </section>
       </div>
-    </LoadingContext.Provider>
+    // </LoadingContext.Provider>
   );
 };
 
