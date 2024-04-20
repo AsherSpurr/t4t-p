@@ -14,6 +14,7 @@ function App() {
   const [accessibleLocs, setAccessibleLocs] = useState([]);
   const [adaAndUnisexLocs, setAdaAndUnisexLocs] = useState([]);
 
+
   const updateFilters = (filters) => {
     if (filters.all){
       setFilteredLocs(locs);

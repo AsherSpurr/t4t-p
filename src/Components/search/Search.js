@@ -26,7 +26,7 @@ const Search = ({ setLatLonState }) => {
           JSON.stringify(data.results[0].geometry.location.lng)
         );
       } else {
-        navigate("*", { state: { status: "4xx", statusText: "Not Found" } });
+        navigate("*", {replace: true });
       }
       setLatLonState();
     });
