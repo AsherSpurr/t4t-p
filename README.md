@@ -57,6 +57,7 @@
   2. Incorporate Google's Places API to provide further service and convenience for users
   3. Re-try using query parameters to filter in real time. This was almost achieved but in the interest of time for submission had to pivot away.
   4. Refactor to use Google's lat & lng data for a given location based on the address, the Refugee Restroom coordinates are slightly off.
+  5. Add loading state back in
 ## Context:
 <!-- wins, challenges, time spent, goals, approaches etc -->
 ### Wins
