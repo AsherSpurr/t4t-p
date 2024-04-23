@@ -36,22 +36,16 @@
     npm install
     npm start
     ```
-
+### Environment variables
+After cloning and installing packages
+- Create a `.env` file in the root directory
+- Copy and paste `REACT_APP_GOOGLE=myKey`
+- `Substitute myKey` with `your Google API` key or `message me on GitHub` so I can provide mine.
 ### Run Tests
-<!--- Run the following on the command line to install Cypress: `npm i -D cypress`
-- Add script to `package.json` file
-    ``` json
-    {
-      "scripts": {
-        "cypress": "cypress open"
-      }
-    }
-    ```
-    -->
 - Ensure you're running the app locally (see Installation Instructions above)
 - Run the following on the command line to open Cypress: `npm run cypress` or `npx cypress open`
 - Click `E2E Testing`, then `Start E2E Testing` in the desired browser
-- Select `dashboard_spec` to run all tests
+- Select `a test suite` to run all tests related to that suite
 ## Future Features/Improvements
   1. Refactor media queries to include view options, toggling from list and map view.
   2. Incorporate Google's Places API to provide further service and convenience for users
