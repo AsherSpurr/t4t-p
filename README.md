@@ -15,6 +15,10 @@
 <div align="center">
   
 
+https://github.com/AsherSpurr/t4t-p/assets/144856487/ec65412f-242c-46bf-8749-f2baaf02b620
+
+
+
 </div>
 <p align="center">Technologies Used</p>
 <div align="center">
@@ -51,17 +55,18 @@ After cloning and installing packages
   2. Incorporate Google's Places API to provide further service and convenience for users
   3. Re-try using query parameters to filter in real time. This was almost achieved but in the interest of time for submission had to pivot away.
   4. Refactor to use Google's lat & lng data for a given location based on the address, the Refugee Restroom coordinates are slightly off.
-  5. Add loading state back in
+  5. Replace CSS with MUI and add a dynamic loading state
+  6. Add a toggle view for list and map view for mobile
 ## Context:
 <!-- wins, challenges, time spent, goals, approaches etc -->
 ### Wins
-- Creating reusable components throughout the application and actually re-using them
+- Creating reusable components throughout the application
 - Incorporating Googles Map SDK
 - Successfully appending and deleting query params from the URL (This is no longer included in production)
 
 ### Challenges
 - The filter function I originally had would override my query parameters. I am eager to revert back to this version so I can continue problem-solving how it was able to achieve this.
-- Getting the Filter checkboxes to filter in real-time. They always were one step behind the filter state because of it's async behavior. Tried a few versions to keep the filter function and Filter state in sync, but none worked in the time-frame given. I look forward to re-visiting this.
+- Getting the Filter checkboxes to filter in real-time. They always were one step behind the filter state because of their async behavior. Tried a few versions to keep the filter function and Filter state in sync, but none worked in the time frame given. I look forward to revisiting this.
 
 
 
