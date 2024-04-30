@@ -8,7 +8,7 @@ import GoogleMap from "../map/Map";
 import { fetchBRsByLoc } from "../../apiCalls";
 // import LoadingContext from "../../LoadingContext";
 
-const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates }) => {
+const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates, locs }) => {
   const [lat, setLat] = useState("");
   const [lon, setLon] = useState("");
   // const [isLoading, setIsLoading] = useState("loading");
@@ -53,7 +53,7 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates }
         <section className="Landing_left_wrapper">
           <h2 className="Landing_h2">Where do you want to 'go'?</h2>
           <Search setLatLonState={setLatLonState}/>
-          <Locations filteredLocs={filteredLocs} updateFilters={updateFilters}/>
+          <Locations filteredLocs={filteredLocs} updateFilters={updateFilters} locs={locs} updateLocs={updateLocs}/>
         </section>
         <section className="Landing_map_wrapper">
         <GoogleMap position={position} allLocsCoordinates={allLocsCoordinates}/>

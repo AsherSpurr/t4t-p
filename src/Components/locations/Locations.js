@@ -4,12 +4,16 @@ import Filter from "../filter/Filter";
 import LoadingContext from "../../LoadingContext";
 import { useEffect, useState } from 'react';
 
-const Locations = ({ filteredLocs, updateFilters }) => {
+const Locations = ({ filteredLocs, updateFilters, locs, updateLocs}) => {
     const [isLoading, setIsLoading] = useState("loading");
+    // let url = new URL('https://localhost:3000/?')
+    // let params = new URLSearchParams(url.search)
+    // params.set('a', 'all')
 
     useEffect(() => {
-        filteredLocs.length ? setIsLoading('') : setIsLoading('loading')
+        filteredLocs.length ? setIsLoading('') : setIsLoading('loading');
     }, [filteredLocs])
+    
 
     const cards = filteredLocs.map((loc) => {
         return (
@@ -32,7 +36,7 @@ const Locations = ({ filteredLocs, updateFilters }) => {
     })
     return (
         <>
-        {filteredLocs.length > 0 && <Filter updateFilters={updateFilters}/>}
+        {filteredLocs.length > 0 && <Filter updateFilters={updateFilters} locs={locs} updateLocs={updateLocs}/>}
         <LoadingContext.Provider value={isLoading}>
             <div className={`Locations_div_wrapper ${isLoading}`}>
                 {cards}
