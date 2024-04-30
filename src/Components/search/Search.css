@@ -1,41 +1,36 @@
-.Search_div_container {
+/* .Search_div_container {
     min-width: 100%;
     height: 50px;
     display: flex;
     flex-direction: column;
-}
-.Search_form {
+} */
+
+/* .Search_form {
     min-height: 100%;
     width: 95%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
+} */
 
 .Search_input{
-    border: none;
     background-color: #cbbfea1d;
-    height: 95%;
-    width: 40%; /* After form change */
-    text-indent: 4%;
-    padding: 0;
-    overflow: scroll;
 }
 
-#Input_street {
+/* #Input_street {
     border-radius: 10px 0px 0px 10px;
-}
+} */
 
-.Search_button {
+/* .Search_button {
     border: none;
     background-color: transparent;
     padding: 0;
     height: 98%;
     width: auto;
     z-index: 1;
-}
+} */
 
-.Search_icon {
+/* .Search_icon {
     height: 100%;
     width: auto;
     border-radius: 0px 10px 10px 0px;
@@ -43,9 +38,9 @@
 
 .Search_button:hover {
     cursor: pointer;
-}
+} */
 
-@media screen and (max-width: 899px){
+/* @media screen and (max-width: 899px){
     #Input_state {
       width: 20%; 
     }
@@ -53,10 +48,10 @@
     #Input_town {
         width: 25%;
     }
-}
+} */
 
 /* Tablet */
-@media screen and (max-width: 760px) {
+/* @media screen and (max-width: 760px) {
     .Filter_label {
         font-size: 13px;
     }
@@ -66,10 +61,10 @@
     #Input_one {
         width: 60%;
     }
-}
+} */
 
 /* Large phone */
-@media screen and (max-width: 430px) {
+/* @media screen and (max-width: 430px) {
         .Search_input {
           width: 40%; 
         }
@@ -85,4 +80,4 @@
         .Search_div_container {
             position: sticky;
         }
-    }
+    } */

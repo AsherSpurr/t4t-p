@@ -2,7 +2,9 @@ import "./Search.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchLatLon } from "../../apiCalls";
-import searchsvg from "../images/search-dark-purple.svg";
+import { MuiButton } from "../muiButton/MuiButton";
+import { Box, TextField, Stack } from "@mui/material";
+// import { LocationSearchingIcon } from '@mui/icons-material'
 
 const Search = ({ setLatLonState }) => {
   const [street, setStreet] = useState("");
@@ -33,9 +35,10 @@ const Search = ({ setLatLonState }) => {
   };
 
   return (
-    <div className="Search_div_container">
-      <form className="Search_form"  onSubmit={(e) => fetchLatLonSearch(e, street, town, state, key)}>
-        <input
+    <Box component='form' onSubmit={(e) => fetchLatLonSearch(e, street, town, state, key)}>
+      {/* <form className="Search_form"  > */}
+        <Stack direction="row">
+        <TextField
           className="Search_input"
           id="Input_street"
           type="text"
@@ -44,9 +47,9 @@ const Search = ({ setLatLonState }) => {
           value={street}
           required
           onChange={(e) => setStreet(e.target.value)}
-        ></input> 
+        /> 
         <label for="Input_street" className="hidden">Street address:</label>
-        <input
+        <TextField
           className="Search_input"
           id="Input_town"
           type="text"
@@ -55,9 +58,9 @@ const Search = ({ setLatLonState }) => {
           value={town}
           required
           onChange={(e) => setTown(e.target.value)}
-        ></input>  
+        />  
         <label for="Input_town" className="hidden">Town:</label>
-        <input
+        <TextField
           className="Search_input"
           id="Input_state"
           type="text"
@@ -66,17 +69,15 @@ const Search = ({ setLatLonState }) => {
           value={state}
           required
           onChange={(e) => setState(e.target.value)}
-        ></input>
+        />
         <label for="Input_state" class="hidden">State:</label>
-        <button
-          className="Search_button"
-          type="submit"
+        <MuiButton
           name="searchbutton"
         >
-          <img className="Search_icon" src={searchsvg} alt="search button"></img>
-        </button>
-      </form>
-    </div>
+        </MuiButton>
+      {/* </form> */}
+      </Stack>
+    </Box>
   );
 };
 
