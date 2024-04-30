@@ -15,7 +15,7 @@ function App() {
   // const [adaAndUnisexLocs, setAdaAndUnisexLocs] = useState([]);
 
 
-  // const updateFilters = (filters) => {
+  // const updateFilters = () => {
     // if (filters.all){
     //   setFilteredLocs(locs);
     // } else if (filters.accessible && filters.unisex) {
@@ -27,7 +27,7 @@ function App() {
     // } else {
     //   setFilteredLocs(locs)
     // }
-  //   updateLocs(locs, filters)
+  //   updateLocs(locs)
   // };
 
   // const updateLocs = (locs) => {
@@ -50,28 +50,30 @@ function App() {
   //   setAdaAndUnisexLocs(adaAndUnisexFiltered);
   // };
 
-  function updateLocs(locs) {
-    // const queryParams = formatSearchParams(window.location.href)
-    // setParams(queryParams)
-  // console.log(params.includes('unisex'))
-  const params = window.location.href
-  console.log(params)
-    if(params.includes('unisex') && params.includes('accessible')) {
+  function updateLocs(locs, paramsFunc) {
+    // const queryparamsFunc = formatSearchparamsFunc(window.location.href)
+    // setparamsFunc(queryparamsFunc)
+  // console.log(paramsFunc.includes('unisex'))
+
+  // const paramsFuncI = window.history
+  console.log(paramsFunc)
+  // console.log(paramsFuncI)
+    if(paramsFunc.includes('unisex') && paramsFunc.includes('accessible')) {
       const twoParamLocs = locs.filter((loc) => {
         return loc.unisex === true && loc.accessible === true
       })
       setFilteredLocs(twoParamLocs)
-    } else if(params.includes('unisex')) {
+    } else if(paramsFunc.includes('unisex')) {
         const unisexLocs = locs.filter((loc) => {
           return loc.unisex === true
         })
         setFilteredLocs(unisexLocs)
-    } else if(params.includes('accessible')) {
+    } else if(paramsFunc.includes('accessible')) {
         const accessibleLocs = locs.filter((loc) => {
           return loc.accessible === true
         })
         setFilteredLocs(accessibleLocs)
-    } else if(params.includes('all')) {
+    } else if(paramsFunc.includes('all')) {
         setFilteredLocs(locs)
     } else {
         setFilteredLocs(locs)

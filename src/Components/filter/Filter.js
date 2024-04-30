@@ -15,34 +15,7 @@ const Filter = ({ updateLocs, updateFilters, locs }) => {
   const handleForm = (e) => {
     // setActiveFilters({ ...activeFilters, [e.target.name]: e.target.checked });
     // updateFilters(activeFilters)
-    console.log(e.target.checked)
-    // console.log(activeFilters)
-
     checkParams(e)
-    // if(params.has('b', value) ){
-
-    //   if(params.has('b', value) ){
-    //      params.delete('b', value)
-    //   } 
-    //   else if(params.has('b', 'accessible') && value === 'all'){
-    //     params.set('b', 'all')
-    //     } 
-    //     else if(params.has('b', 'unisex') && value === 'all') {
-    //       params.set('b', 'all')
-    //   } 
-    //   else if(params.has('b', 'all') && value === 'accessible') {
-    //     params.delete('b', 'all')
-    //   } 
-    //   else if(params.has('b', 'all') && value === 'unisex') {
-    //     params.delete('b', 'all')
-    // } 
-    // else {
-    //     params.append('b', value)
-    // }
-
-      //  formatSearchParams(window.location.href)
-    
-    //    console.log('windowLoc', window.location.href)
   };
 
   // const handleSubmit = (e, activeFilters) => {
@@ -55,7 +28,7 @@ const Filter = ({ updateLocs, updateFilters, locs }) => {
 //   // console.log(activeFilters)
 //   const value = e.target.id
 //  if(e.target.checked && !params.has('b', value)) {
-//       params.set('b', value)
+//       params.append('b', value)
 //     } else if(!e.target.checked){
 //       params.delete('b', value)
 //     }
@@ -87,13 +60,12 @@ else {
     params.append('b', value)
 }
    window.history.replaceState(value, "", params)
-  //  formatSearchParams(window.location.href)
+  // updateLocs(locs)
+  console.log(params.getAll('b'))
+  // const paramsFunc = params.getAll('b')
+  // updateLocs(locs, paramsFunc)
+}
 
-//    console.log('windowLoc', window.location.href)
-
- }
-
-// console.log(activeFilters)
 
   return (
     <form className="Filter_div_wrapper">

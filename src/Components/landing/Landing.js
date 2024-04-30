@@ -15,7 +15,7 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates, 
   
   const latS = JSON.parse(sessionStorage.getItem('lat'))
   const lonS = JSON.parse(sessionStorage.getItem('lon'))
-
+  const params = window.location.href
 
   const navigate = useNavigate()
 
@@ -26,8 +26,7 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates, 
           if (data.length) {
             sessionStorage.setItem('locations', JSON.stringify(data))
             const locs = JSON.parse(sessionStorage.getItem('locations'))
-            console.log(data)
-            updateLocs(locs);
+            updateLocs(locs, params);
           } else {
             const {status, statusText} = data
             navigate('*',{state: {status: status, statusText: statusText}})
