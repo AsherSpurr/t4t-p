@@ -3,10 +3,9 @@ import Card from "../card/Card";
 import Filter from "../filter/Filter";
 import LoadingContext from "../../LoadingContext";
 import { useEffect, useState } from "react";
-// import { ToggleButton } from "../toggleButton/ToggleButton";
-import { ToggleButton } from "@mui/material";
-import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
-import MapIcon from '@mui/icons-material/Map';
+import { ToggleButton, Stack } from "@mui/material";
+import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
+import MapIcon from "@mui/icons-material/Map";
 import GoogleMap from "../map/Map";
 
 const Locations = ({
@@ -16,7 +15,7 @@ const Locations = ({
   allLocsCoordinates,
 }) => {
   const [isLoading, setIsLoading] = useState("loading");
-  const [selected, setSelected] = useState(false)
+  const [selected, setSelected] = useState(false);
 
   useEffect(() => {
     filteredLocs.length ? setIsLoading("") : setIsLoading("loading");
@@ -46,25 +45,27 @@ const Locations = ({
     <>
       {filteredLocs.length > 0 && <Filter updateFilters={updateFilters} />}
       <LoadingContext.Provider value={isLoading}>
-        <div className={!selected ? `Locations_div_wrapper ${isLoading}` : "Locations_div_wrapper none"}>
-          {cards}
-        </div>
-          <div className={!selected ? "Locations_map_wrapper none" : "Locations_map_wrapper"}>
-            <GoogleMap
-              className="Toggle_map_view"
-              position={position}
-              allLocsCoordinates={allLocsCoordinates}
-            />
-          </div>
+        <Stack>
         <ToggleButton
+          className="Toggle_button"
           value="check"
           selected={selected}
           onChange={() => {
             setSelected(!selected);
-          }}
-        >
-          {selected ? <FormatListBulletedIcon/> : <MapIcon/>}
+          }}>
+          {selected ? <FormatListBulletedIcon /> : <MapIcon />}
         </ToggleButton>
+        <div className={!selected ? `Locations_div_wrapper ${isLoading}`: "Locations_div_wrapper none"}>
+          {cards}
+        </div>
+        <div className={!selected ? "Locations_map_wrapper none" : "Locations_map_wrapper"}>
+          <GoogleMap
+            className="Toggle_map_view"
+            position={position}
+            allLocsCoordinates={allLocsCoordinates}
+          />
+        </div>
+        </Stack>
       </LoadingContext.Provider>
     </>
   );

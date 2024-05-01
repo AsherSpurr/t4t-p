@@ -12,3 +12,8 @@
 .none {
     display: none;
 }
+
+.Toggle_button {
+    margin-bottom: 5%;
+    width: 50px;
+}
