@@ -37,7 +37,6 @@ const Filter = ({ updateFilters }) => {
             value={activeFilters.accessible}
             onChange={handleForm}
           />
-          {/* <label className='Filter_label' for="accessible">Accessible</label> */}
           <FormControlLabel
             control={<Checkbox />}
             label="Unisex"

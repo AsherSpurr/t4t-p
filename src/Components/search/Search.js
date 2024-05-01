@@ -45,6 +45,7 @@ const Search = ({ setLatLonState }) => {
 
   return (
     <Box
+    className="Search_form_wrapper"
       component="form"
       onSubmit={(e) => fetchLatLonSearch(e, street, town, state, key)}
     >
@@ -55,7 +56,6 @@ const Search = ({ setLatLonState }) => {
             id="Input_street"
             name="Input_street"
             value={street}
-            required
             onChange={(e) => setStreet(e.target.value)}
           />
         </FormControl>
@@ -65,7 +65,6 @@ const Search = ({ setLatLonState }) => {
             id="Input_town"
             name="Input_town"
             value={town}
-            required
             onChange={(e) => setTown(e.target.value)}
           />
         </FormControl>
@@ -76,7 +75,6 @@ const Search = ({ setLatLonState }) => {
             id="Input_state"
             name="Input_state"
             value={state}
-            required
             onChange={(e) => setState(e.target.value)}
           />
         </FormControl>
