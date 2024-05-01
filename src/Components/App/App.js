@@ -49,7 +49,7 @@ function App() {
     setAdaAndUnisexLocs(adaAndUnisexFiltered);
   };
 
-  const allLocsCoordinates = locs.reduce((acc, loc) => {
+  const allLocsCoordinates = filteredLocs.reduce((acc, loc) => {
     acc.push({
       lat: loc.latitude,
       lng: loc.longitude,
