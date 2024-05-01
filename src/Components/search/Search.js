@@ -46,7 +46,7 @@ const Search = ({ setLatLonState }) => {
       onSubmit={(e) => fetchLatLonSearch(e, street, town, state, key)}
     >
       <Stack direction="row">
-        <FormControl required>
+        <FormControl>
           <InputLabel htmlFor="Input_street">Street Address</InputLabel>
           <OutlinedInput
             id="Input_street"
