@@ -1,4 +1,4 @@
-.Filter_div_wrapper {
+/* .Filter_div_wrapper {
     min-width: 100%;
     display: flex;
     align-items: center;
@@ -31,7 +31,7 @@
 
 .Filter_button:hover {
     cursor: pointer;
-}
+} */
 
 /* Tablet */
 @media screen and (max-width: 768px) {

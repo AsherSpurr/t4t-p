@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchLatLon } from "../../apiCalls";
 import { MuiButton } from "../muiButton/MuiButton";
-import { Box, TextField, Stack } from "@mui/material";
+import { Box, TextField, Stack, Input, InputLabel, OutlinedInput, FormControl } from "@mui/material";
 // import { LocationSearchingIcon } from '@mui/icons-material'
 
 const Search = ({ setLatLonState }) => {
@@ -35,8 +35,7 @@ const Search = ({ setLatLonState }) => {
   };
 
   return (
-    <Box component='form' onSubmit={(e) => fetchLatLonSearch(e, street, town, state, key)}>
-      {/* <form className="Search_form"  > */}
+    <FormControl varient='filled' onSubmit={(e) => fetchLatLonSearch(e, street, town, state, key)}>
         <Stack direction="row">
         <TextField
           className="Search_input"
@@ -75,9 +74,8 @@ const Search = ({ setLatLonState }) => {
           name="searchbutton"
         >
         </MuiButton>
-      {/* </form> */}
       </Stack>
-    </Box>
+    </FormControl>
   );
 };
 
