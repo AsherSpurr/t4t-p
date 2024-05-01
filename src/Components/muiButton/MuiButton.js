@@ -1,5 +1,4 @@
 import { Button } from "@mui/material";
-import './MuiButton.css'
 import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
 
 export const MuiButton = () => {

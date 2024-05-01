@@ -5,15 +5,11 @@ import { fetchLatLon } from "../../apiCalls";
 import { MuiButton } from "../muiButton/MuiButton";
 import {
   Box,
-  TextField,
   Stack,
-  Input,
   InputLabel,
   OutlinedInput,
   FormControl,
-  FormGroup,
 } from "@mui/material";
-// import { LocationSearchingIcon } from '@mui/icons-material'
 
 const Search = ({ setLatLonState }) => {
   const [street, setStreet] = useState("");

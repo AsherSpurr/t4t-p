@@ -7,6 +7,8 @@ import downvotesvg from '../images/thumbs-down.svg'
 import upvotesvg from '../images/thumbs-up.svg'
 import { roundNum } from '../../utils/utils';
 import { useNavigate, useParams } from 'react-router-dom';
+// import WcIcon from '@mui/icons-material/Wc';
+// import AccessibleIcon from '@mui/icons-material/Accessible';
 // import LoadingContext from '../../LoadingContext';
 
 const Card = ({ name, uni, access, dist, city, state, upvote, downvote, directions, comment }) => {
