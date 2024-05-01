@@ -1,17 +1,14 @@
 import "./Landing.css";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Search from "../search/Search";
-// import Filter from "../filter/Filter";
 import Locations from "../locations/Locations";
 import GoogleMap from "../map/Map";
 import { fetchBRsByLoc } from "../../apiCalls";
-// import LoadingContext from "../../LoadingContext";
 
 const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates }) => {
   const [lat, setLat] = useState("");
   const [lon, setLon] = useState("");
-  // const [isLoading, setIsLoading] = useState("loading");
   
   const latS = JSON.parse(sessionStorage.getItem('lat'))
   const lonS = JSON.parse(sessionStorage.getItem('lon'))
@@ -26,7 +23,6 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates }
           if (data.length) {
             sessionStorage.setItem('locations', JSON.stringify(data))
             const locs = JSON.parse(sessionStorage.getItem('locations'))
-            console.log(data)
             updateLocs(locs);
           } else {
             const {status, statusText} = data
@@ -48,7 +44,6 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates }
 
 
   return (
-    // <LoadingContext.Provider value={isLoading}>
       <div className="Landing_wrapper">
         <section className="Landing_left_wrapper">
           <h2 className="Landing_h2">Where do you want to 'go'?</h2>
@@ -59,7 +54,6 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates }
         <GoogleMap position={position} allLocsCoordinates={allLocsCoordinates}/>
         </section>
       </div>
-    // </LoadingContext.Provider>
   );
 };
 
