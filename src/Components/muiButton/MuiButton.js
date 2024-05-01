@@ -4,7 +4,6 @@ import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
 
 export const MuiButton = () => {
   return (
-    <>
       <Button
         variant="contained"
         type="submit"
@@ -12,6 +11,5 @@ export const MuiButton = () => {
         startIcon={<LocationSearchingIcon fontSize="large" />}
         size="large"
       ></Button>
-    </>
   );
 };
