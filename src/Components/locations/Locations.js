@@ -47,6 +47,7 @@ const Locations = ({
       <LoadingContext.Provider value={isLoading}>
         <Stack>
         <ToggleButton
+         sx={{ display: { xs: 'block', sm: 'block', md: 'none', lg: 'none', xl: 'none' } }}
           className="Toggle_button"
           value="check"
           selected={selected}
