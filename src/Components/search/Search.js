@@ -2,7 +2,14 @@ import "./Search.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchLatLon } from "../../apiCalls";
-import searchsvg from "../images/search-dark-purple.svg";
+import { MuiButton } from "../muiButton/MuiButton";
+import {
+  Box,
+  Stack,
+  InputLabel,
+  OutlinedInput,
+  FormControl,
+} from "@mui/material";
 
 const Search = ({ setLatLonState }) => {
   const [street, setStreet] = useState("");
@@ -26,59 +33,51 @@ const Search = ({ setLatLonState }) => {
           JSON.stringify(data.results[0].geometry.location.lng)
         );
       } else {
-        navigate("*", {replace: true });
+        navigate("*", { replace: true });
       }
       setLatLonState();
     });
   };
 
   return (
-    <div className="Search_div_container">
-      <form className="Search_form"  onSubmit={(e) => fetchLatLonSearch(e, street, town, state, key)}>
-        <input
-          className="Search_input"
-          id="Input_street"
-          type="text"
-          placeholder="Street address"
-          name="Input_street"
-          value={street}
-          required
-          onChange={(e) => setStreet(e.target.value)}
-        ></input> 
-        <label for="Input_street" className="hidden">Street address:</label>
-        <input
-          className="Search_input"
-          id="Input_town"
-          type="text"
-          placeholder="Town"
-          name="Input_town"
-          value={town}
-          required
-          onChange={(e) => setTown(e.target.value)}
-        ></input>  
-        <label for="Input_town" className="hidden">Town:</label>
-        <input
-          className="Search_input"
-          id="Input_state"
-          type="text"
-          placeholder="State"
-          name="Input_state"
-          value={state}
-          required
-          onChange={(e) => setState(e.target.value)}
-        ></input>
-        <label for="Input_state" class="hidden">State:</label>
-        <button
-          className="Search_button"
-          type="submit"
-          name="searchbutton"
-        >
-          <img className="Search_icon" src={searchsvg} alt="search button"></img>
-        </button>
-      </form>
-    </div>
+    <Box
+    className="Search_form_wrapper"
+      component="form"
+      onSubmit={(e) => fetchLatLonSearch(e, street, town, state, key)}
+    >
+      <Stack direction="row">
+        <FormControl required>
+          <InputLabel htmlFor="Input_street">Street Address</InputLabel>
+          <OutlinedInput
+            id="Input_street"
+            name="Input_street"
+            value={street}
+            onChange={(e) => setStreet(e.target.value)}
+          />
+        </FormControl>
+        <FormControl required>
+          <InputLabel htmlFor="Input_town">Town</InputLabel>
+          <OutlinedInput
+            id="Input_town"
+            name="Input_town"
+            value={town}
+            onChange={(e) => setTown(e.target.value)}
+          />
+        </FormControl>
+        <FormControl required>
+          <InputLabel htmlFor="Input_state">State</InputLabel>
+          <OutlinedInput
+            defaultValue="Composed TextField"
+            id="Input_state"
+            name="Input_state"
+            value={state}
+            onChange={(e) => setState(e.target.value)}
+          />
+        </FormControl>
+        <MuiButton name="searchbutton"/>
+      </Stack>
+    </Box>
   );
 };
 
 export default Search;
-

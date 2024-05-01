@@ -1,21 +1,8 @@
 .Filter_div_wrapper {
     min-width: 100%;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     padding: 10px 0px 20px;
-}
-
-.Filter_input {
-    background-color: white;
-    border-radius: 10px;
-}
-
-.Filter_input:hover {
-    cursor: pointer;
-}
-
-.Filter_label {
-    padding: 10px 15px 10px 5px;
 }
 
 .Filter_button {
