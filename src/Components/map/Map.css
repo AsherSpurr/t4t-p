@@ -5,12 +5,3 @@
     justify-content: center;
     border-radius: 15px;
 }
-
-/* Large Phone */
-@media screen and (max-width: 618px) {
-    .Map_img {
-        display: none;
-    }
-    
-
-}

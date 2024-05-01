@@ -15,14 +15,12 @@ const Filter = ({ updateFilters }) => {
 
   const handleForm = (e) => {
     setActiveFilters({ ...activeFilters, [e.target.name]: e.target.checked });
-    // updateFilters(activeFilters);
   };
 
   const handleSubmit = (e, activeFilters) => {
     e.preventDefault();
     updateFilters(activeFilters);
   };
-  console.log(activeFilters);
 
   return (
     <FormGroup className="Filter_div_wrapper">
@@ -46,7 +44,6 @@ const Filter = ({ updateFilters }) => {
             value={activeFilters.unisex}
             onChange={handleForm}
           />
-          {/* <label className='Filter_label' for="unisex">Unisex</label> */}
           <FormControlLabel
             control={<Checkbox />}
             label="All"
@@ -56,7 +53,6 @@ const Filter = ({ updateFilters }) => {
             value={activeFilters.all}
             onChange={handleForm}
           />
-          {/* <label className='Filter_label' for="all">All</label> */}
           <Button className="Filter_button" type="submit" variant="outlined" size="small">
             Filter
           </Button>
