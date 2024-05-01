@@ -1,4 +1,4 @@
-.Locations_div_wrapper {
+.Locations_div_wrapper, .Locations_map_wrapper {
     max-width: 96%;
     height: 65vh;
     overflow: scroll;
@@ -7,4 +7,8 @@
 .loading {
     background-color: rgba(168, 168, 168, 0.183);
     border-radius: 15px;
+}
+
+.none {
+    display: none;
 }

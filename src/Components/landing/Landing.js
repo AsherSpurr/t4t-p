@@ -53,7 +53,7 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates }
         <section className="Landing_left_wrapper">
           <h2 className="Landing_h2">Where do you want to 'go'?</h2>
           <Search setLatLonState={setLatLonState}/>
-          <Locations filteredLocs={filteredLocs} updateFilters={updateFilters}/>
+          <Locations filteredLocs={filteredLocs} updateFilters={updateFilters} position={position} allLocsCoordinates={allLocsCoordinates}/>
         </section>
         <section className="Landing_map_wrapper">
         <GoogleMap position={position} allLocsCoordinates={allLocsCoordinates}/>
