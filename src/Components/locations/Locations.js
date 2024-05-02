@@ -13,6 +13,9 @@ const Locations = ({
   updateFilters,
   position,
   allLocsCoordinates,
+  handleFormChange,
+  activeFilters,
+  setActiveFilters
 }) => {
   const [isLoading, setIsLoading] = useState("loading");
   const [selected, setSelected] = useState(false);
@@ -43,7 +46,7 @@ const Locations = ({
 
   return (
     <>
-      {filteredLocs.length > 0 && <Filter updateFilters={updateFilters} />}
+      {filteredLocs.length > 0 && <Filter updateFilters={updateFilters} handleFormChange={handleFormChange} activeFilters={activeFilters} setActiveFilters={setActiveFilters}/>}
       <LoadingContext.Provider value={isLoading}>
         <Stack>
         <ToggleButton
