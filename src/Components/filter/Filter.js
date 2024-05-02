@@ -6,25 +6,20 @@ import Checkbox from "@mui/material/Checkbox";
 import { Box, Stack, Button, FormControl } from "@mui/material";
 // import { CheckBox } from "@mui/icons-material";
 
-const Filter = ({ updateFilters }) => {
-  const [activeFilters, setActiveFilters] = useState({
-    accessible: false,
-    unisex: false,
-    all: false,
-  });
+const Filter = ({ handleFormChange, activeFilters, setActiveFilters}) => {
 
-  const handleForm = (e) => {
+  const handleFilterChange = (e) => {
     setActiveFilters({ ...activeFilters, [e.target.name]: e.target.checked });
   };
 
-  const handleSubmit = (e, activeFilters) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    updateFilters(activeFilters);
+    handleFormChange()
   };
 
   return (
     <FormGroup className="Filter_div_wrapper">
-      <FormControl component="form" onSubmit={(e) => handleSubmit(e, activeFilters)}>
+      <FormControl component="form" onSubmit={(e) => handleSubmit(e)}>
         <Stack direction={"row"}>
           <FormControlLabel
             control={<Checkbox />}
@@ -33,7 +28,7 @@ const Filter = ({ updateFilters }) => {
             id="accessible"
             name="accessible"
             value={activeFilters.accessible}
-            onChange={handleForm}
+            onChange={handleFilterChange}
           />
           <FormControlLabel
             control={<Checkbox />}
@@ -42,7 +37,7 @@ const Filter = ({ updateFilters }) => {
             id="unisex"
             name="unisex"
             value={activeFilters.unisex}
-            onChange={handleForm}
+            onChange={handleFilterChange}
           />
           <FormControlLabel
             control={<Checkbox />}
@@ -51,7 +46,7 @@ const Filter = ({ updateFilters }) => {
             id="all"
             name="all"
             value={activeFilters.all}
-            onChange={handleForm}
+            onChange={handleFilterChange}
           />
           <Button className="Filter_button" type="submit" variant="outlined" size="small">
             Filter

@@ -6,7 +6,7 @@ import Locations from "../locations/Locations";
 import GoogleMap from "../map/Map";
 import { fetchBRsByLoc } from "../../apiCalls";
 
-const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates }) => {
+const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates, handleFormChange, activeFilters, setActiveFilters }) => {
   const [lat, setLat] = useState("");
   const [lon, setLon] = useState("");
   
@@ -48,7 +48,7 @@ const Landing = ({ updateLocs, filteredLocs, updateFilters, allLocsCoordinates }
         <section className="Landing_left_wrapper">
           <h2 className="Landing_h2">Where do you want to 'go'?</h2>
           <Search setLatLonState={setLatLonState}/>
-          <Locations filteredLocs={filteredLocs} updateFilters={updateFilters} position={position} allLocsCoordinates={allLocsCoordinates}/>
+          <Locations filteredLocs={filteredLocs} updateFilters={updateFilters} position={position} allLocsCoordinates={allLocsCoordinates} handleFormChange={handleFormChange} activeFilters={activeFilters} setActiveFilters={setActiveFilters}/>
         </section>
         <section className="Landing_map_wrapper">
         <GoogleMap position={position} allLocsCoordinates={allLocsCoordinates}/>

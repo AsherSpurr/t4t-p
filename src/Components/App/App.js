@@ -6,48 +6,44 @@ import Error from "../error/Error";
 import LocDetails from "../locDetails/LocDetails";
 import { useState } from "react";
 import distance from "../images/distance-dark-coral.svg";
+import { act } from "@testing-library/react";
 
 function App() {
   const [locs, setLocs] = useState([]);
   const [filteredLocs, setFilteredLocs] = useState([]);
-  const [unisexLocs, setUnisexLocs] = useState([]);
-  const [accessibleLocs, setAccessibleLocs] = useState([]);
-  const [adaAndUnisexLocs, setAdaAndUnisexLocs] = useState([]);
+  const [activeFilters, setActiveFilters] = useState({
+    accessible: false,
+    unisex: false,
+    all: false,
+  });
 
+  const handleFormChange = () => {
+    updateLocs(locs);
+  };
 
-  const updateFilters = (filters) => {
-    if (filters.all){
+  function updateLocs(locs) {
+    if (activeFilters.all) {
       setFilteredLocs(locs);
-    } else if (filters.accessible && filters.unisex) {
-      setFilteredLocs(adaAndUnisexLocs);
-    } else if (filters.accessible) {
-      setFilteredLocs(accessibleLocs);
-    } else if (filters.unisex) {
+    } else if (activeFilters.unisex && activeFilters.accessible) {
+      const twoParamLocs = locs.filter((loc) => {
+        return loc.unisex === true && loc.accessible === true;
+      });
+      setFilteredLocs(twoParamLocs);
+    } else if (activeFilters.unisex) {
+      const unisexLocs = locs.filter((loc) => {
+        return loc.unisex === true;
+      });
       setFilteredLocs(unisexLocs);
+    } else if (activeFilters.accessible) {
+      const accessibleLocs = locs.filter((loc) => {
+        return loc.accessible === true;
+      });
+      setFilteredLocs(accessibleLocs);
     } else {
-      setFilteredLocs(locs)
+      setFilteredLocs(locs);
+      setLocs(locs);
     }
-  };
-
-  const updateLocs = (locs) => {
-    setLocs(locs);
-    setFilteredLocs(locs);
-
-    const adaFiltered = locs.filter((loc) => {
-      return loc.accessible;
-    });
-    setAccessibleLocs(adaFiltered);
-
-    const unisexFiltered = locs.filter((loc) => {
-      return loc.unisex;
-    });
-    setUnisexLocs(unisexFiltered);
-
-    const adaAndUnisexFiltered = locs.filter((loc) => {
-      return loc.unisex && loc.accessible;
-    });
-    setAdaAndUnisexLocs(adaAndUnisexFiltered);
-  };
+  }
 
   const allLocsCoordinates = filteredLocs.reduce((acc, loc) => {
     acc.push({
@@ -86,7 +82,10 @@ function App() {
             path="/"
             element={
               <Landing
-                updateFilters={updateFilters}
+                // updateFilters={updateFilters}
+                handleFormChange={handleFormChange}
+                activeFilters={activeFilters}
+                setActiveFilters={setActiveFilters}
                 updateLocs={updateLocs}
                 filteredLocs={filteredLocs}
                 allLocsCoordinates={allLocsCoordinates}
