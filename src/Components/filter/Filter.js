@@ -1,20 +1,17 @@
 import "./Filter.css";
-import { useState } from "react";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import { Box, Stack, Button, FormControl } from "@mui/material";
-// import { CheckBox } from "@mui/icons-material";
+import { Stack, Button, FormControl } from "@mui/material";
 
-const Filter = ({ handleFormChange, activeFilters, setActiveFilters}) => {
-
+const Filter = ({ handleFormChange, activeFilters, setActiveFilters }) => {
   const handleFilterChange = (e) => {
     setActiveFilters({ ...activeFilters, [e.target.name]: e.target.checked });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleFormChange()
+    handleFormChange();
   };
 
   return (
@@ -48,8 +45,13 @@ const Filter = ({ handleFormChange, activeFilters, setActiveFilters}) => {
             value={activeFilters.all}
             onChange={handleFilterChange}
           />
-          <Button className="Filter_button" type="submit" variant="outlined" size="small">
-            Filter
+          <Button
+            className="Filter_button"
+            type="submit"
+            variant="outlined"
+            size="small"
+          >
+            Apply
           </Button>
         </Stack>
       </FormControl>

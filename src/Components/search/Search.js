@@ -41,7 +41,7 @@ const Search = ({ setLatLonState }) => {
 
   return (
     <Box
-    className="Search_form_wrapper"
+      className="Search_form_wrapper"
       component="form"
       onSubmit={(e) => fetchLatLonSearch(e, street, town, state, key)}
     >
@@ -74,7 +74,7 @@ const Search = ({ setLatLonState }) => {
             onChange={(e) => setState(e.target.value)}
           />
         </FormControl>
-        <MuiButton name="searchbutton"/>
+        <MuiButton name="searchbutton" />
       </Stack>
     </Box>
   );

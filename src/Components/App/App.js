@@ -6,7 +6,6 @@ import Error from "../error/Error";
 import LocDetails from "../locDetails/LocDetails";
 import { useState } from "react";
 import distance from "../images/distance-dark-coral.svg";
-import { act } from "@testing-library/react";
 
 function App() {
   const [locs, setLocs] = useState([]);
@@ -82,7 +81,6 @@ function App() {
             path="/"
             element={
               <Landing
-                // updateFilters={updateFilters}
                 handleFormChange={handleFormChange}
                 activeFilters={activeFilters}
                 setActiveFilters={setActiveFilters}
