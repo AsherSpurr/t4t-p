@@ -1,5 +1,4 @@
 import './Card.css';
-// import { useContext } from 'react';
 import truesvg from '../images/true-muted2.svg'
 import falsesvg from '../images/false-dark-coral.svg'
 import distance from '../images/distance-dark-purple.svg'
@@ -7,15 +6,11 @@ import downvotesvg from '../images/thumbs-down.svg'
 import upvotesvg from '../images/thumbs-up.svg'
 import { roundNum } from '../../utils/utils';
 import { useNavigate, useParams } from 'react-router-dom';
-// import WcIcon from '@mui/icons-material/Wc';
-// import AccessibleIcon from '@mui/icons-material/Accessible';
-// import LoadingContext from '../../LoadingContext';
 
 const Card = ({ name, uni, access, dist, city, state, upvote, downvote, directions, comment }) => {
 
     const distRounded = roundNum(dist)
     const locName = useParams().locationName;
-    // const value = useContext(LoadingContext)
     const navigate = useNavigate()
 
     return (

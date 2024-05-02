@@ -10,7 +10,6 @@ import GoogleMap from "../map/Map";
 
 const Locations = ({
   filteredLocs,
-  updateFilters,
   position,
   allLocsCoordinates,
   handleFormChange,
@@ -46,7 +45,7 @@ const Locations = ({
 
   return (
     <>
-      {filteredLocs.length > 0 && <Filter updateFilters={updateFilters} handleFormChange={handleFormChange} activeFilters={activeFilters} setActiveFilters={setActiveFilters}/>}
+      {filteredLocs.length > 0 && <Filter handleFormChange={handleFormChange} activeFilters={activeFilters} setActiveFilters={setActiveFilters}/>}
       <LoadingContext.Provider value={isLoading}>
         <Stack>
         <ToggleButton

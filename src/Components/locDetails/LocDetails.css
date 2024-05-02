@@ -13,7 +13,7 @@
 .LocDetails_div_container {
     width: 95%;
     box-shadow: 1px 2px 5px rgba(202, 202, 202, 0.31);
-    height: 70vh; /*Changed*/
+    height: 70vh;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
@@ -31,7 +31,6 @@
     width: 100%;
 }
 
-/*Changed*/
 .LocDetails_icons_container, .LocDetails_distance_container, .LocDetails_params_icon_container, .LocDetails_heading_container {
     display: flex;
     flex-direction: row;
@@ -42,7 +41,6 @@
     justify-content: space-between;
 }
 
-/*Changed added LocDetails_icon_upvote + downvote*/
 .LocDetails_params_icon_container,
 #LocDetails_icon_unisex,
 #LocDetails_icon_accessible,
