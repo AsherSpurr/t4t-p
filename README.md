@@ -58,7 +58,7 @@ After cloning and installing packages
   3. Re-try using query parameters to filter in real time. This was almost achieved but in the interest of time for submission had to pivot away.
   4. Refactor to use Google's lat & lng data for a given location based on the address, the Refugee Restroom coordinates are slightly off.
   5. Replace CSS with MUI and add a dynamic loading state
-  6. Add a toggle view for list and map view for mobile
+  6. Add multiple language options, the API's I am using are worldwide and I would like T4Tp to be as well.
 ## Context:
 <!-- wins, challenges, time spent, goals, approaches etc -->
 ### Wins
