@@ -1,5 +1,5 @@
 
-# <p align="center">[T4Tp](https://t4tp.vercel.app/) ~40hrs</p>
+# <p align="center">[T4Tp](https://t4tp.vercel.app/) ~30hrs</p>
 <p align='center' >👆<b>Click the heading to visit the deploy link</b>👆</p>
 
 <p align="center">A single-user application aimed at providing compatible and safe(er) local bathrooms to transgender individuals.</p>
